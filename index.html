@@ -141,7 +141,7 @@
             border: 1px solid #1a1a1a;
             transform-style: preserve-3d;
             transform: perspective(1000px);
-            height: 100%; /* Garante altura igual */
+            height: 100%;
         }
         .tilt-content { transform: translateZ(30px); }
 
@@ -458,7 +458,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 
     <script>
-        // --- 1. LOADER RÁPIDO ---
+        // --- 1. LOADER CORRIGIDO (O Segredo está aqui) ---
         (function() {
             const loader = document.getElementById('loader');
             const bar = document.querySelector('.loader-bar');
@@ -479,7 +479,16 @@
                     setTimeout(() => {
                         gsap.to(loader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" });
                         document.body.style.overflowY = "auto";
+                        
                         initEntranceAnimations();
+                        
+                        // CORREÇÃO CRÍTICA:
+                        // Força o ScrollTrigger a recalcular tudo agora que o loader sumiu
+                        // e a barra de rolagem apareceu.
+                        setTimeout(() => {
+                            ScrollTrigger.refresh();
+                        }, 500);
+                        
                     }, 150);
                 }
             }, 30);
@@ -583,8 +592,6 @@
             scrollTrigger: { trigger: ".stagger-list", start: "top 80%" }
         });
 
-        // --- CORREÇÃO DO CARD BUGADO ---
-        // Animamos o container "card-wrapper", NÃO o elemento que tem o tilt
         gsap.from(".card-wrapper", {
             y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out",
             scrollTrigger: { trigger: ".stagger-cards-container", start: "top 85%" }
@@ -595,11 +602,12 @@
             scrollTrigger: { trigger: ".stagger-faq", start: "top 90%" }
         });
         
-        // --- CORREÇÃO DO FOOTER ---
-        // Ajustado para garantir que o trigger dispare
+        // --- ANIMAÇÃO DO FOOTER (Ajustada para disparar antes) ---
         gsap.from(".reveal-footer-text", {
             y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out",
-            scrollTrigger: { trigger: "footer", start: "top 85%" } 
+            // Alterei de "top 85%" para "top bottom" (assim que o topo do footer tocar o fundo da tela)
+            // Isso garante que ele inicie mesmo se a página for curta em algumas resoluções
+            scrollTrigger: { trigger: "footer", start: "top bottom" } 
         });
 
         const parallaxWrap = document.querySelector('.parallax-wrapper');

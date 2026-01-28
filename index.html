@@ -107,25 +107,6 @@
 
         nav { mix-blend-mode: difference; z-index: 50; }
 
-        /* --- CURSOR --- */
-        @media (min-width: 1024px) {
-            body { cursor: none; }
-            .cursor-dot {
-                position: fixed; top: 0; left: 0; width: 8px; height: 8px; 
-                background: white; border-radius: 50%; pointer-events: none; z-index: 10000;
-                mix-blend-mode: difference;
-            }
-            .cursor-outline {
-                position: fixed; top: 0; left: 0; width: 50px; height: 50px; 
-                border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; pointer-events: none; z-index: 10000;
-                transition: width 0.3s, height 0.3s, transform 0.2s;
-                mix-blend-mode: difference;
-            }
-            body.hovering .cursor-outline { width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-color: white; }
-        }
-        .cursor-dot, .cursor-outline { display: none; }
-        @media (min-width: 1024px) { .cursor-dot, .cursor-outline { display: block; } }
-
         /* --- UTILS --- */
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -158,6 +139,26 @@
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
 
         .scramble-hover { display: inline-block; }
+        
+        /* CURSOR */
+        @media (min-width: 1024px) {
+            body { cursor: none; }
+            .cursor-dot {
+                position: fixed; top: 0; left: 0; width: 8px; height: 8px; 
+                background: white; border-radius: 50%; pointer-events: none; z-index: 10000;
+                mix-blend-mode: difference;
+            }
+            .cursor-outline {
+                position: fixed; top: 0; left: 0; width: 50px; height: 50px; 
+                border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; pointer-events: none; z-index: 10000;
+                transition: width 0.3s, height 0.3s, transform 0.2s;
+                mix-blend-mode: difference;
+            }
+            body.hovering .cursor-outline { width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-color: white; }
+        }
+        .cursor-dot, .cursor-outline { display: none; }
+        @media (min-width: 1024px) { .cursor-dot, .cursor-outline { display: block; } }
+
     </style>
 </head>
 <body>
@@ -202,10 +203,10 @@
 
     <header class="relative min-h-[100svh] w-full flex flex-col justify-center items-center px-4 overflow-hidden">
         <div class="relative z-20 w-full text-center select-none flex flex-col items-center justify-center h-full">
-            <h1 class="brand-font font-black uppercase text-white leading-[0.85] tracking-tight text-[9.5vw] w-full mix-blend-overlay">
+            <h1 class="brand-font font-black uppercase text-white leading-[0.85] tracking-tight text-[7.5vw] w-full mix-blend-overlay">
                 Autoridade
             </h1>
-            <h2 class="brand-font font-black uppercase text-transparent leading-[0.85] tracking-widest text-[9.5vw] [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] w-full">
+            <h2 class="brand-font font-black uppercase text-transparent leading-[0.85] tracking-widest text-[7.5vw] [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] w-full">
                 Digital
             </h2>
             <p class="mt-8 text-sm md:text-lg text-gray-400 max-w-xl mx-auto px-4 fade-in-up">
@@ -237,18 +238,20 @@
         </div>
     </section>
 
-    <section id="metodo" class="py-32 px-6 md:px-20 bg-[#080808] relative">
-        <div class="line-reveal mb-20 h-[1px] bg-white/20 origin-left"></div>
-        <div class="grid md:grid-cols-2 gap-20">
-            <div>
-                <h2 class="text-4xl md:text-6xl font-bold uppercase leading-[0.9] mb-8 split-reveal brand-font">
-                    Transformamos<br><span class="text-gray-600">Cliques em Clientes.</span>
-                </h2>
-                <div class="text-reveal-mask overflow-hidden">
-                    <p class="text-reveal-inner text-gray-400 text-lg leading-relaxed mb-6 translate-y-full opacity-0">
-                        Seu site não deve ser apenas um cartão de visitas digital. Ele deve ser uma máquina de vendas. Para prestadores de serviço, a confiança começa no design e termina na velocidade de carregamento. Nós garantimos ambos.
-                    </p>
-                </div>
+    <section id="metodo" class="py-16 px-6 md:px-20 bg-[#080808] relative">
+    <div class="line-reveal mb-12 h-[1px] bg-white/20 origin-left"></div>
+    
+    <div class="grid md:grid-cols-2 gap-10">
+        <div>
+            <h2 class="text-2xl md:text-4xl font-bold uppercase leading-[1.1] mb-4 split-reveal brand-font">
+                Transformamos<br><span class="text-gray-600">Cliques em Clientes.</span>
+            </h2>
+            
+            <div class="text-reveal-mask overflow-hidden">
+                <p class="text-reveal-inner text-gray-400 text-base leading-relaxed mb-4 translate-y-full opacity-0">
+                    Seu site não deve ser apenas um cartão de visitas digital. Ele deve ser uma máquina de vendas.
+                </p>
+            </div>
                 <a href="https://wa.me/5511999999999" class="magnetic-btn inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-xs border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all mt-4">
                     <span>Aumentar Minhas Vendas</span>
                 </a>
@@ -423,7 +426,7 @@
         </div>
     </section>
 
-    <footer class="min-h-screen relative flex flex-col justify-center items-center bg-[#050505] overflow-hidden border-t border-gray-900">
+    <footer class="py-40 relative flex flex-col justify-center items-center bg-[#050505] overflow-hidden border-t border-gray-900">
         <div class="absolute inset-0 opacity-20">
              <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center blur-md"></div>
         </div>
@@ -436,7 +439,7 @@
                 Seu próximo cliente está procurando por você no Google agora.
             </p>
             
-            <div class="reveal-footer-text delay-200 relative z-50">
+            <div id="footer-cta" class="relative z-50 opacity-0">
                 <a href="https://wa.me/5511999999999" class="inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-black/50 border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white">
                     <span class="uppercase tracking-widest text-sm">Iniciar Projeto Agora</span>
                 </a>
@@ -458,7 +461,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 
     <script>
-        // --- 1. LOADER CORRIGIDO (O Segredo está aqui) ---
+        // --- 1. LOADER CORRIGIDO ---
         (function() {
             const loader = document.getElementById('loader');
             const bar = document.querySelector('.loader-bar');
@@ -482,9 +485,6 @@
                         
                         initEntranceAnimations();
                         
-                        // CORREÇÃO CRÍTICA:
-                        // Força o ScrollTrigger a recalcular tudo agora que o loader sumiu
-                        // e a barra de rolagem apareceu.
                         setTimeout(() => {
                             ScrollTrigger.refresh();
                         }, 500);
@@ -602,13 +602,26 @@
             scrollTrigger: { trigger: ".stagger-faq", start: "top 90%" }
         });
         
-        // --- ANIMAÇÃO DO FOOTER (Ajustada para disparar antes) ---
+        // --- ANIMAÇÃO DOS TEXTOS DO FOOTER ---
         gsap.from(".reveal-footer-text", {
             y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out",
-            // Alterei de "top 85%" para "top bottom" (assim que o topo do footer tocar o fundo da tela)
-            // Isso garante que ele inicie mesmo se a página for curta em algumas resoluções
-            scrollTrigger: { trigger: "footer", start: "top bottom" } 
+            scrollTrigger: { trigger: "footer", start: "top 90%" } 
         });
+
+        // --- ANIMAÇÃO BLINDADA DO BOTÃO (SEPARADA) ---
+        gsap.to("#footer-cta", {
+            opacity: 1, duration: 0.5, delay: 0.5,
+            scrollTrigger: { trigger: "footer", start: "top 90%" }
+        });
+
+        // --- FAILSAFE: Garante que o botão apareça se a animação falhar ---
+        setTimeout(() => {
+            const btn = document.getElementById('footer-cta');
+            if(getComputedStyle(btn).opacity == '0') {
+                btn.style.opacity = '1';
+                btn.style.transition = 'opacity 1s';
+            }
+        }, 3000);
 
         const parallaxWrap = document.querySelector('.parallax-wrapper');
         const parallaxImg = document.querySelector('.parallax-image');

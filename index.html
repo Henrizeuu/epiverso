@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Criação de Sites e Landing Pages para Empresas | Epiverso</title>
-    
     <meta name="description" content="Aumente suas vendas com um site profissional. Especialistas em criação de sites, Landing Pages de alta conversão e SEO para prestadores de serviços e empresas.">
     
     <meta name="keywords" content="criação de sites, desenvolvimento web, landing pages, site para prestadores de serviço, web designer, seo, tráfego pago, google ads, epiverso">
@@ -92,7 +91,7 @@
             transition: width 0.1s linear;
         }
 
-        /* --- NAV BACKGROUND --- */
+        /* --- NAV --- */
         #nav-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 120px;
             z-index: 40; 
@@ -106,10 +105,7 @@
             mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
         }
 
-        nav {
-            mix-blend-mode: difference;
-            z-index: 50;
-        }
+        nav { mix-blend-mode: difference; z-index: 50; }
 
         /* --- CURSOR --- */
         @media (min-width: 1024px) {
@@ -130,14 +126,13 @@
         .cursor-dot, .cursor-outline { display: none; }
         @media (min-width: 1024px) { .cursor-dot, .cursor-outline { display: block; } }
 
-        /* --- TEXTURE --- */
+        /* --- UTILS --- */
         .noise-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             pointer-events: none; z-index: 9998; opacity: 0.04;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* --- UTILS --- */
         .stroke-text { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; transition: color 0.3s; }
         .stroke-text:hover { color: white; }
         
@@ -146,6 +141,7 @@
             border: 1px solid #1a1a1a;
             transform-style: preserve-3d;
             transform: perspective(1000px);
+            height: 100%; /* Garante altura igual */
         }
         .tilt-content { transform: translateZ(30px); }
 
@@ -206,26 +202,21 @@
 
     <header class="relative min-h-[100svh] w-full flex flex-col justify-center items-center px-4 overflow-hidden">
         <div class="relative z-20 w-full text-center select-none flex flex-col items-center justify-center h-full">
-            
             <h1 class="brand-font font-black uppercase text-white leading-[0.85] tracking-tight text-[9.5vw] w-full mix-blend-overlay">
                 Autoridade
             </h1>
-            
             <h2 class="brand-font font-black uppercase text-transparent leading-[0.85] tracking-widest text-[9.5vw] [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] w-full">
                 Digital
             </h2>
-
             <p class="mt-8 text-sm md:text-lg text-gray-400 max-w-xl mx-auto px-4 fade-in-up">
                 Especialistas na <span class="text-white font-semibold">Criação de Sites e Landing Pages</span> para empresas e prestadores de serviço que não aceitam ser ignorados pelo mercado.
             </p>
-
             <div class="mt-12 fade-in-up delay-200">
                 <a href="#metodo" class="inline-block border-b border-white pb-1 text-xs uppercase tracking-[0.3em] hover:text-gray-400 transition-colors">
                     Conheça Nossa Estratégia ↓
                 </a>
             </div>
         </div>
-
         <div class="absolute inset-0 z-0 opacity-40">
             <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center blur-sm scale-110 header-bg-anim"></div>
             <div class="absolute inset-0 bg-black/50"></div>
@@ -248,7 +239,6 @@
 
     <section id="metodo" class="py-32 px-6 md:px-20 bg-[#080808] relative">
         <div class="line-reveal mb-20 h-[1px] bg-white/20 origin-left"></div>
-        
         <div class="grid md:grid-cols-2 gap-20">
             <div>
                 <h2 class="text-4xl md:text-6xl font-bold uppercase leading-[0.9] mb-8 split-reveal brand-font">
@@ -263,7 +253,6 @@
                     <span>Aumentar Minhas Vendas</span>
                 </a>
             </div>
-
             <div class="space-y-8 mt-10 md:mt-0 stagger-list">
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">01.</div>
@@ -273,7 +262,6 @@
                     </div>
                 </div>
                 <div class="w-full h-[1px] bg-gray-900"></div>
-                
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">02.</div>
                     <div>
@@ -282,7 +270,6 @@
                     </div>
                 </div>
                 <div class="w-full h-[1px] bg-gray-900"></div>
-
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">03.</div>
                     <div>
@@ -300,7 +287,6 @@
                  class="parallax-image w-[115%] h-[115%] object-cover absolute top-[-7.5%] left-[-7.5%] opacity-50 grayscale contrast-125 group-hover:opacity-80 transition-opacity duration-700"
                  alt="Tecnologia Web de Ponta para Empresas">
         </div>
-        
         <div class="relative z-10 text-center mix-blend-overlay pointer-events-none">
             <h2 class="text-[10vw] font-black uppercase leading-none opacity-80 tracking-tighter parallax-text brand-font">
                 SYSTEM
@@ -315,51 +301,57 @@
             <p class="text-gray-500 max-w-sm text-right mt-6 md:mt-0 text-sm">Soluções digitais completas para alavancar seu negócio.</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-cards">
-            <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                </div>
-                <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Landing Pages</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Páginas de captura focadas em uma única ação: fazer o cliente entrar em contato com você.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ Carregamento Instantâneo</li>
-                        <li>+ Botões de WhatsApp Estratégicos</li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </article>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-cards-container">
+            <div class="card-wrapper">
+                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <div class="tilt-content">
+                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Landing Pages</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Páginas de captura focadas em uma única ação: fazer o cliente entrar em contato com você.</p>
+                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
+                            <li>+ Carregamento Instantâneo</li>
+                            <li>+ Botões de WhatsApp Estratégicos</li>
+                        </ul>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                </article>
+            </div>
 
-            <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Sites Institucionais</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">A sede digital da sua empresa. Transmita autoridade, organize seu portfólio e fortaleça sua marca.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ Painel Gerenciável (Opcional)</li>
-                        <li>+ Blog para Marketing de Conteúdo</li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </article>
+            <div class="card-wrapper">
+                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div class="tilt-content">
+                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Sites Institucionais</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">A sede digital da sua empresa. Transmita autoridade, organize seu portfólio e fortaleça sua marca.</p>
+                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
+                            <li>+ Painel Gerenciável (Opcional)</li>
+                            <li>+ Blog para Marketing de Conteúdo</li>
+                        </ul>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                </article>
+            </div>
 
-            <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                </div>
-                <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Tráfego & SEO</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Não adianta ter um site lindo se ninguém o encontra. Preparamos o terreno para você ser achado.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ Configuração Google Meu Negócio</li>
-                        <li>+ Pixel e Tags de Conversão</li>
-                    </ul>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            </article>
+            <div class="card-wrapper">
+                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    </div>
+                    <div class="tilt-content">
+                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Tráfego & SEO</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Não adianta ter um site lindo se ninguém o encontra. Preparamos o terreno para você ser achado.</p>
+                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
+                            <li>+ Configuração Google Meu Negócio</li>
+                            <li>+ Pixel e Tags de Conversão</li>
+                        </ul>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                </article>
+            </div>
         </div>
     </section>
 
@@ -367,7 +359,6 @@
         <div class="px-6 md:px-20 mb-12">
             <h2 class="text-3xl md:text-5xl font-bold uppercase brand-font">Projetos Recentes.</h2>
         </div>
-
         <div class="flex overflow-x-auto gap-8 px-6 md:px-20 pb-12 snap-x hide-scrollbar">
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
                 <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Fintech">
@@ -378,7 +369,6 @@
                     <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Landing Page focada em cadastro de leads qualificados.</p>
                 </div>
             </div>
-
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
                 <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Arquitetura e Interiores">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
@@ -388,7 +378,6 @@
                     <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Site Institucional com portfólio 3D imersivo.</p>
                 </div>
             </div>
-
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
                 <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Dashboard SaaS">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
@@ -434,7 +423,7 @@
         </div>
     </section>
 
-    <footer class="h-screen relative flex flex-col justify-center items-center bg-[#050505] overflow-hidden border-t border-gray-900">
+    <footer class="min-h-screen relative flex flex-col justify-center items-center bg-[#050505] overflow-hidden border-t border-gray-900">
         <div class="absolute inset-0 opacity-20">
              <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center blur-md"></div>
         </div>
@@ -447,8 +436,8 @@
                 Seu próximo cliente está procurando por você no Google agora.
             </p>
             
-            <div class="reveal-footer-text delay-200">
-                <a href="https://wa.me/5511999999999" class="relative z-50 inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white">
+            <div class="reveal-footer-text delay-200 relative z-50">
+                <a href="https://wa.me/5511999999999" class="inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-black/50 border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white">
                     <span class="uppercase tracking-widest text-sm">Iniciar Projeto Agora</span>
                 </a>
             </div>
@@ -547,7 +536,6 @@
                 el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
             });
 
-            // Aplica efeito magnético apenas aos elementos com a classe, e removi do botão do footer para evitar bug
             document.querySelectorAll('.magnetic-btn:not(.no-magnet), .magnetic-link').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const rect = btn.getBoundingClientRect();
@@ -595,9 +583,11 @@
             scrollTrigger: { trigger: ".stagger-list", start: "top 80%" }
         });
 
-        gsap.from(".stagger-cards > article", {
+        // --- CORREÇÃO DO CARD BUGADO ---
+        // Animamos o container "card-wrapper", NÃO o elemento que tem o tilt
+        gsap.from(".card-wrapper", {
             y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out",
-            scrollTrigger: { trigger: ".stagger-cards", start: "top 85%" }
+            scrollTrigger: { trigger: ".stagger-cards-container", start: "top 85%" }
         });
         
         gsap.from(".stagger-faq > div", {
@@ -605,10 +595,11 @@
             scrollTrigger: { trigger: ".stagger-faq", start: "top 90%" }
         });
         
-        // Correção do Trigger do Footer
+        // --- CORREÇÃO DO FOOTER ---
+        // Ajustado para garantir que o trigger dispare
         gsap.from(".reveal-footer-text", {
             y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out",
-            scrollTrigger: { trigger: "footer", start: "top 75%" } 
+            scrollTrigger: { trigger: "footer", start: "top 85%" } 
         });
 
         const parallaxWrap = document.querySelector('.parallax-wrapper');

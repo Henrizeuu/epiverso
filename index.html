@@ -4,34 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Desenvolvimento de Sites e Landing Pages de Alta Conversão | Epiverso</title>
+    <title>Criação de Sites e Landing Pages para Empresas | Epiverso</title>
     
-    <meta name="description" content="Especialistas em criação de sites, Landing Pages e posicionamento digital para prestadores de serviço e empresas. Design premium, carregamento instantâneo e SEO técnico.">
+    <meta name="description" content="Aumente suas vendas com um site profissional. Especialistas em criação de sites, Landing Pages de alta conversão e SEO para prestadores de serviços e empresas.">
     
-    <meta name="keywords" content="desenvolvimento de sites, criação de landing pages, web design, site para empresas, programador de sites, seo, performance web, site institucional, epiverso">
-    
+    <meta name="keywords" content="criação de sites, desenvolvimento web, landing pages, site para prestadores de serviço, web designer, seo, tráfego pago, google ads, epiverso">
     <meta name="author" content="Epiverso Digital">
     <meta name="robots" content="index, follow">
-    <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://epiverso.com.br">
 
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="business.business">
     <meta property="og:url" content="https://epiverso.com.br/">
-    <meta property="og:title" content="Epiverso | Autoridade Digital e Sites de Alta Performance">
-    <meta property="og:description" content="Transforme visitantes em clientes. Criação de sites ultra-rápidos e estratégicos para o seu negócio.">
+    <meta property="og:title" content="Epiverso | Sites que Vendem e Convertem">
+    <meta property="og:description" content="Não tenha apenas um site. Tenha uma máquina de vendas. Solicite seu orçamento de Landing Page.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://epiverso.com.br/">
-    <meta property="twitter:title" content="Epiverso | Autoridade Digital">
-    <meta property="twitter:description" content="Landing Pages que vendem. Tecnologia de ponta para sua empresa.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "ProfessionalService",
+      "@type": "WebSite",
       "name": "Epiverso",
+      "url": "https://epiverso.com.br",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://epiverso.com.br/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Epiverso Desenvolvimento Web",
       "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
       "@id": "https://epiverso.com.br",
       "url": "https://epiverso.com.br",
@@ -41,23 +46,7 @@
         "@type": "PostalAddress",
         "addressCountry": "BR"
       },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      },
-      "sameAs": [
-        "https://instagram.com/epiverso",
-        "https://linkedin.com/company/epiverso"
-      ],
-      "description": "Agência especializada em desenvolvimento web, criação de sites, landing pages de alta conversão e SEO para empresas prestadoras de serviço."
+      "description": "Agência de desenvolvimento de sites e landing pages focada em alta performance para empresas e prestadores de serviço."
     }
     </script>
     
@@ -103,21 +92,20 @@
             transition: width 0.1s linear;
         }
 
-        /* --- NAV BACKGROUND (VIDRO + FADE) --- */
+        /* --- NAV BACKGROUND --- */
         #nav-bg {
             position: fixed; top: 0; left: 0; width: 100%; height: 120px;
             z-index: 40; 
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.5s ease;
-            backdrop-filter: blur(8px); /* Aumentei o blur */
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            background: rgba(0,0,0,0.6);
-            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+            background: rgba(0,0,0,0.7);
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
         }
 
-        /* --- NAV CONTENT --- */
         nav {
             mix-blend-mode: difference;
             z-index: 50;
@@ -173,7 +161,6 @@
         }
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
 
-        /* Efeito Scramble Text */
         .scramble-hover { display: inline-block; }
     </style>
 </head>
@@ -191,7 +178,7 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <a href="https://wa.me/5511999999999" target="_blank" class="wa-float group magnetic-btn" aria-label="Falar no WhatsApp">
+    <a href="https://wa.me/5511999999999" target="_blank" class="wa-float group magnetic-btn" aria-label="Solicitar Orçamento via WhatsApp">
         <div class="pulse-ring"></div>
         <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.005.578 1.913.889 3.192.889 3.182 0 5.769-2.587 5.769-5.767s-2.587-5.766-5.766-5.766zm8.854 2.197c-3.295-5.462-10.999-7.23-16.273-3.766-4.661 3.061-6.19 9.17-3.418 14.128l-.924 3.368 3.447-.905c1.802 1.012 3.655 1.551 5.673 1.551 6.376 0 11.563-5.187 11.563-11.563 0-2.369-.766-4.577-2.068-6.417zm-4.305 8.169c-.279.141-1.65.815-1.885.908-.236.094-.407.141-.579.423-.172.282-.667.846-.817 1.011-.15.164-.301.183-.58.043-.279-.141-1.178-.435-2.245-1.388-.832-.742-1.394-1.659-1.557-1.941-.164-.282-.017-.435.123-.575.127-.127.28-.33.42-.494.14-.165.187-.282.28-.471.094-.188.047-.353-.023-.494-.07-.141-.628-1.516-.86-2.074-.226-.546-.455-.472-.625-.481l-.534-.009c-.185 0-.485.07-.738.347-.253.276-.967.946-.967 2.308s.99 2.678 1.128 2.866c.139.188 1.948 2.978 4.721 4.175 1.772.765 2.458.747 3.354.613.996-.149 2.059-1.026 2.348-2.016.29-1.002.29-1.86.203-2.016-.086-.156-.319-.25-.598-.39z"/></svg>
     </a>
@@ -202,13 +189,13 @@
         <a href="#" class="brand-font text-2xl font-extrabold uppercase tracking-tighter hover:text-gray-400 transition-colors scramble-hover">Epiverso.</a>
         
         <div class="hidden md:flex items-center gap-10">
-            <a href="#metodo" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Método</a>
-            <a href="#expertise" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Serviços</a>
-            <a href="#portfolio" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Projetos</a>
+            <a href="#metodo" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Estratégia</a>
+            <a href="#expertise" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Soluções</a>
+            <a href="#portfolio" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Cases</a>
         </div>
 
         <button class="hidden md:block border border-white px-6 py-2 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all magnetic-btn scale-on-hover">
-            Falar com Especialista
+            Solicitar Orçamento
         </button>
         
         <div class="md:hidden space-y-2 cursor-pointer magnetic-btn">
@@ -221,7 +208,7 @@
         <div class="relative z-20 w-full text-center select-none flex flex-col items-center justify-center h-full">
             
             <h1 class="brand-font font-black uppercase text-white leading-[0.85] tracking-tight text-[9.5vw] w-full mix-blend-overlay">
-                Realidade
+                Autoridade
             </h1>
             
             <h2 class="brand-font font-black uppercase text-transparent leading-[0.85] tracking-widest text-[9.5vw] [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] w-full">
@@ -229,13 +216,12 @@
             </h2>
 
             <p class="mt-8 text-sm md:text-lg text-gray-400 max-w-xl mx-auto px-4 fade-in-up">
-                Criação de Sites e Landing Pages de alta performance para marcas que buscam 
-                <span class="text-white font-semibold">clareza, conversão e domínio de mercado.</span>
+                Especialistas na <span class="text-white font-semibold">Criação de Sites e Landing Pages</span> para empresas e prestadores de serviço que não aceitam ser ignorados pelo mercado.
             </p>
 
             <div class="mt-12 fade-in-up delay-200">
                 <a href="#metodo" class="inline-block border-b border-white pb-1 text-xs uppercase tracking-[0.3em] hover:text-gray-400 transition-colors">
-                    Explore o Método ↓
+                    Conheça Nossa Estratégia ↓
                 </a>
             </div>
         </div>
@@ -247,15 +233,15 @@
     </header>
 
     <section class="py-16 bg-black border-y border-white/10 overflow-hidden relative z-20">
-        <h2 class="sr-only">Nossos Pilares: Performance, Estratégia, Design e Conversão</h2>
+        <h2 class="sr-only">Serviços: Sites Rápidos, SEO e Design</h2>
         <div class="marquee-track flex gap-12 whitespace-nowrap opacity-50">
             <div class="flex gap-16 items-center text-4xl md:text-6xl brand-font font-bold uppercase stroke-text select-none">
-                <span>Performance</span> <span>Estratégia</span> <span>Design</span> <span>Conversão</span> <span>Epiverso</span>
-                <span>Performance</span> <span>Estratégia</span> <span>Design</span> <span>Conversão</span> <span>Epiverso</span>
+                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
+                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
             </div>
             <div class="flex gap-16 items-center text-4xl md:text-6xl brand-font font-bold uppercase stroke-text select-none" aria-hidden="true">
-                <span>Performance</span> <span>Estratégia</span> <span>Design</span> <span>Conversão</span> <span>Epiverso</span>
-                <span>Performance</span> <span>Estratégia</span> <span>Design</span> <span>Conversão</span> <span>Epiverso</span>
+                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
+                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
             </div>
         </div>
     </section>
@@ -266,15 +252,15 @@
         <div class="grid md:grid-cols-2 gap-20">
             <div>
                 <h2 class="text-4xl md:text-6xl font-bold uppercase leading-[0.9] mb-8 split-reveal brand-font">
-                    A morte do<br><span class="text-gray-600">Site Comum.</span>
+                    Transformamos<br><span class="text-gray-600">Cliques em Clientes.</span>
                 </h2>
                 <div class="text-reveal-mask overflow-hidden">
                     <p class="text-reveal-inner text-gray-400 text-lg leading-relaxed mb-6 translate-y-full opacity-0">
-                        A era dos templates prontos acabou. Hoje, a atenção do lead dura 3 segundos. Se sua página não carrega instantaneamente e não convence de imediato, você perde dinheiro. Criamos máquinas de vendas, não apenas sites.
+                        Seu site não deve ser apenas um cartão de visitas digital. Ele deve ser uma máquina de vendas. Para prestadores de serviço, a confiança começa no design e termina na velocidade de carregamento. Nós garantimos ambos.
                     </p>
                 </div>
                 <a href="https://wa.me/5511999999999" class="magnetic-btn inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-xs border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all mt-4">
-                    <span>Quero Vender Mais</span>
+                    <span>Aumentar Minhas Vendas</span>
                 </a>
             </div>
 
@@ -282,8 +268,8 @@
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">01.</div>
                     <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Foco no Lead</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Psicologia de vendas aplicada em cada seção para maximizar seus resultados.</p>
+                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Copywriting Persuasivo</h3>
+                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Textos escritos para convencer seu cliente ideal a pedir um orçamento agora.</p>
                     </div>
                 </div>
                 <div class="w-full h-[1px] bg-gray-900"></div>
@@ -291,8 +277,8 @@
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">02.</div>
                     <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Velocidade Extrema</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Código limpo e otimizado (SPA) para um carregamento instantâneo em qualquer rede.</p>
+                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Otimização para Google (SEO)</h3>
+                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Estrutura de código preparada para colocar sua empresa no topo das buscas locais.</p>
                     </div>
                 </div>
                 <div class="w-full h-[1px] bg-gray-900"></div>
@@ -300,8 +286,8 @@
                 <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
                     <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">03.</div>
                     <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Design de Conversão</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Cada pixel é posicionado estrategicamente para guiar o usuário até a compra.</p>
+                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Design Premium</h3>
+                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Uma estética que justifica cobrar mais caro pelos seus serviços.</p>
                     </div>
                 </div>
             </div>
@@ -312,21 +298,21 @@
         <div class="parallax-wrapper absolute inset-0 w-full h-full">
             <img src="https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=2574&auto=format&fit=crop" 
                  class="parallax-image w-[115%] h-[115%] object-cover absolute top-[-7.5%] left-[-7.5%] opacity-50 grayscale contrast-125 group-hover:opacity-80 transition-opacity duration-700"
-                 alt="Tecnologia Web do Futuro - Visualização Abstrata de Dados">
+                 alt="Tecnologia Web de Ponta para Empresas">
         </div>
         
         <div class="relative z-10 text-center mix-blend-overlay pointer-events-none">
             <h2 class="text-[10vw] font-black uppercase leading-none opacity-80 tracking-tighter parallax-text brand-font">
                 SYSTEM
             </h2>
-            <p class="text-sm uppercase tracking-[1em] text-white mt-4">Architecture</p>
+            <p class="text-sm uppercase tracking-[1em] text-white mt-4">High Performance</p>
         </div>
     </section>
 
     <section id="expertise" class="py-32 px-6 md:px-20 bg-black">
         <div class="flex flex-col md:flex-row justify-between items-end mb-20">
-            <h2 class="text-4xl md:text-6xl font-bold uppercase brand-font split-reveal">Nosso Arsenal.</h2>
-            <p class="text-gray-500 max-w-sm text-right mt-6 md:mt-0 text-sm">Ferramentas de elite para dominar o seu nicho de mercado.</p>
+            <h2 class="text-4xl md:text-6xl font-bold uppercase brand-font split-reveal">O Que Fazemos.</h2>
+            <p class="text-gray-500 max-w-sm text-right mt-6 md:mt-0 text-sm">Soluções digitais completas para alavancar seu negócio.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-cards">
@@ -335,43 +321,41 @@
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                 </div>
                 <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Desenvolvimento</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Landing Pages de alta conversão e sites institucionais otimizados com tecnologia de ponta.</p>
+                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Landing Pages</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Páginas de captura focadas em uma única ação: fazer o cliente entrar em contato com você.</p>
                     <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ SEO Técnico Avançado</li>
-                        <li>+ SSL & Segurança</li>
+                        <li>+ Carregamento Instantâneo</li>
+                        <li>+ Botões de WhatsApp Estratégicos</li>
                     </ul>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             </article>
 
             <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                 </div>
                 <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Motion Design</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Animações fluidas e micro-interações que aumentam a retenção e o valor percebido da marca.</p>
+                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Sites Institucionais</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">A sede digital da sua empresa. Transmita autoridade, organize seu portfólio e fortaleça sua marca.</p>
                     <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ WebGL & Canvas</li>
-                        <li>+ Animações GSAP</li>
-                        <li>+ Elementos Interativos</li>
+                        <li>+ Painel Gerenciável (Opcional)</li>
+                        <li>+ Blog para Marketing de Conteúdo</li>
                     </ul>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             </article>
 
             <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                 <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                 </div>
                 <div class="tilt-content">
-                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Conversão</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Copywriting persuasivo e arquitetura de informação focada em transformar visitantes em leads.</p>
+                    <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Tráfego & SEO</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-8">Não adianta ter um site lindo se ninguém o encontra. Preparamos o terreno para você ser achado.</p>
                     <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                        <li>+ Integração CRM</li>
-                        <li>+ Testes A/B</li>
-                        <li>+ Funis de Venda</li>
+                        <li>+ Configuração Google Meu Negócio</li>
+                        <li>+ Pixel e Tags de Conversão</li>
                     </ul>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
@@ -381,70 +365,70 @@
 
     <section id="portfolio" class="py-32 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
         <div class="px-6 md:px-20 mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold uppercase brand-font">Projetos em Destaque.</h2>
+            <h2 class="text-3xl md:text-5xl font-bold uppercase brand-font">Projetos Recentes.</h2>
         </div>
 
         <div class="flex overflow-x-auto gap-8 px-6 md:px-20 pb-12 snap-x hide-scrollbar">
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Projeto Nubra Bank - Fintech">
+                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Fintech">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Fintech</p>
+                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Setor Financeiro</p>
                     <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Nubra Bank</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Redesign completo da experiência com dashboards em tempo real.</p>
+                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Landing Page focada em cadastro de leads qualificados.</p>
                 </div>
             </div>
 
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Projeto Vogue Interiors - Luxo">
+                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Arquitetura e Interiores">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">High Ticket</p>
+                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Arquitetura</p>
                     <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Vogue Interiors</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Showroom digital de luxo com visualização 3D de ambientes.</p>
+                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Site Institucional com portfólio 3D imersivo.</p>
                 </div>
             </div>
 
             <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Projeto Data Flow - SaaS">
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Dashboard SaaS">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
                 <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">SaaS</p>
+                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Tecnologia</p>
                     <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Data Flow</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Plataforma de análise de dados com visualização WebGL.</p>
+                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Plataforma SaaS com área de membros integrada.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="py-24 px-6 md:px-20 bg-black">
-        <h2 class="text-3xl font-bold uppercase mb-16 brand-font">Dúvidas Frequentes</h2>
+        <h2 class="text-3xl font-bold uppercase mb-16 brand-font">Perguntas Frequentes</h2>
         <div class="max-w-4xl space-y-4 stagger-faq">
             <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
                 <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Qual o investimento inicial?</h4>
+                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Quanto custa para fazer um site?</h4>
                     <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
                 </div>
                 <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">Nossos projetos são sob medida. Não temos "pacotes" porque sua empresa é única. O investimento reflete a complexidade e o retorno esperado (ROI). Agende uma conversa para um orçamento preciso.</p>
+                    <p class="text-gray-500 pb-6 leading-relaxed">O valor varia conforme a complexidade (Landing Page vs. Site Institucional Completo). Desenvolvemos soluções personalizadas que cabem no orçamento de pequenas e médias empresas, sempre focando no retorno sobre o investimento (ROI).</p>
                 </div>
             </div>
             <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
                 <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Vocês usam Wordpress?</h4>
+                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Em quanto tempo meu site fica pronto?</h4>
                     <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
                 </div>
                 <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">Priorizamos tecnologias modernas como React e Next.js para performance máxima e SEO superior. Porém, se a estratégia exigir um CMS para gestão simples, faremos a melhor implementação possível (Headless).</p>
+                    <p class="text-gray-500 pb-6 leading-relaxed">Para Landing Pages de alta performance, entregamos em média de 10 a 15 dias úteis. Sites institucionais mais robustos levam cerca de 30 dias. Nosso foco é agilidade sem perder a qualidade visual.</p>
                 </div>
             </div>
              <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
                 <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Quanto tempo demora?</h4>
+                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">O site vai funcionar no celular?</h4>
                     <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
                 </div>
                 <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">Projetos de Landing Pages de alta performance levam de 10 a 15 dias. Sites institucionais mais robustos ou plataformas levam de 30 a 45 dias, dependendo da complexidade das animações e integrações.</p>
+                    <p class="text-gray-500 pb-6 leading-relaxed">Sim! Todos os nossos projetos são "Mobile First". Isso significa que priorizamos a experiência no celular, onde ocorre a maioria das buscas por prestadores de serviço hoje em dia.</p>
                 </div>
             </div>
         </div>
@@ -455,18 +439,22 @@
              <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center blur-md"></div>
         </div>
 
-        <div class="z-10 text-center px-4">
+        <div class="z-10 text-center px-4 relative">
             <h2 class="text-[12vw] font-black uppercase leading-none brand-font mix-blend-difference mb-8 reveal-footer-text">
                 Evolua.
             </h2>
-            <p class="text-xl text-gray-400 mb-12 max-w-md mx-auto reveal-footer-text delay-100">Você já esperou tempo demais para ter um posicionamento de líder.</p>
+            <p class="text-xl text-gray-400 mb-12 max-w-md mx-auto reveal-footer-text delay-100">
+                Seu próximo cliente está procurando por você no Google agora.
+            </p>
             
-            <a href="https://wa.me/5511999999999" class="magnetic-btn relative inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white reveal-footer-text delay-200">
-                <span class="uppercase tracking-widest text-sm">Iniciar Projeto Agora</span>
-            </a>
+            <div class="reveal-footer-text delay-200">
+                <a href="https://wa.me/5511999999999" class="relative z-50 inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-transparent border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white">
+                    <span class="uppercase tracking-widest text-sm">Iniciar Projeto Agora</span>
+                </a>
+            </div>
         </div>
 
-        <div class="absolute bottom-8 w-full flex justify-between px-8 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest font-mono">
+        <div class="absolute bottom-8 w-full flex justify-between px-8 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest font-mono z-50">
             <div>© 2026 Epiverso. Todos os direitos reservados.</div>
             <div class="flex gap-4">
                 <a href="#" class="hover:text-white transition-colors">Instagram</a>
@@ -481,14 +469,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
 
     <script>
-        // --- 1. LOADER OTIMIZADO (Mais Rápido) ---
+        // --- 1. LOADER RÁPIDO ---
         (function() {
             const loader = document.getElementById('loader');
             const bar = document.querySelector('.loader-bar');
             const counter = document.querySelector('.counter');
             let progress = 0;
             
-            // Aumentei drasticamente o incremento para carregar mais rápido (UX)
             const interval = setInterval(() => {
                 const increment = Math.random() * (progress < 70 ? 15 : 5); 
                 progress += increment;
@@ -501,31 +488,28 @@
                 if(progress >= 100) {
                     clearInterval(interval);
                     setTimeout(() => {
-                        gsap.to(loader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }); // Animação de saída mais rápida
+                        gsap.to(loader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" });
                         document.body.style.overflowY = "auto";
                         initEntranceAnimations();
-                    }, 150); // Delay menor
+                    }, 150);
                 }
-            }, 30); // Intervalo menor
+            }, 30);
         })();
 
-        // --- 2. SETUP CORE ---
+        // --- 2. SETUP ---
         gsap.registerPlugin(ScrollTrigger);
         const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
-        // --- 3. NAVBAR SCROLL EFFECT ---
+        // --- 3. NAV ---
         const navBg = document.getElementById('nav-bg');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
-                navBg.style.opacity = '1';
-            } else {
-                navBg.style.opacity = '0';
-            }
+            if (window.scrollY > 30) navBg.style.opacity = '1';
+            else navBg.style.opacity = '0';
         });
 
-        // --- 4. TEXT SCRAMBLE EFFECT (Interação Extra) ---
+        // --- 4. SCRAMBLE TEXT ---
         const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         document.querySelectorAll('.scramble-hover').forEach(target => {
             target.addEventListener('mouseenter', event => {
@@ -541,14 +525,13 @@
                             return letters[Math.floor(Math.random() * 26)];
                         })
                         .join("");
-                    
                     if(iteration >= originalText.length) clearInterval(event.target.interval);
                     iteration += 1 / 3;
                 }, 30);
             });
         });
 
-        // --- 5. CURSOR & MAGNETIC ---
+        // --- 5. MOUSE & MAGNETIC ---
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
         
@@ -564,7 +547,8 @@
                 el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
             });
 
-            document.querySelectorAll('.magnetic-btn, .magnetic-link').forEach(btn => {
+            // Aplica efeito magnético apenas aos elementos com a classe, e removi do botão do footer para evitar bug
+            document.querySelectorAll('.magnetic-btn:not(.no-magnet), .magnetic-link').forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const rect = btn.getBoundingClientRect();
                     const x = e.clientX - rect.left - rect.width / 2;
@@ -577,7 +561,7 @@
             });
         }
 
-        // --- 6. ANIMATIONS & INTERACTIONS ---
+        // --- 6. ANIMATIONS ---
         function initEntranceAnimations() {
             const tl = gsap.timeline();
             tl.from("h1", { y: 100, opacity: 0, duration: 1, ease: "power3.out" })
@@ -585,10 +569,8 @@
               .to(".header-bg-anim", { scale: 1, duration: 2, ease: "power2.out" }, "-=1.5");
         }
 
-        // Marquee mais rápido (Duration menor = mais rápido)
         gsap.to(".marquee-track", { xPercent: -50, repeat: -1, duration: 15, ease: "linear" });
 
-        // Line Reveal
         gsap.utils.toArray('.line-reveal').forEach(line => {
             gsap.to(line, {
                 scaleX: 1,
@@ -596,7 +578,6 @@
             });
         });
 
-        // Text Reveals Simples
         gsap.utils.toArray('.split-reveal').forEach(text => {
             gsap.from(text, {
                 y: 50, opacity: 0, duration: 1.2, ease: "power3.out",
@@ -604,37 +585,32 @@
             });
         });
 
-        // Texto "A morte do site comum" revelando de baixo
         gsap.to(".text-reveal-inner", {
             y: 0, opacity: 1, duration: 1, ease: "power3.out",
             scrollTrigger: { trigger: ".text-reveal-mask", start: "top 80%" }
         });
 
-        // Stagger List (Método) - Animação em cascata
         gsap.from(".stagger-list > div", {
             x: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
             scrollTrigger: { trigger: ".stagger-list", start: "top 80%" }
         });
 
-        // Stagger Cards (Expertise) - Animação em cascata
         gsap.from(".stagger-cards > article", {
             y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out",
             scrollTrigger: { trigger: ".stagger-cards", start: "top 85%" }
         });
         
-        // Stagger FAQ - Animação em cascata
         gsap.from(".stagger-faq > div", {
             y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
             scrollTrigger: { trigger: ".stagger-faq", start: "top 90%" }
         });
         
-        // Footer Reveal
+        // Correção do Trigger do Footer
         gsap.from(".reveal-footer-text", {
-            y: 50, opacity: 0, duration: 1, stagger: 0.1, ease: "power3.out",
-            scrollTrigger: { trigger: "footer", start: "top 60%" }
+            y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out",
+            scrollTrigger: { trigger: "footer", start: "top 75%" } 
         });
 
-        // Parallax Effect Section
         const parallaxWrap = document.querySelector('.parallax-wrapper');
         const parallaxImg = document.querySelector('.parallax-image');
         const parallaxText = document.querySelector('.parallax-text');
@@ -652,12 +628,10 @@
             });
         }
 
-        // Tilt para os cards de serviço
         VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
             max: 15, speed: 400, glare: true, "max-glare": 0.1, scale: 1.02, gyro: true
         });
 
-        // FAQ Logic
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');

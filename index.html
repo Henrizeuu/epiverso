@@ -1,669 +1,1215 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="bg-black">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Criação de Sites e Landing Pages para Empresas | Epiverso</title>
-    <meta name="description" content="Aumente suas vendas com um site profissional. Especialistas em criação de sites, Landing Pages de alta conversão e SEO para prestadores de serviços e empresas.">
-    
-    <meta name="keywords" content="criação de sites, desenvolvimento web, landing pages, site para prestadores de serviço, web designer, seo, tráfego pago, google ads, epiverso">
-    <meta name="author" content="Epiverso Digital">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://epiverso.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="epiverso — Sites institucionais e landing pages que colocam prestadores de serviço no topo do Google. Seja encontrado por quem já está procurando." />
+  <title>epiverso | Seja Encontrado no Google</title>
 
-    <meta property="og:type" content="business.business">
-    <meta property="og:url" content="https://epiverso.com/">
-    <meta property="og:title" content="Epiverso | Sites que Vendem e Convertem">
-    <meta property="og:description" content="Não tenha apenas um site. Tenha uma máquina de vendas. Solicite seu orçamento de Landing Page.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Epiverso",
-      "url": "https://epiverso.com",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://epiverso.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Epiverso Desenvolvimento Web",
-      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
-      "@id": "https://epiverso.com",
-      "url": "https://epiverso.com",
-      "telephone": "+5511999999999",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "BR"
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            brand: {
+              black: '#0a0a0a',
+              white: '#ffffff',
+              gray: {
+                50:  '#fafafc',
+                100: '#f5f5f7',
+                200: '#e8e8ed',
+                400: '#aeaeb2',
+                600: '#6e6e73',
+                800: '#3a3a3c',
+              },
+            },
+          },
+          letterSpacing: {
+            tight: '-0.022em',
+          },
+        },
       },
-      "description": "Agência de desenvolvimento de sites e landing pages focada em alta performance para empresas e prestadores de serviço."
     }
-    </script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;700;800&family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+  </script>
 
-    <style>
-        /* --- CORE CONFIG --- */
-        :root {
-            --bg: #050505;
-            --primary: #ffffff;
-            --secondary: #888888;
-            --accent: #25D366; 
-        }
+  <style>
+    /* =============================================
+       BASE & RESET
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; }
 
-        body {
-            background-color: var(--bg);
-            color: var(--primary);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            overflow-y: hidden; /* Travado no load */
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        h1, h2, h3, .brand-font { font-family: 'Syne', sans-serif; }
-        .grotesk { font-family: 'Space Grotesk', sans-serif; }
+    body {
+      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.47;
+      letter-spacing: -0.022em;
+      color: #6e6e73;
+      background-color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* --- LOADER --- */
-        #loader {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #000; z-index: 99999;
-            display: flex; justify-content: center; align-items: center;
-            flex-direction: column;
-        }
-        .loader-bar-container {
-            width: 200px; height: 2px; background: rgba(255,255,255,0.1); 
-            margin-top: 20px; border-radius: 2px; overflow: hidden;
-        }
-        .loader-bar {
-            width: 0%; height: 100%; background: white; 
-            transition: width 0.1s linear;
-        }
+    h1, h2, h3, h4, h5, h6 {
+      color: #0a0a0a;
+      letter-spacing: -0.022em;
+      line-height: 1.15;
+    }
 
-        /* --- NAV --- */
-        #nav-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 120px;
-            z-index: 40; 
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            background: rgba(0,0,0,0.7);
-            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 0%, black 60%, transparent 100%);
-        }
+    /* =============================================
+       FOCUS RING ACESSIBILIDADE
+    ============================================= */
+    :focus-visible {
+      outline: 2px solid #0a0a0a;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
 
-        nav { mix-blend-mode: difference; z-index: 50; }
+    /* =============================================
+       BOTÃO PRIMÁRIO
+    ============================================= */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      border-radius: 9999px;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background-color: #1d1d1f;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      transform: translateY(-1px);
+    }
+    .btn-primary:active {
+      transform: translateY(0);
+    }
 
-        /* --- UTILS --- */
-        .noise-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9998; opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: transparent;
+      color: #0a0a0a;
+      border-radius: 9999px;
+      padding: 13px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      border: 1.5px solid #0a0a0a;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }
 
-        .stroke-text { -webkit-text-stroke: 1px rgba(255,255,255,0.3); color: transparent; transition: color 0.3s; }
-        .stroke-text:hover { color: white; }
-        
-        .tilt-card {
-            background: linear-gradient(145deg, #0f0f0f, #000);
-            border: 1px solid #1a1a1a;
-            transform-style: preserve-3d;
-            transform: perspective(1000px);
-            height: 100%;
-        }
-        .tilt-content { transform: translateZ(30px); }
+    /* =============================================
+       BADGE
+    ============================================= */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: rgba(10,10,10,0.07);
+      color: #3a3a3c;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
 
-        .wa-float {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-            background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            z-index: 9990; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s;
-        }
-        .pulse-ring {
-            position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid #25D366;
-            animation: pulse 2s infinite; opacity: 0;
-        }
-        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 100% { transform: scale(2); opacity: 0; } }
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: box-shadow 0.3s ease;
+    }
 
-        .scramble-hover { display: inline-block; }
-        
-        /* CURSOR */
-        @media (min-width: 1024px) {
-            body { cursor: none; }
-            .cursor-dot {
-                position: fixed; top: 0; left: 0; width: 8px; height: 8px; 
-                background: white; border-radius: 50%; pointer-events: none; z-index: 10000;
-                mix-blend-mode: difference;
-            }
-            .cursor-outline {
-                position: fixed; top: 0; left: 0; width: 50px; height: 50px; 
-                border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; pointer-events: none; z-index: 10000;
-                transition: width 0.3s, height 0.3s, transform 0.2s;
-                mix-blend-mode: difference;
-            }
-            body.hovering .cursor-outline { width: 80px; height: 80px; background: rgba(255,255,255,0.1); border-color: white; }
-        }
-        .cursor-dot, .cursor-outline { display: none; }
-        @media (min-width: 1024px) { .cursor-dot, .cursor-outline { display: block; } }
+    /* =============================================
+       HERO GRADIENT DECORATIVO
+    ============================================= */
+    .hero-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-    </style>
+    /* =============================================
+       CARDS
+    ============================================= */
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #e8e8ed;
+      border-radius: 16px;
+      padding: 28px;
+      transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    }
+    .feature-card:hover {
+      box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+      transform: translateY(-3px);
+      border-color: #aeaeb2;
+    }
+
+    /* =============================================
+       DEPOIMENTOS
+    ============================================= */
+    .testimonial-card {
+      background: #1d1d1f;
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+
+    /* =============================================
+       ACORDEÃO FAQ
+    ============================================= */
+    .faq-item {
+      border-bottom: 1px solid #e8e8ed;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: #0a0a0a;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.022em;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: #3a3a3c; }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #f5f5f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.2s;
+    }
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding-bottom: 0;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+    .faq-icon.open {
+      transform: rotate(45deg);
+      background: #0a0a0a;
+    }
+    .faq-icon.open svg { stroke: #ffffff; }
+
+    /* =============================================
+       STEP TIMELINE
+    ============================================= */
+    .step-connector {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, #0a0a0a, #e8e8ed);
+    }
+
+    /* =============================================
+       LOGO MARQUEE
+    ============================================= */
+    .marquee-wrapper {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 48px;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       NÚMERO COUNTER ANIMADO
+    ============================================= */
+    .stat-number {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    /* =============================================
+       SEÇÃO Z-LAYOUT (SOLUÇÃO)
+    ============================================= */
+    .z-visual {
+      background: #f5f5f7;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .footer-cta-section {
+      background: #0a0a0a;
+    }
+
+    /* =============================================
+       ANIMAÇÕES DE ENTRADA
+    ============================================= */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =============================================
+       MOBILE NAV
+    ============================================= */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: block;
+    }
+
+    /* =============================================
+       RESPONSIVIDADE EXTRA
+    ============================================= */
+    @media (max-width: 734px) {
+      .hero-glow { width: 400px; height: 300px; }
+      .step-connector { display: none; }
+    }
+  </style>
 </head>
-<body>
 
-    <div id="loader">
-        <h2 class="brand-font text-4xl uppercase font-bold tracking-widest text-white mb-4">Epiverso</h2>
-        <div class="loader-bar-container">
-            <div class="loader-bar"></div>
-        </div>
-        <div class="mt-2 text-xs font-mono text-gray-500 counter">0%</div>
+<body class="font-sans antialiased">
+
+  <!-- ============================================
+       NAVBAR
+  ============================================= -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 text-[#0a0a0a] font-bold text-xl tracking-tight" aria-label="epiverso - Página inicial">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="7" fill="#0a0a0a"/>
+          <path d="M8 14h12M14 8v12" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="14" cy="14" r="3" fill="#ffffff"/>
+        </svg>
+        epiverso
+      </a>
+
+      <!-- Links Desktop -->
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6e6e73]" role="list">
+        <li><a href="#solucao" class="hover:text-[#0a0a0a] transition-colors">Solução</a></li>
+        <li><a href="#beneficios" class="hover:text-[#0a0a0a] transition-colors">Benefícios</a></li>
+        <li><a href="#como-funciona" class="hover:text-[#0a0a0a] transition-colors">Como Funciona</a></li>
+        <li><a href="#faq" class="hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
+      </ul>
+
+      <!-- CTA Desktop -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#cta-final" class="btn-primary text-sm px-6 py-3">Quero meu site agora</a>
+      </div>
+
+      <!-- Hamburguer Mobile -->
+      <button id="nav-toggle" class="md:hidden p-2 rounded-lg text-[#0a0a0a]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
+        </svg>
+        <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/>
+        </svg>
+      </button>
     </div>
 
-    <div class="noise-overlay"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="md:hidden border-t border-[#e8e8ed] bg-white px-6 py-4">
+      <ul class="flex flex-col gap-4 text-sm font-medium text-[#6e6e73]" role="list">
+        <li><a href="#solucao" class="block hover:text-[#0a0a0a] transition-colors">Solução</a></li>
+        <li><a href="#beneficios" class="block hover:text-[#0a0a0a] transition-colors">Benefícios</a></li>
+        <li><a href="#como-funciona" class="block hover:text-[#0a0a0a] transition-colors">Como Funciona</a></li>
+        <li><a href="#faq" class="block hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
+        <li><a href="#cta-final" class="btn-primary text-sm text-center mt-2">Quero meu site agora</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <a href="https://wa.me/5511999999999" target="_blank" class="wa-float group magnetic-btn" aria-label="Solicitar Orçamento via WhatsApp">
-        <div class="pulse-ring"></div>
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.592 2.654-.696c1.005.578 1.913.889 3.192.889 3.182 0 5.769-2.587 5.769-5.767s-2.587-5.766-5.766-5.766zm8.854 2.197c-3.295-5.462-10.999-7.23-16.273-3.766-4.661 3.061-6.19 9.17-3.418 14.128l-.924 3.368 3.447-.905c1.802 1.012 3.655 1.551 5.673 1.551 6.376 0 11.563-5.187 11.563-11.563 0-2.369-.766-4.577-2.068-6.417zm-4.305 8.169c-.279.141-1.65.815-1.885.908-.236.094-.407.141-.579.423-.172.282-.667.846-.817 1.011-.15.164-.301.183-.58.043-.279-.141-1.178-.435-2.245-1.388-.832-.742-1.394-1.659-1.557-1.941-.164-.282-.017-.435.123-.575.127-.127.28-.33.42-.494.14-.165.187-.282.28-.471.094-.188.047-.353-.023-.494-.07-.141-.628-1.516-.86-2.074-.226-.546-.455-.472-.625-.481l-.534-.009c-.185 0-.485.07-.738.347-.253.276-.967.946-.967 2.308s.99 2.678 1.128 2.866c.139.188 1.948 2.978 4.721 4.175 1.772.765 2.458.747 3.354.613.996-.149 2.059-1.026 2.348-2.016.29-1.002.29-1.86.203-2.016-.086-.156-.319-.25-.598-.39z"/></svg>
-    </a>
 
-    <div id="nav-bg"></div>
+  <!-- ============================================
+       MÓDULO 1: HERO SECTION
+  ============================================= -->
+  <section id="hero" class="relative pt-32 pb-24 md:pt-40 md:pb-32 bg-white overflow-hidden" aria-labelledby="hero-headline">
+    <div class="hero-glow" aria-hidden="true"></div>
 
-    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50">
-        <a href="#" class="brand-font text-2xl font-extrabold uppercase tracking-tighter hover:text-gray-400 transition-colors scramble-hover">Epiverso.</a>
-        
-        <div class="hidden md:flex items-center gap-10">
-            <a href="#metodo" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Estratégia</a>
-            <a href="#expertise" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Soluções</a>
-            <a href="#portfolio" class="text-xs font-bold uppercase tracking-widest hover:text-gray-400 magnetic-link scramble-hover">Cases</a>
-        </div>
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
 
-        <button class="hidden md:block border border-white px-6 py-2 rounded-full uppercase text-xs font-bold tracking-widest hover:bg-white hover:text-black transition-all magnetic-btn scale-on-hover">
-            Solicitar Orçamento
-        </button>
-        
-        <div class="md:hidden space-y-2 cursor-pointer magnetic-btn">
-            <div class="w-8 h-0.5 bg-white"></div>
-            <div class="w-8 h-0.5 bg-white"></div>
-        </div>
-    </nav>
+      <div class="fade-up flex justify-center mb-6">
+        <span class="badge">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
+          Posicionamento no Google em até 30 dias
+        </span>
+      </div>
 
-    <header class="relative min-h-[100svh] w-full flex flex-col justify-center items-center px-4 overflow-hidden">
-        <div class="relative z-20 w-full text-center select-none flex flex-col items-center justify-center h-full">
-            <h1 class="brand-font font-black uppercase text-white leading-[0.85] tracking-tight text-[8vw] w-full mix-blend-overlay">
-                Autoridade
-            </h1>
-            <h2 class="brand-font font-black uppercase text-transparent leading-[0.85] tracking-widest text-[8vw] [-webkit-text-stroke:1px_white] md:[-webkit-text-stroke:2px_white] w-full">
-                Digital
-            </h2>
-            <p class="mt-8 text-sm md:text-lg text-gray-400 max-w-xl mx-auto px-4 fade-in-up">
-                Especialistas na <span class="text-white font-semibold">Criação de Sites e Landing Pages</span> para empresas e prestadores de serviço que não aceitam ser ignorados pelo mercado.
-            </p>
-            <div class="mt-12 fade-in-up delay-200">
-                <a href="#metodo" class="inline-block border-b border-white pb-1 text-xs uppercase tracking-[0.3em] hover:text-gray-400 transition-colors">
-                    Conheça Nossa Estratégia ↓
-                </a>
+      <h1 id="hero-headline" class="fade-up text-[clamp(38px,7vw,80px)] font-black text-[#0a0a0a] leading-[1.05] tracking-tight mb-6 max-w-4xl mx-auto">
+        Seu serviço merece ser<br class="hidden sm:block" />
+        <span class="relative inline-block">
+          encontrado no Google.
+          <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 400 6" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 5 Q100 0 200 5 Q300 10 400 5" stroke="#0a0a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </h1>
+
+      <p class="fade-up text-[clamp(17px,2.2vw,21px)] text-[#6e6e73] max-w-2xl mx-auto mb-10 leading-relaxed">
+        Criamos sites institucionais e landing pages de alta performance para prestadores de serviço que querem parar de depender de indicação e começar a receber clientes todos os dias pelo Google.
+      </p>
+
+      <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
+        <a href="#cta-final" class="btn-primary text-base px-8 py-4">
+          Quero meu site agora
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="#como-funciona" class="btn-outline text-base px-8 py-4">Ver como funciona</a>
+      </div>
+
+      <p class="fade-up text-sm text-[#aeaeb2] font-medium">
+        Sem mensalidade oculta &nbsp;·&nbsp; Entrega em até 7 dias úteis &nbsp;·&nbsp; Suporte incluso
+      </p>
+
+      <!-- Hero Visual Mock -->
+      <div class="fade-up mt-16 relative max-w-3xl mx-auto">
+        <div class="bg-[#f5f5f7] rounded-2xl border border-[#e8e8ed] overflow-hidden shadow-2xl shadow-black/10">
+          <!-- Browser Bar -->
+          <div class="bg-[#e8e8ed] px-4 py-3 flex items-center gap-2">
+            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
+            <div class="flex-1 mx-4 bg-white rounded-full px-4 py-1 text-xs text-[#6e6e73] text-left">
+              google.com/search?q=<strong class="text-[#0a0a0a]">encanador em São Paulo</strong>
             </div>
-        </div>
-        <div class="absolute inset-0 z-0 opacity-40">
-            <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center blur-sm scale-110 header-bg-anim"></div>
-            <div class="absolute inset-0 bg-black/50"></div>
-        </div>
-    </header>
-
-    <section class="py-16 bg-black border-y border-white/10 overflow-hidden relative z-20">
-        <h2 class="sr-only">Serviços: Sites Rápidos, SEO e Design</h2>
-        <div class="marquee-track flex gap-12 whitespace-nowrap opacity-50">
-            <div class="flex gap-16 items-center text-4xl md:text-6xl brand-font font-bold uppercase stroke-text select-none">
-                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
-                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
+          </div>
+          <!-- SERP Mock -->
+          <div class="p-6 text-left space-y-4">
+            <!-- Resultado #1 destacado -->
+            <div class="bg-white rounded-xl p-4 border-2 border-[#0a0a0a] relative">
+              <span class="absolute -top-3 right-4 badge text-[10px]">1º RESULTADO</span>
+              <p class="text-xs text-[#6e6e73] mb-1">www.seusite.com.br</p>
+              <p class="text-[#0a0a0a] font-semibold text-base leading-tight">Encanador 24h em São Paulo — Atendimento Rápido e Garantido</p>
+              <p class="text-sm text-[#6e6e73] mt-1">Serviços de encanamento residencial e comercial. Orçamento grátis. Mais de 500 clientes atendidos. Ligue agora.</p>
             </div>
-            <div class="flex gap-16 items-center text-4xl md:text-6xl brand-font font-bold uppercase stroke-text select-none" aria-hidden="true">
-                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
-                <span>Vendas</span> <span>Sites Rápidos</span> <span>SEO Local</span> <span>Landing Pages</span> <span>Epiverso</span>
+            <!-- Resultado #2 opaco -->
+            <div class="bg-white rounded-xl p-4 border border-[#e8e8ed] opacity-40">
+              <p class="text-xs text-[#6e6e73] mb-1">concorrente.com.br</p>
+              <p class="text-[#0a0a0a] font-semibold text-base leading-tight">Encanador SP - Serviços Gerais</p>
+              <p class="text-sm text-[#6e6e73] mt-1">Trabalhamos com encanamento em geral...</p>
             </div>
+            <!-- Resultado #3 opaco -->
+            <div class="bg-white rounded-xl p-4 border border-[#e8e8ed] opacity-20">
+              <p class="text-xs text-[#6e6e73] mb-1">outrosite.com.br</p>
+              <p class="text-[#0a0a0a] font-semibold text-base leading-tight">Serviços de Encanamento</p>
+              <p class="text-sm text-[#6e6e73] mt-1">Encanador disponível...</p>
+            </div>
+          </div>
         </div>
-    </section>
+        <!-- Sombra decorativa -->
+        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/10 blur-2xl rounded-full" aria-hidden="true"></div>
+      </div>
 
-    <section id="metodo" class="py-16 px-6 md:px-20 bg-[#080808] relative">
-    <div class="line-reveal mb-12 h-[1px] bg-white/20 origin-left"></div>
-    
-    <div class="grid md:grid-cols-2 gap-10">
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 2: AGITAÇÃO DO PROBLEMA (PAS)
+  ============================================= -->
+  <section id="problema" class="py-24 bg-[#fafafc]" aria-labelledby="problema-headline">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center mb-16 fade-up">
+        <span class="badge mb-4">O problema real</span>
+        <h2 id="problema-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
+          Você é bom no que faz. Mas o Google não sabe disso.
+        </h2>
+        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
+          Enquanto você depende de indicação, seus concorrentes estão recebendo clientes todos os dias pelo Google. Veja o que está travando o seu crescimento:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Dor 1 -->
+        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed]">
+          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="11" cy="11" r="9"/><path d="M11 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Invisível para quem mais importa</h3>
+          <p class="text-[#6e6e73] text-base leading-relaxed">
+            Todos os dias, centenas de pessoas pesquisam no Google pelo serviço que você oferece na sua cidade — e encontram o seu concorrente, não você. Cada busca sem resposta é um cliente que foi embora.
+          </p>
+        </div>
+
+        <!-- Dor 2 -->
+        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed]">
+          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <path d="M3 3h16v16H3z"/><path d="M7 7h8M7 11h5"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Perfil no Instagram não é site</h3>
+          <p class="text-[#6e6e73] text-base leading-relaxed">
+            Redes sociais são ótimas para relacionamento, mas o Google não indexa posts do Instagram. Sem um site profissional, você simplesmente não existe para os mecanismos de busca — e perde autoridade na hora da decisão de compra.
+          </p>
+        </div>
+
+        <!-- Dor 3 -->
+        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed]">
+          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Indicação tem limite. Google, não.</h3>
+          <p class="text-[#6e6e73] text-base leading-relaxed">
+            Depender exclusivamente de indicação é crescer no ritmo dos outros. Um site bem posicionado trabalha 24 horas por dia, 7 dias por semana, atraindo clientes mesmo enquanto você dorme — sem custo por clique.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 3: A SOLUÇÃO (LAYOUT Z)
+  ============================================= -->
+  <section id="solucao" class="py-24 bg-white" aria-labelledby="solucao-headline">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Visual lado esquerdo -->
+        <div class="fade-up order-2 lg:order-1">
+          <div class="z-visual">
+            <!-- Ilustração SVG inline: site no topo do Google -->
+            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8" aria-hidden="true">
+              <!-- Fundo card -->
+              <rect x="40" y="30" width="400" height="300" rx="16" fill="white" stroke="#e8e8ed" stroke-width="1.5"/>
+              <!-- Barra browser -->
+              <rect x="40" y="30" width="400" height="40" rx="16" fill="#f5f5f7"/>
+              <rect x="40" y="54" width="400" height="16" fill="#f5f5f7"/>
+              <circle cx="68" cy="50" r="6" fill="#e8e8ed"/>
+              <circle cx="88" cy="50" r="6" fill="#e8e8ed"/>
+              <circle cx="108" cy="50" r="6" fill="#e8e8ed"/>
+              <rect x="130" y="42" width="240" height="16" rx="8" fill="white" stroke="#e8e8ed" stroke-width="1"/>
+              <!-- Resultado #1 -->
+              <rect x="60" y="90" width="360" height="72" rx="10" fill="white" stroke="#0a0a0a" stroke-width="1.5"/>
+              <rect x="72" y="100" width="80" height="8" rx="4" fill="#aeaeb2"/>
+              <rect x="72" y="114" width="220" height="10" rx="5" fill="#0a0a0a"/>
+              <rect x="72" y="130" width="280" height="8" rx="4" fill="#aeaeb2"/>
+              <rect x="72" y="142" width="200" height="8" rx="4" fill="#aeaeb2"/>
+              <!-- Badge #1 -->
+              <rect x="360" y="94" width="48" height="18" rx="5" fill="#0a0a0a"/>
+              <text x="384" y="107" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">1º</text>
+              <!-- Resultado #2 opaco -->
+              <rect x="60" y="176" width="360" height="60" rx="10" fill="white" stroke="#e8e8ed" stroke-width="1" opacity="0.5"/>
+              <rect x="72" y="186" width="60" height="7" rx="3" fill="#e8e8ed"/>
+              <rect x="72" y="199" width="180" height="9" rx="4" fill="#aeaeb2" opacity="0.6"/>
+              <rect x="72" y="214" width="240" height="7" rx="3" fill="#e8e8ed"/>
+              <!-- Resultado #3 opaco -->
+              <rect x="60" y="250" width="360" height="60" rx="10" fill="white" stroke="#e8e8ed" stroke-width="1" opacity="0.25"/>
+              <rect x="72" y="260" width="60" height="7" rx="3" fill="#e8e8ed"/>
+              <rect x="72" y="273" width="160" height="9" rx="4" fill="#aeaeb2" opacity="0.3"/>
+              <rect x="72" y="288" width="200" height="7" rx="3" fill="#e8e8ed"/>
+              <!-- Seta apontando para #1 -->
+              <path d="M30 126 L52 126" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)"/>
+              <defs>
+                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                  <path d="M0 0 L6 3 L0 6 Z" fill="#0a0a0a"/>
+                </marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Texto lado direito -->
+        <div class="fade-up order-1 lg:order-2">
+          <span class="badge mb-5">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
+            Metodologia proprietária
+          </span>
+
+          <h2 id="solucao-headline" class="text-[clamp(28px,4vw,44px)] font-bold text-[#0a0a0a] leading-tight mb-6">
+            Um site construído para aparecer no topo — não apenas para existir.
+          </h2>
+
+          <p class="text-[#6e6e73] text-lg leading-relaxed mb-6">
+            A epiverso não cria sites bonitos que ficam esquecidos na internet. Desenvolvemos páginas estrategicamente estruturadas com SEO técnico, arquitetura de conteúdo e velocidade de carregamento otimizada — os três pilares que o Google usa para decidir quem aparece primeiro.
+          </p>
+
+          <p class="text-[#6e6e73] text-lg leading-relaxed mb-8">
+            Cada projeto é personalizado para o seu serviço, sua cidade e o seu cliente ideal. O resultado é um ativo digital que gera leads qualificados de forma contínua, sem depender de anúncios pagos.
+          </p>
+
+          <ul class="space-y-3 mb-8" role="list">
+            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium">
+              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
+              </span>
+              SEO técnico e on-page incluído
+            </li>
+            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium">
+              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
+              </span>
+              Velocidade de carregamento acima de 90 no PageSpeed
+            </li>
+            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium">
+              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
+              </span>
+              Copy persuasivo focado em conversão
+            </li>
+            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium">
+              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
+              </span>
+              Responsivo e otimizado para mobile
+            </li>
+          </ul>
+
+          <a href="#cta-final" class="btn-primary">Solicitar proposta gratuita</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 4: BENEFÍCIOS / FEATURES
+  ============================================= -->
+  <section id="beneficios" class="py-24 bg-[#fafafc]" aria-labelledby="beneficios-headline">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center mb-16 fade-up">
+        <span class="badge mb-4">O que está incluso</span>
+        <h2 id="beneficios-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
+          Tudo o que você precisa para dominar o Google local
+        </h2>
+        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
+          Cada entrega da epiverso é pensada para maximizar sua visibilidade orgânica e transformar visitantes em clientes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- Feature 1 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2a14 14 0 010 16M10 2a14 14 0 000 16"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">SEO Local Avançado</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Otimização completa para palavras-chave da sua cidade e segmento. Apareça quando o cliente pesquisar exatamente o que você oferece.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <rect x="2" y="3" width="16" height="14" rx="3"/><path d="M7 8h6M7 12h4"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Copy de Alta Conversão</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Textos escritos por especialistas em copywriting que guiam o visitante da primeira leitura até o clique no botão de contato.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <path d="M4 17V7l6-4 6 4v10"/><rect x="7" y="11" width="6" height="6"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Design Profissional</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Layout moderno, limpo e alinhado à identidade da sua marca. Transmite credibilidade desde o primeiro segundo de visita.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="6" width="8" height="12" rx="2"/><rect x="11" y="2" width="6" height="16" rx="2"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">PageSpeed 90+</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Sites lentos perdem posição no Google e perdem clientes. Entregamos páginas com pontuação acima de 90 no Google PageSpeed Insights.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <path d="M10 2l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 17l-6.2 4.3 2.4-7.4L0 9.4h7.6z"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Google Meu Negócio</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Configuração e otimização do seu perfil no Google Meu Negócio para aparecer no mapa e nos resultados locais com avaliações em destaque.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card fade-up">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+              <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M10 6v4l3 3"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Entrega em 7 Dias Úteis</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Processo ágil e estruturado. Do briefing à publicação em até 7 dias úteis, sem enrolação e sem surpresas no meio do caminho.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 5: PROVA SOCIAL & AUTORIDADE
+  ============================================= -->
+  <section id="prova-social" class="py-24 bg-[#0a0a0a]" aria-labelledby="prova-headline">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <!-- Números de impacto -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center fade-up">
         <div>
-            <h2 class="text-2xl md:text-4xl font-bold uppercase leading-[1.1] mb-4 split-reveal brand-font">
-                Transformamos<br><span class="text-gray-600">Cliques em Clientes.</span>
-            </h2>
-            
-            <div class="text-reveal-mask overflow-hidden">
-                <p class="text-reveal-inner text-gray-400 text-base leading-relaxed mb-4 translate-y-full opacity-0">
-                    Seu site não deve ser apenas um cartão de visitas digital. Ele deve ser uma máquina de vendas.
-                </p>
-            </div>
-                <a href="https://wa.me/5511999999999" class="magnetic-btn inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-xs border border-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition-all mt-4">
-                    <span>Aumentar Minhas Vendas</span>
-                </a>
-            </div>
-            <div class="space-y-8 mt-10 md:mt-0 stagger-list">
-                <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
-                    <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">01.</div>
-                    <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Copywriting Persuasivo</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Textos escritos para convencer seu cliente ideal a pedir um orçamento agora.</p>
-                    </div>
-                </div>
-                <div class="w-full h-[1px] bg-gray-900"></div>
-                <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
-                    <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">02.</div>
-                    <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Otimização para Google (SEO)</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Estrutura de código preparada para colocar sua empresa no topo das buscas locais.</p>
-                    </div>
-                </div>
-                <div class="w-full h-[1px] bg-gray-900"></div>
-                <div class="flex gap-6 group hover-trigger p-4 rounded-lg transition-colors hover:bg-white/5">
-                    <div class="text-xl font-mono text-gray-600 group-hover:text-white transition-colors">03.</div>
-                    <div>
-                        <h3 class="text-xl font-bold uppercase mb-2 group-hover:translate-x-2 transition-transform duration-300">Design Premium</h3>
-                        <p class="text-sm text-gray-500 group-hover:text-gray-300 transition-colors">Uma estética que justifica cobrar mais caro pelos seus serviços.</p>
-                    </div>
-                </div>
-            </div>
+          <p class="stat-number">+120</p>
+          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Sites entregues</p>
         </div>
-    </section>
-
-    <section class="w-full h-[80vh] bg-black relative overflow-hidden flex items-center justify-center cursor-none group">
-        <div class="parallax-wrapper absolute inset-0 w-full h-full">
-            <img src="https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                 class="parallax-image w-[115%] h-[115%] object-cover absolute top-[-7.5%] left-[-7.5%] opacity-50 grayscale contrast-125 group-hover:opacity-80 transition-opacity duration-700"
-                 alt="Tecnologia Web de Ponta para Empresas">
+        <div>
+          <p class="stat-number">30</p>
+          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Dias para o Google</p>
         </div>
-        <div class="relative z-10 text-center mix-blend-difference pointer-events-none">
-            <h2 class="text-[8vw] font-black uppercase leading-none opacity-80 tracking-tighter parallax-text brand-font">
-                WEB SITES
-            </h2>
-            <p class="text-sm uppercase tracking-[1em] text-white mt-4">Máxima Performance</p>
+        <div>
+          <p class="stat-number">90+</p>
+          <p class="text-[#6e6e73] text-sm mt-2 font-medium">PageSpeed médio</p>
         </div>
-    </section>
-
-    <section id="expertise" class="py-32 px-6 md:px-20 bg-black">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-20">
-            <h2 class="text-4xl md:text-6xl font-bold uppercase brand-font split-reveal">O Que Fazemos.</h2>
-            <p class="text-gray-500 max-w-sm text-right mt-6 md:mt-0 text-sm">Soluções digitais completas para alavancar seu negócio.</p>
+        <div>
+          <p class="stat-number">98%</p>
+          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Clientes satisfeitos</p>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-cards-container">
-            <div class="card-wrapper">
-                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <div class="tilt-content">
-                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Landing Pages</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Páginas de captura focadas em uma única ação: fazer o cliente entrar em contato com você.</p>
-                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                            <li>+ Carregamento Instantâneo</li>
-                            <li>+ Botões de WhatsApp Estratégicos</li>
-                        </ul>
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                </article>
-            </div>
-
-            <div class="card-wrapper">
-                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </div>
-                    <div class="tilt-content">
-                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Sites Institucionais</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8">A sede digital da sua empresa. Transmita autoridade, organize seu portfólio e fortaleça sua marca.</p>
-                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                            <li>+ Portfólio, dúvidas frequentes esclarecidas</li>
-                            <li>+ Blog para Marketing de Conteúdo</li>
-                        </ul>
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                </article>
-            </div>
-
-            <div class="card-wrapper">
-                <article class="tilt-card p-10 rounded-xl group relative overflow-hidden" data-tilt>
-                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                    </div>
-                    <div class="tilt-content">
-                        <h3 class="text-2xl font-bold uppercase mb-4 brand-font group-hover:text-[#25D366] transition-colors">Tráfego & SEO</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-8">Não adianta ter um site lindo se ninguém o encontra. Preparamos o terreno para você ser achado.</p>
-                        <ul class="text-xs text-gray-500 space-y-2 font-mono">
-                            <li>+ Configuração Google Meu Negócio</li>
-                            <li>+ Pixel e Tags de Conversão</li>
-                        </ul>
-                    </div>
-                    <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#25D366] to-transparent scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                </article>
-            </div>
+      <!-- Logos parceiros (marquee) -->
+      <div class="mb-20 fade-up">
+        <p class="text-center text-[#3a3a3c] text-sm font-medium uppercase tracking-widest mb-8">Segmentos que já atendemos</p>
+        <div class="marquee-wrapper">
+          <div class="marquee-track">
+            <!-- Bloco 1 -->
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Advocacia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Psicologia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Odontologia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Arquitetura</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Contabilidade</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Engenharia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Estética</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Nutrição</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Fisioterapia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Construção Civil</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <!-- Bloco 2 (duplicado para loop) -->
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Advocacia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Psicologia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Odontologia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Arquitetura</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Contabilidade</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Engenharia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Estética</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Nutrição</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Fisioterapia</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Construção Civil</span>
+            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="portfolio" class="py-32 bg-[#0a0a0a] border-t border-white/5 overflow-hidden">
-        <div class="px-6 md:px-20 mb-12">
-            <h2 class="text-3xl md:text-5xl font-bold uppercase brand-font">Projetos Recentes.</h2>
-        </div>
-        <div class="flex overflow-x-auto gap-8 px-6 md:px-20 pb-12 snap-x hide-scrollbar">
-            <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Fintech">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Setor Financeiro</p>
-                    <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Nubra Bank</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Landing Page focada em cadastro de leads qualificados.</p>
-                </div>
-            </div>
-            <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Site para Arquitetura e Interiores">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Arquitetura</p>
-                    <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Vogue Interiors</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Site Institucional com portfólio 3D imersivo.</p>
-                </div>
-            </div>
-            <div class="min-w-[90vw] md:min-w-[45vw] h-[60vh] bg-gray-900 relative rounded-lg overflow-hidden group snap-center cursor-pointer portfolio-card">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" alt="Dashboard SaaS">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
-                <div class="absolute bottom-8 left-8 z-10">
-                    <p class="text-xs uppercase tracking-widest text-[#25D366] mb-2 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">Tecnologia</p>
-                    <h3 class="text-3xl font-bold uppercase brand-font translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Data Flow</h3>
-                    <p class="text-sm text-gray-400 mt-2 max-w-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 translate-y-4 group-hover:translate-y-0 duration-300">Plataforma SaaS com área de membros integrada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Depoimentos -->
+      <div class="text-center mb-12 fade-up">
+        <h2 id="prova-headline" class="text-[clamp(24px,3.5vw,40px)] font-bold text-white leading-tight">
+          Quem já aparece no topo tem muito a dizer
+        </h2>
+      </div>
 
-    <section class="py-24 px-6 md:px-20 bg-black">
-        <h2 class="text-3xl font-bold uppercase mb-16 brand-font">Perguntas Frequentes</h2>
-        <div class="max-w-4xl space-y-4 stagger-faq">
-            <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
-                <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Quanto custa para fazer um site?</h4>
-                    <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
-                </div>
-                <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">O valor varia conforme a complexidade (Landing Page vs. Site Institucional Completo). Desenvolvemos soluções personalizadas que cabem no orçamento de pequenas e médias empresas, sempre focando no retorno sobre o investimento (ROI).</p>
-                </div>
-            </div>
-            <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
-                <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">Em quanto tempo meu site fica pronto?</h4>
-                    <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
-                </div>
-                <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">Para Landing Pages de alta performance, entregamos em média de 7 a 10 dias. Sites institucionais mais robustos levam cerca de 15 dias. Nosso foco é agilidade sem perder a qualidade visual.</p>
-                </div>
-            </div>
-             <div class="group border-b border-gray-800 pb-4 cursor-pointer faq-item hover:border-gray-600 transition-colors">
-                <div class="flex justify-between items-center py-4">
-                    <h4 class="text-lg md:text-xl font-bold uppercase group-hover:text-gray-400 transition-colors">O site vai funcionar no celular?</h4>
-                    <span class="text-2xl transform transition-transform duration-300 group-[.active]:rotate-45 text-[#25D366]">+</span>
-                </div>
-                <div class="h-0 overflow-hidden transition-all duration-500 group-[.active]:h-auto">
-                    <p class="text-gray-500 pb-6 leading-relaxed">Sim! Todos os nossos projetos são "Mobile First". Isso significa que priorizamos a experiência no celular, onde ocorre a maioria das buscas por prestadores de serviço hoje em dia.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up">
 
-    <footer class="py-40 relative flex flex-col justify-center items-center bg-[#050505] overflow-hidden border-t border-gray-900">
-        <div class="absolute inset-0 opacity-20">
-             <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center blur-md"></div>
-        </div>
-
-        <div class="z-10 text-center px-4 relative">
-            <h2 class="text-[8vw] font-black uppercase leading-none brand-font mix-blend-difference mb-8 reveal-footer-text opacity-0">
-                Evolua.
-            </h2>
-            <p class="text-xl text-gray-400 mb-12 max-w-md mx-auto reveal-footer-text delay-100 opacity-0">
-                Seu próximo cliente está procurando por você no Google agora.
+        <!-- Depoimento 1 -->
+        <div class="testimonial-card">
+          <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+          </div>
+          <blockquote>
+            <p class="text-white text-lg leading-relaxed mb-6 font-medium">
+              "Antes da epiverso, eu dependia 100% de indicação. Três semanas depois do site no ar, recebi meu primeiro cliente pelo Google — um contrato de R$ 8.000. O investimento se pagou na primeira semana."
             </p>
-            
-            <div id="footer-cta" class="relative z-50 opacity-0">
-                <a href="https://wa.me/5511999999999" class="inline-flex group items-center justify-center px-10 py-5 font-bold text-white transition-all duration-200 bg-black/50 border-2 border-white rounded-full hover:bg-white hover:text-black focus:outline-none ring-offset-2 focus:ring-2 ring-white">
-                    <span class="uppercase tracking-widest text-sm">Iniciar Projeto Agora</span>
-                </a>
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#3a3a3c] flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">RM</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Rafael Mendonça</p>
+              <p class="text-[#6e6e73] text-xs">Arquiteto — São Paulo, SP</p>
             </div>
+          </div>
         </div>
 
-        <div class="absolute bottom-8 w-full flex justify-between px-8 text-[10px] md:text-xs text-gray-500 uppercase tracking-widest font-mono z-50">
-            <div>© 2026 Epiverso. Todos os direitos reservados.</div>
-            <div class="flex gap-4">
-                <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                <a href="#" class="hover:text-white transition-colors">Linkedin</a>
+        <!-- Depoimento 2 -->
+        <div class="testimonial-card">
+          <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
+          </div>
+          <blockquote>
+            <p class="text-white text-lg leading-relaxed mb-6 font-medium">
+              "Sou advogada e sempre achei que site era coisa de loja. A epiverso me mostrou que estava errada. Hoje apareço na primeira página do Google para 'advogada trabalhista em Curitiba' e recebo 4 a 6 contatos por semana só pelo site."
+            </p>
+          </blockquote>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#3a3a3c] flex items-center justify-center text-white font-bold text-sm" aria-hidden="true">CA</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Camila Andrade</p>
+              <p class="text-[#6e6e73] text-xs">Advogada Trabalhista — Curitiba, PR</p>
             </div>
+          </div>
         </div>
-    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // --- 1. LOADER CORRIGIDO ---
-        (function() {
-            const loader = document.getElementById('loader');
-            const bar = document.querySelector('.loader-bar');
-            const counter = document.querySelector('.counter');
-            let progress = 0;
-            
-            const interval = setInterval(() => {
-                const increment = Math.random() * (progress < 70 ? 15 : 5); 
-                progress += increment;
-                
-                if(progress >= 100) progress = 100;
-                
-                bar.style.width = `${progress}%`;
-                counter.innerText = `${Math.floor(progress)}%`;
 
-                if(progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        gsap.to(loader, { yPercent: -100, duration: 0.8, ease: "power4.inOut" });
-                        document.body.style.overflowY = "auto";
-                        
-                        initEntranceAnimations();
-                        
-                        setTimeout(() => {
-                            ScrollTrigger.refresh();
-                        }, 500);
-                        
-                    }, 150);
-                }
-            }, 30);
-        })();
+  <!-- ============================================
+       MÓDULO 6: COMO FUNCIONA (PROCESSO)
+  ============================================= -->
+  <section id="como-funciona" class="py-24 bg-white" aria-labelledby="processo-headline">
+    <div class="max-w-5xl mx-auto px-6">
 
-        // --- 2. SETUP ---
-        gsap.registerPlugin(ScrollTrigger);
-        const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
-        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-        requestAnimationFrame(raf);
+      <div class="text-center mb-16 fade-up">
+        <span class="badge mb-4">Processo simples</span>
+        <h2 id="processo-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
+          Do zero ao topo do Google em 3 passos
+        </h2>
+        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
+          Desenvolvemos um processo enxuto para que você não precise entender de tecnologia — só precisa aparecer para a reunião de briefing.
+        </p>
+      </div>
 
-        // --- 3. NAV ---
-        const navBg = document.getElementById('nav-bg');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) navBg.style.opacity = '1';
-            else navBg.style.opacity = '0';
-        });
+      <!-- Steps -->
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 fade-up">
 
-        // --- 4. SCRAMBLE TEXT ---
-        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        document.querySelectorAll('.scramble-hover').forEach(target => {
-            target.addEventListener('mouseenter', event => {
-                let iteration = 0;
-                const originalText = event.target.innerText;
-                clearInterval(event.target.interval);
+        <!-- Step 1 -->
+        <div class="flex-1 text-center px-4">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 01</div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Briefing Estratégico</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Uma conversa de 30 minutos onde entendemos seu serviço, seu público, sua cidade e seus concorrentes. Daqui saem as palavras-chave e a estratégia de posicionamento.
+          </p>
+        </div>
 
-                event.target.interval = setInterval(() => {
-                    event.target.innerText = originalText
-                        .split("")
-                        .map((letter, index) => {
-                            if(index < iteration) return originalText[index];
-                            return letters[Math.floor(Math.random() * 26)];
-                        })
-                        .join("");
-                    if(iteration >= originalText.length) clearInterval(event.target.interval);
-                    iteration += 1 / 3;
-                }, 30);
-            });
-        });
+        <!-- Conector -->
+        <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
 
-        // --- 5. MOUSE & MAGNETIC ---
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        
-        if (window.matchMedia("(min-width: 1024px)").matches) {
-            window.addEventListener('mousemove', (e) => {
-                const x = e.clientX, y = e.clientY;
-                gsap.to(cursorDot, { x: x, y: y, duration: 0.1 });
-                gsap.to(cursorOutline, { x: x - 25, y: y - 25, duration: 0.4 });
-            });
+        <!-- Step 2 -->
+        <div class="flex-1 text-center px-4">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 02</div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Criação e Otimização</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Nossa equipe desenvolve o site com design profissional, copy persuasivo e SEO técnico aplicado desde o primeiro código. Você acompanha e aprova antes de publicar.
+          </p>
+        </div>
 
-            document.querySelectorAll('a, button, .magnetic-btn, .tilt-card, .portfolio-card').forEach(el => {
-                el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-                el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-            });
+        <!-- Conector -->
+        <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
 
-            document.querySelectorAll('.magnetic-btn:not(.no-magnet), .magnetic-link').forEach(btn => {
-                btn.addEventListener('mousemove', (e) => {
-                    const rect = btn.getBoundingClientRect();
-                    const x = e.clientX - rect.left - rect.width / 2;
-                    const y = e.clientY - rect.top - rect.height / 2;
-                    gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.2 });
-                });
-                btn.addEventListener('mouseleave', () => {
-                    gsap.to(btn, { x: 0, y: 0, duration: 0.2 });
-                });
-            });
+        <!-- Step 3 -->
+        <div class="flex-1 text-center px-4">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
+            </svg>
+          </div>
+          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 03</div>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Publicação e Escalada</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Publicamos, configuramos o Google Search Console e o Google Meu Negócio. Você começa a subir nas buscas e recebe relatório mensal de desempenho.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-14 fade-up">
+        <a href="#cta-final" class="btn-primary px-10 py-4 text-base">Começar agora — é grátis o briefing</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 7: FAQ (QUEBRA DE OBJEÇÕES)
+  ============================================= -->
+  <section id="faq" class="py-24 bg-[#fafafc]" aria-labelledby="faq-headline">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="text-center mb-14 fade-up">
+        <span class="badge mb-4">Dúvidas frequentes</span>
+        <h2 id="faq-headline" class="text-[clamp(28px,4.5vw,44px)] font-bold text-[#0a0a0a] leading-tight">
+          Respostas diretas para as dúvidas mais comuns
+        </h2>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-[#e8e8ed] px-8 py-2 fade-up" role="list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
+            Quanto custa um site da epiverso?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            </span>
+          </button>
+          <div id="faq-answer-1" class="faq-answer" role="region">
+            <p class="text-[#6e6e73] text-base leading-relaxed">
+              Cada projeto é orçado de acordo com o escopo, segmento e objetivos do cliente. Trabalhamos com landing pages a partir de R$ 1.200 e sites institucionais completos a partir de R$ 2.500. O briefing é gratuito e sem compromisso — é nele que definimos o melhor formato para o seu caso.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
+            Quanto tempo leva para aparecer no Google?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            </span>
+          </button>
+          <div id="faq-answer-2" class="faq-answer" role="region">
+            <p class="text-[#6e6e73] text-base leading-relaxed">
+              O Google leva entre 2 e 6 semanas para indexar e posicionar um site novo. Com nossa otimização técnica e de conteúdo, a maioria dos nossos clientes começa a aparecer em buscas relevantes em até 30 dias após a publicação. Resultados mais expressivos costumam aparecer entre 60 e 90 dias.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
+            Preciso entender de tecnologia para contratar?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            </span>
+          </button>
+          <div id="faq-answer-3" class="faq-answer" role="region">
+            <p class="text-[#6e6e73] text-base leading-relaxed">
+              Não. Cuidamos de absolutamente tudo: domínio, hospedagem, desenvolvimento, SEO, publicação e configuração do Google. Você só precisa nos contar sobre o seu serviço e aprovar o resultado. Nosso processo foi desenhado para profissionais que são especialistas no que fazem — não em tecnologia.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
+            O site fica no meu nome? Tenho acesso total?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            </span>
+          </button>
+          <div id="faq-answer-4" class="faq-answer" role="region">
+            <p class="text-[#6e6e73] text-base leading-relaxed">
+              Sim. O domínio e a hospedagem ficam no seu nome, com acesso total. O site é seu. Não existe mensalidade obrigatória com a epiverso após a entrega — você tem plena autonomia. Oferecemos planos opcionais de manutenção e atualização para quem prefere ter suporte contínuo.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" onclick="toggleFaq(this)">
+            Vocês garantem o resultado no Google?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
+            </span>
+          </button>
+          <div id="faq-answer-5" class="faq-answer" role="region">
+            <p class="text-[#6e6e73] text-base leading-relaxed">
+              Nenhuma empresa pode garantir posição exata no Google — qualquer uma que prometa isso está mentindo. O que garantimos é a entrega de um site tecnicamente otimizado, com as melhores práticas de SEO aplicadas, que maximiza as suas chances de ranqueamento. Nosso histórico fala por si: mais de 90% dos clientes aparecem na primeira página para pelo menos uma palavra-chave estratégica em até 60 dias.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================
+       MÓDULO 8: CTA FINAL + FOOTER
+  ============================================= -->
+  <section id="cta-final" class="footer-cta-section py-28" aria-labelledby="cta-headline">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+
+      <div class="fade-up">
+        <span class="inline-flex items-center gap-2 bg-white/10 text-white rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest mb-8">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
+          Vagas limitadas por mês
+        </span>
+
+        <h2 id="cta-headline" class="text-[clamp(32px,5.5vw,64px)] font-black text-white leading-[1.05] tracking-tight mb-6">
+          Cada dia sem site é um<br class="hidden sm:block" />
+          cliente que foi para o concorrente.
+        </h2>
+
+        <p class="text-[#aeaeb2] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+          Atendemos um número limitado de projetos por mês para garantir qualidade e atenção total a cada cliente. Solicite sua proposta gratuita agora e garanta sua vaga.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <a href="https://wa.me/5548992086832?text=Ol%C3%A1%2C+vim+pelo+site+da+epiverso+e+gostaria+de+solicitar+uma+proposta." class="btn-primary bg-white text-[#0a0a0a] hover:bg-[#f5f5f7] px-10 py-4 text-base" target="_blank" rel="noopener noreferrer">
+            Solicitar proposta gratuita
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <p class="text-[#6e6e73] text-sm">
+          Sem compromisso &nbsp;·&nbsp; Resposta em até 2 horas &nbsp;·&nbsp; 100% gratuito
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a0a0a] border-t border-white/5 py-10" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2 text-white font-bold text-lg tracking-tight" aria-label="epiverso - Voltar ao topo">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="28" height="28" rx="7" fill="white"/>
+          <path d="M8 14h12M14 8v12" stroke="#0a0a0a" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="14" cy="14" r="3" fill="#0a0a0a"/>
+        </svg>
+        epiverso
+      </a>
+
+      <!-- Links legais -->
+      <nav aria-label="Links legais">
+        <ul class="flex flex-wrap items-center gap-6 text-xs text-[#6e6e73]" role="list">
+          <li><a href="#" class="hover:text-white transition-colors">Política de Privacidade</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Termos de Uso</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Copyright -->
+      <p class="text-xs text-[#6e6e73]">
+        &copy; <span id="footer-year"></span> epiverso. Todos os direitos reservados.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================
+       JAVASCRIPT: Interatividade
+  ============================================= -->
+  <script>
+    // ---- Ano dinâmico no footer ----
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ---- Menu mobile toggle ----
+    const navToggle = document.getElementById('nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen   = document.getElementById('icon-open');
+    const iconClose  = document.getElementById('icon-close');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Fechar menu ao clicar em link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ---- FAQ Acordeão ----
+    function toggleFaq(button) {
+      const icon   = button.querySelector('.faq-icon');
+      const answerId = button.getAttribute('aria-controls');
+      const answer = document.getElementById(answerId);
+      const isOpen = answer.classList.contains('open');
+
+      // Fechar todos
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
+
+      // Abrir o clicado (se estava fechado)
+      if (!isOpen) {
+        answer.classList.add('open');
+        icon.classList.add('open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // ---- Animações de entrada (Intersection Observer) ----
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, idx) => {
+        if (entry.isIntersecting) {
+          // Delay escalonado para elementos irmãos
+          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.fade-up'));
+          const delay = siblings.indexOf(entry.target) * 80;
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+          observer.unobserve(entry.target);
         }
+      });
+    }, { threshold: 0.12 });
 
-        // --- 6. ANIMATIONS ---
-        function initEntranceAnimations() {
-            const tl = gsap.timeline();
-            tl.from("h1", { y: 100, opacity: 0, duration: 1, ease: "power3.out" })
-              .from("h2", { y: 100, opacity: 0, duration: 1, ease: "power3.out" }, "-=0.8")
-              .to(".header-bg-anim", { scale: 1, duration: 2, ease: "power2.out" }, "-=1.5");
-        }
+    fadeEls.forEach(el => observer.observe(el));
 
-        gsap.to(".marquee-track", { xPercent: -50, repeat: -1, duration: 15, ease: "linear" });
+    // ---- Navbar shadow on scroll ----
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+      } else {
+        navbar.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  </script>
 
-        gsap.utils.toArray('.line-reveal').forEach(line => {
-            gsap.to(line, {
-                scaleX: 1,
-                scrollTrigger: { trigger: line, start: "top 85%", end: "top 60%", scrub: 1 }
-            });
-        });
-
-        gsap.utils.toArray('.split-reveal').forEach(text => {
-            gsap.from(text, {
-                y: 50, opacity: 0, duration: 1.2, ease: "power3.out",
-                scrollTrigger: { trigger: text, start: "top 85%" }
-            });
-        });
-
-        gsap.to(".text-reveal-inner", {
-            y: 0, opacity: 1, duration: 1, ease: "power3.out",
-            scrollTrigger: { trigger: ".text-reveal-mask", start: "top 80%" }
-        });
-
-        gsap.from(".stagger-list > div", {
-            x: 50, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power2.out",
-            scrollTrigger: { trigger: ".stagger-list", start: "top 80%" }
-        });
-
-        gsap.from(".card-wrapper", {
-            y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "power2.out",
-            scrollTrigger: { trigger: ".stagger-cards-container", start: "top 85%" }
-        });
-        
-        gsap.from(".stagger-faq > div", {
-            y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out",
-            scrollTrigger: { trigger: ".stagger-faq", start: "top 90%" }
-        });
-        
-        // --- ANIMAÇÃO DOS TEXTOS DO FOOTER ---
-        gsap.to(".reveal-footer-text", {
-            opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power3.out",
-            scrollTrigger: { trigger: "footer", start: "top 85%" } 
-        });
-
-        // --- ANIMAÇÃO BLINDADA DO BOTÃO (SEPARADA) ---
-        gsap.to("#footer-cta", {
-            opacity: 1, duration: 0.5, delay: 0.5,
-            scrollTrigger: { trigger: "footer", start: "top 85%" }
-        });
-
-        // --- FAILSAFE TOTAL DO FOOTER ---
-        // Se após 3 segundos o botão ou o texto estiverem invisíveis, força a aparição.
-        setTimeout(() => {
-            const elements = document.querySelectorAll('.reveal-footer-text, #footer-cta');
-            elements.forEach(el => {
-                if(getComputedStyle(el).opacity == '0') {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)'; // Garante que não fique deslocado
-                    el.style.transition = 'opacity 1s, transform 1s';
-                }
-            });
-        }, 3000);
-
-        const parallaxWrap = document.querySelector('.parallax-wrapper');
-        const parallaxImg = document.querySelector('.parallax-image');
-        const parallaxText = document.querySelector('.parallax-text');
-        
-        if (parallaxWrap) {
-            parallaxWrap.addEventListener('mousemove', (e) => {
-                const { width, height, left, top } = parallaxWrap.getBoundingClientRect();
-                const x = (e.clientX - left) / width - 0.5;
-                const y = (e.clientY - top) / height - 0.5;
-                gsap.to(parallaxImg, { x: -x * 50, y: -y * 50, scale: 1.2, duration: 0.5 });
-                gsap.to(parallaxText, { x: x * 30, y: y * 30, duration: 0.5 });
-            });
-            parallaxWrap.addEventListener('mouseleave', () => {
-                 gsap.to([parallaxImg, parallaxText], { x: 0, y: 0, scale: 1.15, duration: 0.8 });
-            });
-        }
-
-        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
-            max: 15, speed: 400, glare: true, "max-glare": 0.1, scale: 1.02, gyro: true
-        });
-
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(other => other.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

@@ -492,6 +492,18 @@
 
 <body class="font-sans antialiased">
 
+  <div id="gsap-progress-bar" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-[#0a0a0a] to-[#6e6e73] z-[10000] w-0 rounded-r-full pointer-events-none origin-left"></div>
+
+  <div id="gsap-cursor" class="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-[#0a0a0a] pointer-events-none z-[9999] opacity-0 mix-blend-difference hidden md:block"></div>
+  <div id="gsap-cursor-follower" class="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#0a0a0a] pointer-events-none z-[9999] opacity-0 mix-blend-difference hidden md:block"></div>
+
+  <div id="gsap-particles-container" class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div class="gsap-particle absolute w-16 h-16 rounded-full bg-[#0a0a0a]/[0.02] blur-xl top-[15%] left-[10%]"></div>
+    <div class="gsap-particle absolute w-32 h-32 rounded-full bg-[#0a0a0a]/[0.03] blur-2xl top-[60%] left-[80%]"></div>
+    <div class="gsap-particle absolute w-24 h-24 rounded-full bg-[#0a0a0a]/[0.02] blur-xl top-[40%] left-[65%]"></div>
+    <div class="gsap-particle absolute w-40 h-40 rounded-full bg-[#0a0a0a]/[0.02] blur-3xl top-[75%] left-[20%]"></div>
+    <div class="gsap-particle absolute w-20 h-20 rounded-full bg-[#0a0a0a]/[0.03] blur-lg top-[25%] left-[85%]"></div>
+  </div>
   <video class="bg-video-layer" autoplay muted loop playsinline aria-hidden="true">
     <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
   </video>
@@ -940,9 +952,9 @@
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up gsap-social-stagger-container">
 
-        <div class="testimonial-card framer-tilt">
+        <div class="testimonial-card framer-tilt gsap-social-card">
           <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
@@ -964,7 +976,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card framer-tilt">
+        <div class="testimonial-card framer-tilt gsap-social-card">
           <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
@@ -1136,7 +1148,7 @@
           </button>
           <div id="faq-answer-5" class="faq-answer" role="region">
             <p class="text-[#6e6e73] text-base leading-relaxed">
-              Nenhuma empresa pode garantir posição exata no Google — qualquer uma que prometa isso está mentindo. O que garantimos é a entrega de um site tecnicamente otimizado, com as melhores práticas de SEO aplicadas, que maximiza as suas chances de ranqueamento. Nosso histórico fala por si: mais de 90% dos clientes aparecem na primeira página para pelo menos uma palavra-chave estratégica em até 60 dias.
+              Nenhuma empresa pode guarantee posição exata no Google — qualquer uma que prometa isso está mentindo. O que garantimos é a entrega de um site tecnicamente otimizado, com as melhores práticas de SEO aplicadas, que maximiza as suas chances de ranqueamento. Nosso histórico fala por si: mais de 90% dos clientes aparecem na primeira página para pelo menos uma palavra-chave estratégica em até 60 dias.
             </p>
           </div>
         </div>
@@ -1482,8 +1494,124 @@
         }
       });
       
+
+      /* ==========================================================
+         INÍCIO DAS ADIÇÕES DE ANIMAÇÃO GSAP 
+         Integração robusta com os elementos DOM recém adicionados 
+         e com os pré-existentes.
+      ========================================================== */
+      
+      // A. BARRA DE PROGRESSO GLOBAL (ScrollTrigger)
+      gsap.to("#gsap-progress-bar", {
+        width: "100%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 0.3
+        }
+      });
+
+      // B. CURSOR MAGNÉTICO DE ALTA PERFORMANCE (QuickTo)
+      const cursor = document.getElementById('gsap-cursor');
+      const follower = document.getElementById('gsap-cursor-follower');
+      
+      if (cursor && follower && window.innerWidth >= 768) {
+        gsap.set([cursor, follower], { xPercent: -50, yPercent: -50 });
+        
+        const xToCursor = gsap.quickTo(cursor, "x", {duration: 0.15, ease: "power3"});
+        const yToCursor = gsap.quickTo(cursor, "y", {duration: 0.15, ease: "power3"});
+        const xToFollower = gsap.quickTo(follower, "x", {duration: 0.5, ease: "power3"});
+        const yToFollower = gsap.quickTo(follower, "y", {duration: 0.5, ease: "power3"});
+
+        window.addEventListener('mousemove', (e) => {
+          cursor.style.opacity = 1;
+          follower.style.opacity = 1;
+          xToCursor(e.clientX);
+          yToCursor(e.clientY);
+          xToFollower(e.clientX);
+          yToFollower(e.clientY);
+        });
+
+        // Mutação do cursor ao interagir com botoes e cards
+        const interactables = document.querySelectorAll('a, button, .framer-magnetic, .framer-tilt, .faq-question');
+        interactables.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            gsap.to(cursor, {scale: 1.8, backgroundColor: "rgba(10, 10, 10, 0.1)", duration: 0.3});
+            gsap.to(follower, {scale: 0, duration: 0.3});
+          });
+          el.addEventListener('mouseleave', () => {
+            gsap.to(cursor, {scale: 1, backgroundColor: "transparent", duration: 0.3});
+            gsap.to(follower, {scale: 1, duration: 0.3});
+          });
+        });
+      }
+
+      // C. PARTÍCULAS FLUTUANTES CONTÍNUAS NO HERO
+      const particles = gsap.utils.toArray('.gsap-particle');
+      particles.forEach(particle => {
+        gsap.to(particle, {
+          y: "random(-80, 80)",
+          x: "random(-80, 80)",
+          rotation: "random(-45, 45)",
+          scale: "random(0.8, 1.2)",
+          duration: "random(6, 12)",
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut"
+        });
+      });
+
+      // D. ANIMAÇÃO DE DESENHO (SCRUB) NO Z-LAYOUT SVG
+      const svgElements = document.querySelectorAll('.z-visual svg rect, .z-visual svg path, .z-visual svg circle');
+      if (svgElements.length > 0) {
+        gsap.fromTo(svgElements, 
+          { opacity: 0, y: 10, scale: 0.95 },
+          { 
+            opacity: 1, 
+            y: 0,
+            scale: 1, 
+            stagger: 0.05, 
+            ease: "back.out(1.2)",
+            scrollTrigger: {
+              trigger: ".z-visual",
+              start: "top 85%",
+              end: "bottom 60%",
+              scrub: 1.5
+            }
+          }
+        );
+      }
+
+      // E. STAGGER CARDS EM PROVA SOCIAL
+      const socialContainer = document.querySelector('.gsap-social-stagger-container');
+      const socialCards = document.querySelectorAll('.gsap-social-card');
+      
+      if (socialContainer && socialCards.length > 0) {
+        gsap.fromTo(socialCards,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: socialContainer,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+      }
+
+      /* ==========================================================
+         FIM DAS ADIÇÕES DE ANIMAÇÃO GSAP
+      ========================================================== */
+      
     });
   </script>
 </body>
 </html>
-

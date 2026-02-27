@@ -177,18 +177,19 @@
     }
 
     /* =============================================
-       CARDS
+       CARDS (ATUALIZADO PARA MÓDULO 4)
     ============================================= */
     .feature-card {
       background: #ffffff;
       border: 1px solid #e8e8ed;
       border-radius: 16px;
       padding: 28px;
-      transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+      transition: box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     }
     .feature-card:hover {
       box-shadow: 0 8px 40px rgba(0,0,0,0.09);
       border-color: #aeaeb2;
+      transform: scale(1.03); 
     }
 
     /* =============================================
@@ -255,12 +256,23 @@
     .faq-icon.open svg { stroke: #ffffff; }
 
     /* =============================================
-       STEP TIMELINE
+       STEP TIMELINE (PREPARAÇÃO MÓDULO 6)
     ============================================= */
     .step-connector {
       flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, #0a0a0a, #e8e8ed);
+      height: 2px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .step-node-icon.is-active {
+      box-shadow: 0 0 0 6px rgba(10, 10, 10, 0.15);
+      border: 2px solid #0a0a0a;
+      transform: scale(1.15) rotate(6deg);
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .step-node-icon {
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     }
 
     /* =============================================
@@ -308,10 +320,26 @@
     }
 
     /* =============================================
-       FOOTER
+       FOOTER E CTA (MÓDULO 8 RESPIRÁVEL)
     ============================================= */
     .footer-cta-section {
       background: #0a0a0a;
+    }
+    
+    @keyframes pulseGlow {
+      0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+      100% { opacity: 1.0; transform: translate(-50%, -50%) scale(1.1); }
+    }
+    
+    .cta-pulse-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 150%; height: 150%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      animation: pulseGlow 3s alternate ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
     }
 
     /* =============================================
@@ -365,6 +393,20 @@
     .framer-magnetic {
       will-change: transform;
     }
+
+    /* ==========================================================
+       CSS DO MÓDULO 1 & 2
+    ========================================================== */
+    .word-mask {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      line-height: inherit;
+    }
+    .word-inner {
+      display: inline-block;
+      will-change: transform, opacity;
+    }
   </style>
 
   <style>
@@ -379,7 +421,7 @@
       width: 100vw; height: 100vh;
       object-fit: cover;
       z-index: -2;
-      opacity: 0.03; /* Extremamente sutil para não afetar leitura original */
+      opacity: 0.03; 
       pointer-events: none;
     }
 
@@ -418,7 +460,7 @@
       overflow: hidden;
       border-radius: 9999px;
       background: #0a0a0a;
-      padding: 2px; /* Espaço para o glow de borda */
+      padding: 2px;
       --x: 50%;
       --y: 50%;
     }
@@ -518,7 +560,6 @@
 
   <nav class="navbar" role="navigation" aria-label="Navegação principal">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-
       <a href="#" class="flex items-center gap-2 text-[#0a0a0a] font-bold text-xl tracking-tight" aria-label="epiverso - Página inicial">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="28" height="28" rx="7" fill="#0a0a0a"/>
@@ -527,18 +568,15 @@
         </svg>
         epiverso
       </a>
-
       <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6e6e73]" role="list">
         <li><a href="#solucao" class="hover:text-[#0a0a0a] transition-colors">Solução</a></li>
         <li><a href="#beneficios" class="hover:text-[#0a0a0a] transition-colors">Benefícios</a></li>
         <li><a href="#como-funciona" class="hover:text-[#0a0a0a] transition-colors">Como Funciona</a></li>
         <li><a href="#faq" class="hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
       </ul>
-
       <div class="hidden md:flex items-center gap-3">
         <a href="#cta-final" class="btn-primary text-sm px-6 py-3 framer-magnetic">Quero meu site agora</a>
       </div>
-
       <button id="nav-toggle" class="md:hidden p-2 rounded-lg text-[#0a0a0a]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg id="icon-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
@@ -548,7 +586,6 @@
         </svg>
       </button>
     </div>
-
     <div id="mobile-menu" class="md:hidden border-t border-[#e8e8ed] bg-white px-6 py-4">
       <ul class="flex flex-col gap-4 text-sm font-medium text-[#6e6e73]" role="list">
         <li><a href="#solucao" class="block hover:text-[#0a0a0a] transition-colors">Solução</a></li>
@@ -563,16 +600,13 @@
 
   <section id="hero" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden" aria-labelledby="hero-headline">
     <div class="hero-glow" aria-hidden="true"></div>
-
     <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-
       <div class="fade-up flex justify-center mb-6">
         <span class="badge hover:scale-105 transition-transform duration-300">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
           Posicionamento no Google em até 30 dias
         </span>
       </div>
-
       <h1 id="hero-headline" class="fade-up text-[clamp(38px,7vw,80px)] font-black text-[#0a0a0a] leading-[1.05] tracking-tight mb-6 max-w-4xl mx-auto">
         Seu serviço merece ser<br class="hidden sm:block" />
         <span class="relative inline-block">
@@ -582,11 +616,9 @@
           </svg>
         </span>
       </h1>
-
       <p class="fade-up text-[clamp(17px,2.2vw,21px)] text-[#6e6e73] max-w-2xl mx-auto mb-10 leading-relaxed">
         Criamos sites institucionais e landing pages de alta performance para prestadores de serviço que querem parar de depender de indicação e começar a receber clientes todos os dias pelo Google.
       </p>
-
       <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
         <a href="#cta-final" class="btn-primary text-base px-8 py-4 framer-magnetic">
           Quero meu site agora
@@ -594,11 +626,9 @@
         </a>
         <a href="#como-funciona" class="btn-outline text-base px-8 py-4 framer-magnetic">Ver como funciona</a>
       </div>
-
       <p class="fade-up text-sm text-[#aeaeb2] font-medium">
         Sem mensalidade oculta &nbsp;·&nbsp; Entrega em até 7 dias úteis &nbsp;·&nbsp; Suporte incluso
       </p>
-
       <div class="fade-up mt-16 relative max-w-3xl mx-auto float-anim framer-tilt">
         <div class="bg-[#f5f5f7] rounded-2xl border border-[#e8e8ed] overflow-hidden shadow-2xl shadow-black/10">
           <div class="bg-[#e8e8ed] px-4 py-3 flex items-center gap-2">
@@ -630,14 +660,12 @@
         </div>
         <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/10 blur-2xl rounded-full" aria-hidden="true"></div>
       </div>
-
     </div>
   </section>
 
 
   <section id="problema" class="py-24 bg-[#fafafc]" aria-labelledby="problema-headline">
     <div class="max-w-6xl mx-auto px-6">
-
       <div class="text-center mb-16 fade-up">
         <span class="badge mb-4">O problema real</span>
         <h2 id="problema-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
@@ -647,12 +675,10 @@
           Enquanto você depende de indicação, seus concorrentes estão recebendo clientes todos os dias pelo Google. Veja o que está travando o seu crescimento:
         </p>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
         <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
           <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <circle cx="11" cy="11" r="9"/><path d="M11 7v5l3 3"/>
             </svg>
           </div>
@@ -661,10 +687,9 @@
             Todos os dias, centenas de pessoas pesquisam no Google pelo serviço que você oferece na sua cidade — e encontram o seu concorrente, não você. Cada busca sem resposta é um cliente que foi embora.
           </p>
         </div>
-
         <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
           <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <path d="M3 3h16v16H3z"/><path d="M7 7h8M7 11h5"/>
             </svg>
           </div>
@@ -673,10 +698,9 @@
             Redes sociais são ótimas para relacionamento, mas o Google não indexa posts do Instagram. Sem um site profissional, você simplesmente não existe para os mecanismos de busca — e perde autoridade na hora da decisão de compra.
           </p>
         </div>
-
         <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
           <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
+            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
@@ -685,7 +709,6 @@
             Depender exclusivamente de indicação é crescer no ritmo dos outros. Um site bem posicionado trabalha 24 horas por dia, 7 dias por semana, atraindo clientes mesmo enquanto você dorme — sem custo por clique.
           </p>
         </div>
-
       </div>
     </div>
   </section>
@@ -693,12 +716,10 @@
 
   <section id="solucao" class="py-24 bg-white" aria-labelledby="solucao-headline">
     <div class="max-w-6xl mx-auto px-6">
-
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
         <div class="fade-up order-2 lg:order-1">
           <div class="z-visual framer-tilt float-anim">
-            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8" aria-hidden="true">
+            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8 z-svg-inner" aria-hidden="true">
               <rect x="40" y="30" width="400" height="300" rx="16" fill="white" stroke="#e8e8ed" stroke-width="1.5"/>
               <rect x="40" y="30" width="400" height="40" rx="16" fill="#f5f5f7"/>
               <rect x="40" y="54" width="400" height="16" fill="#f5f5f7"/>
@@ -730,25 +751,20 @@
             </svg>
           </div>
         </div>
-
         <div class="fade-up order-1 lg:order-2">
           <span class="badge mb-5">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
             Metodologia proprietária
           </span>
-
           <h2 id="solucao-headline" class="text-[clamp(28px,4vw,44px)] font-bold text-[#0a0a0a] leading-tight mb-6">
             Um site construído para aparecer no topo — não apenas para existir.
           </h2>
-
           <p class="text-[#6e6e73] text-lg leading-relaxed mb-6">
             A epiverso não cria sites bonitos que ficam esquecidos na internet. Desenvolvemos páginas estrategicamente estruturadas com SEO técnico, arquitetura de conteúdo e velocidade de carregamento otimizada — os três pilares que o Google usa para decidir quem aparece primeiro.
           </p>
-
           <p class="text-[#6e6e73] text-lg leading-relaxed mb-8">
             Cada projeto é personalizado para o seu serviço, sua cidade e o seu cliente ideal. O resultado é um ativo digital que gera leads qualificados de forma contínua, sem depender de anúncios pagos.
           </p>
-
           <ul class="space-y-3 mb-8" role="list">
             <li class="flex items-center gap-3 text-[#0a0a0a] font-medium hover:translate-x-2 transition-transform duration-300">
               <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
@@ -775,10 +791,8 @@
               Responsivo e otimizado para mobile
             </li>
           </ul>
-
           <a href="#cta-final" class="btn-primary framer-magnetic">Solicitar proposta gratuita</a>
         </div>
-
       </div>
     </div>
   </section>
@@ -786,7 +800,6 @@
 
   <section id="beneficios" class="py-24 bg-[#fafafc]" aria-labelledby="beneficios-headline">
     <div class="max-w-6xl mx-auto px-6">
-
       <div class="text-center mb-16 fade-up">
         <span class="badge mb-4">O que está incluso</span>
         <h2 id="beneficios-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
@@ -796,11 +809,9 @@
           Cada entrega da epiverso é pensada para maximizar sua visibilidade orgânica e transform visitantes em clientes.
         </p>
       </div>
-
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2a14 14 0 010 16M10 2a14 14 0 000 16"/>
             </svg>
@@ -810,9 +821,8 @@
             Otimização completa para palavras-chave da sua cidade e segmento. Apareça quando o cliente pesquisar exatamente o que você oferece.
           </p>
         </div>
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <rect x="2" y="3" width="16" height="14" rx="3"/><path d="M7 8h6M7 12h4"/>
             </svg>
@@ -822,9 +832,8 @@
             Textos escritos por especialistas em copywriting que guiam o visitante da primeira leitura até o clique no botão de contato.
           </p>
         </div>
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <path d="M4 17V7l6-4 6 4v10"/><rect x="7" y="11" width="6" height="6"/>
             </svg>
@@ -834,9 +843,8 @@
             Layout moderno, limpo e alinhado à identidade da sua marca. Transmite credibilidade desde o primeiro segundo de visita.
           </p>
         </div>
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <rect x="3" y="6" width="8" height="12" rx="2"/><rect x="11" y="2" width="6" height="16" rx="2"/>
             </svg>
@@ -846,9 +854,8 @@
             Sites lentos perdem posição no Google e perdem clientes. Entregamos páginas com pontuação acima de 90 no Google PageSpeed Insights.
           </p>
         </div>
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <path d="M10 2l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 17l-6.2 4.3 2.4-7.4L0 9.4h7.6z"/>
             </svg>
@@ -858,9 +865,8 @@
             Configuração e otimização do seu perfil no Google Meu Negócio para aparecer no mapa e nos resultados locais com avaliações em destaque.
           </p>
         </div>
-
         <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5" aria-hidden="true">
+          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
               <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M10 6v4l3 3"/>
             </svg>
@@ -870,7 +876,6 @@
             Processo ágil e estruturado. Do briefing à publicação em até 7 dias úteis, sem enrolação e sem surpresas no meio do caminho.
           </p>
         </div>
-
       </div>
     </div>
   </section>
@@ -878,7 +883,6 @@
 
   <section id="prova-social" class="py-24 bg-[#0a0a0a]" aria-labelledby="prova-headline">
     <div class="max-w-6xl mx-auto px-6">
-
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center fade-up">
         <div class="hover:-translate-y-2 transition-transform duration-300">
           <p class="stat-number">120+</p>
@@ -897,7 +901,6 @@
           <p class="text-[#6e6e73] text-sm mt-2 font-medium">Clientes satisfeitos</p>
         </div>
       </div>
-
       <div class="mb-20 fade-up">
         <p class="text-center text-[#3a3a3c] text-sm font-medium uppercase tracking-widest mb-8">Segmentos que já atendemos</p>
         <div class="marquee-wrapper">
@@ -945,15 +948,12 @@
           </div>
         </div>
       </div>
-
       <div class="text-center mb-12 fade-up">
         <h2 id="prova-headline" class="text-[clamp(24px,3.5vw,40px)] font-bold text-white leading-tight">
           Quem já aparece no topo tem muito a dizer
         </h2>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up gsap-social-stagger-container">
-
         <div class="testimonial-card framer-tilt gsap-social-card">
           <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
@@ -975,7 +975,6 @@
             </div>
           </div>
         </div>
-
         <div class="testimonial-card framer-tilt gsap-social-card">
           <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
@@ -997,7 +996,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -1005,7 +1003,6 @@
 
   <section id="como-funciona" class="py-24 bg-white" aria-labelledby="processo-headline">
     <div class="max-w-5xl mx-auto px-6">
-
       <div class="text-center mb-16 fade-up">
         <span class="badge mb-4">Processo simples</span>
         <h2 id="processo-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
@@ -1015,11 +1012,10 @@
           Desenvolvemos um processo enxuto para que você não precise entender de tecnologia — só precisa aparecer para a reunião de briefing.
         </p>
       </div>
-
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 fade-up">
-
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 hover:rotate-6 transition-transform" aria-hidden="true">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 fade-up" id="process-timeline">
+        
+        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 step-node">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
               <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
             </svg>
@@ -1033,8 +1029,8 @@
 
         <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
 
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-75">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 hover:rotate-6 transition-transform" aria-hidden="true">
+        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-75 step-node">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
               <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/>
             </svg>
@@ -1048,8 +1044,8 @@
 
         <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
 
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-150">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 hover:rotate-6 transition-transform" aria-hidden="true">
+        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-150 step-node">
+          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
               <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
             </svg>
@@ -1062,27 +1058,23 @@
         </div>
 
       </div>
-
       <div class="text-center mt-14 fade-up">
         <a href="#cta-final" class="btn-primary framer-magnetic px-10 py-4 text-base">Começar agora — é grátis o briefing</a>
       </div>
-
     </div>
   </section>
 
 
   <section id="faq" class="py-24 bg-[#fafafc]" aria-labelledby="faq-headline">
     <div class="max-w-3xl mx-auto px-6">
-
       <div class="text-center mb-14 fade-up">
         <span class="badge mb-4">Dúvidas frequentes</span>
         <h2 id="faq-headline" class="text-[clamp(28px,4.5vw,44px)] font-bold text-[#0a0a0a] leading-tight">
           Respostas diretas para as dúvidas mais comuns
         </h2>
       </div>
-
       <div class="bg-white rounded-2xl border border-[#e8e8ed] px-8 py-2 fade-up shadow-sm hover:shadow-md transition-shadow duration-300" role="list">
-
+        
         <div class="faq-item" role="listitem">
           <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
             <span class="group-hover:translate-x-1 transition-transform">Quanto custa um site da epiverso?</span>
@@ -1160,102 +1152,82 @@
 
   <section id="ai-tools" class="py-24 relative overflow-hidden bg-transparent">
     <div class="text-center mb-16 scroll-top fade-scroll-element">
-  <span class="badge mb-4 text-white bg-black border border-black/50 table mx-auto">
-    Ecossistema de Alta Performance
-  </span>
-        <h2 class="text-[clamp(28px,4.5vw,48px)] font-bold text-black max-w-2xl mx-auto leading-tight">
-          Stack de Ferramentas e Bônus
-        </h2>
-      </div>
-
-      <div class="swiper-container ai-tools-slider scroll-bottom fade-scroll-element cursor-grab active:cursor-grabbing pb-12">
-        <div class="swiper-wrapper linear-motion">
-          
-          <div class="swiper-slide !w-[300px]">
-            <div class="offline-glass-card h-full">
-              <h3 class="text-xl font-bold mb-3 text-black">Google Analytics 4</h3>
-              <p class="text-sm text-gray-300">Integração nativa para mapeamento preciso da jornada do usuário.</p>
-            </div>
+      <span class="badge mb-4 text-white bg-black border border-black/50 table mx-auto">
+        Ecossistema de Alta Performance
+      </span>
+      <h2 class="text-[clamp(28px,4.5vw,48px)] font-bold text-black max-w-2xl mx-auto leading-tight">
+        Stack de Ferramentas e Bônus
+      </h2>
+    </div>
+    <div class="swiper-container ai-tools-slider scroll-bottom fade-scroll-element cursor-grab active:cursor-grabbing pb-12">
+      <div class="swiper-wrapper linear-motion">
+        <div class="swiper-slide !w-[300px]">
+          <div class="offline-glass-card h-full">
+            <h3 class="text-xl font-bold mb-3 text-black">Google Analytics 4</h3>
+            <p class="text-sm text-gray-300">Integração nativa para mapeamento preciso da jornada do usuário.</p>
           </div>
-          
-          <div class="swiper-slide !w-[300px]">
-            <div class="offline-glass-card h-full">
-              <h3 class="text-xl font-bold mb-3 text-black">WP Rocket</h3>
-              <p class="text-sm text-gray-300">Sistema avançado de cache embarcado garantindo métricas Core Web Vitals verdes.</p>
-            </div>
+        </div>
+        <div class="swiper-slide !w-[300px]">
+          <div class="offline-glass-card h-full">
+            <h3 class="text-xl font-bold mb-3 text-black">WP Rocket</h3>
+            <p class="text-sm text-gray-300">Sistema avançado de cache embarcado garantindo métricas Core Web Vitals verdes.</p>
           </div>
-
-          <div class="swiper-slide !w-[300px]">
-            <div class="offline-glass-card h-full">
-              <h3 class="text-xl font-bold mb-3 text-black">Heatmaps</h3>
-              <p class="text-sm text-gray-300">Configuração de mapas de calor para análise de pontos de atrito no UX.</p>
-            </div>
+        </div>
+        <div class="swiper-slide !w-[300px]">
+          <div class="offline-glass-card h-full">
+            <h3 class="text-xl font-bold mb-3 text-black">Heatmaps</h3>
+            <p class="text-sm text-gray-300">Configuração de mapas de calor para análise de pontos de atrito no UX.</p>
           </div>
-
-          <div class="swiper-slide !w-[300px]">
-            <div class="offline-glass-card h-full">
-              <h3 class="text-xl font-bold mb-3 text-black">Cloudflare CDN</h3>
-              <p class="text-sm text-gray-300">Distribuição global de ativos garantindo latência mínima mundial.</p>
-            </div>
+        </div>
+        <div class="swiper-slide !w-[300px]">
+          <div class="offline-glass-card h-full">
+            <h3 class="text-xl font-bold mb-3 text-black">Cloudflare CDN</h3>
+            <p class="text-sm text-gray-300">Distribuição global de ativos garantindo latência mínima mundial.</p>
           </div>
-          
         </div>
       </div>
-      
     </div>
   </section>
 
 
   <section id="cta-final" class="footer-cta-section py-28 relative overflow-hidden" aria-labelledby="cta-headline">
-    
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none float-anim"></div>
-
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10 scroll-bottom fade-scroll-element">
-
       <div class="fade-up">
         <span class="inline-flex items-center gap-2 bg-white/10 text-white rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest mb-8 hover:bg-white/20 transition-colors cursor-default">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
           Vagas limitadas por mês
         </span>
-
         <h2 id="cta-headline" class="text-[clamp(32px,5.5vw,64px)] font-black text-white leading-[1.05] tracking-tight mb-6">
           Cada dia sem site é um<br class="hidden sm:block" />
           cliente que foi para o concorrente.
         </h2>
-
         <p class="text-[#aeaeb2] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
           Atendemos um número limitado de projetos por mês para garantir qualidade e atenção total a cada cliente. Solicite sua proposta gratuita agora e garanta sua vaga.
         </p>
-
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <div class="glow-btn-wrapper glow-trigger framer-magnetic" style="box-shadow: 0 0 15px rgba(0,0,0,0.1);">
-  <a href="https://wa.me/5548992086832?text=Ol%C3%A1%2C+vim+pelo+site+da+epiverso+e+gostaria+de+solicitar+uma+proposta." 
-     class="glow-btn-inner" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     style="background-color: #FFFFFF !important; color: #000000 !important; border: 1px solid #000000; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; text-decoration: none; border-radius: 8px;">
-    
-    Solicitar proposta gratuita
-    
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #000000;">
-      <path d="M3 8h10M9 4l4 4-4 4"/>
-    </svg>
-    
-  </a>
-</div>
+            <a href="https://wa.me/5548992086832?text=Ol%C3%A1%2C+vim+pelo+site+da+epiverso+e+gostaria+de+solicitar+uma+proposta." 
+               class="glow-btn-inner" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               style="background-color: #FFFFFF !important; color: #000000 !important; border: 1px solid #000000; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; text-decoration: none; border-radius: 8px;">
+              Solicitar proposta gratuita
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #000000;">
+                <path d="M3 8h10M9 4l4 4-4 4"/>
+              </svg>
+            </a>
+          </div>
         </div>
-
         <p class="text-[#6e6e73] text-sm">
           Sem compromisso &nbsp;·&nbsp; Resposta em até 2 horas &nbsp;·&nbsp; 100% gratuito
         </p>
       </div>
-
     </div>
   </section>
 
   <footer class="bg-[#0a0a0a] border-t border-white/5 py-10" role="contentinfo">
     <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-
       <a href="#" class="flex items-center gap-2 text-white font-bold text-lg tracking-tight hover:scale-105 transition-transform" aria-label="epiverso - Voltar ao topo">
         <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <rect width="28" height="28" rx="7" fill="white"/>
@@ -1264,7 +1236,6 @@
         </svg>
         epiverso
       </a>
-
       <nav aria-label="Links legais">
         <ul class="flex flex-wrap items-center gap-6 text-xs text-[#6e6e73]" role="list">
           <li><a href="#" class="hover:text-white transition-colors">Política de Privacidade</a></li>
@@ -1272,20 +1243,16 @@
           <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
         </ul>
       </nav>
-
       <p class="text-xs text-[#6e6e73]">
         &copy; <span id="footer-year"></span> epiverso. Todos os direitos reservados.
       </p>
-
     </div>
   </footer>
 
-
   <script>
-    // ---- Ano dinâmico no footer ----
+    // ---- SCRIPTS ORIGINAIS PRESERVADOS ----
     document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-    // ---- Menu mobile toggle ----
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const iconOpen   = document.getElementById('icon-open');
@@ -1298,7 +1265,6 @@
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    // Fechar menu ao clicar em link
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
@@ -1308,19 +1274,16 @@
       });
     });
 
-    // ---- FAQ Acordeão ----
     function toggleFaq(button) {
       const icon   = button.querySelector('.faq-icon');
       const answerId = button.getAttribute('aria-controls');
       const answer = document.getElementById(answerId);
       const isOpen = answer.classList.contains('open');
 
-      // Fechar todos
       document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
       document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
       document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
 
-      // Abrir o clicado (se estava fechado)
       if (!isOpen) {
         answer.classList.add('open');
         icon.classList.add('open');
@@ -1328,12 +1291,10 @@
       }
     }
 
-    // ---- Animações de entrada (Intersection Observer) ----
     const fadeEls = document.querySelectorAll('.fade-up');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, idx) => {
         if (entry.isIntersecting) {
-          // Delay escalonado para elementos irmãos
           const siblings = Array.from(entry.target.parentElement.querySelectorAll('.fade-up'));
           const delay = siblings.indexOf(entry.target) * 80;
           setTimeout(() => {
@@ -1346,7 +1307,6 @@
 
     fadeEls.forEach(el => observer.observe(el));
 
-    // ---- Navbar shadow on scroll ----
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
@@ -1356,11 +1316,6 @@
       }
     }, { passive: true });
 
-    /* ==========================================================
-       SCRIPT ORIGINAL: ANIMAÇÕES ESTILO FRAMER (TILT, MAGNETIC, PARALLAX)
-       ========================================================== */
-
-    // 1. Efeito Magnético nos Botões (Puxa para o mouse)
     const magneticBtns = document.querySelectorAll('.framer-magnetic');
     magneticBtns.forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
@@ -1376,41 +1331,32 @@
       });
     });
 
-    // 2. Efeito 3D Tilt nos Cards e Mockups (Gira levemente com o mouse)
     const tiltElements = document.querySelectorAll('.framer-tilt');
     tiltElements.forEach(el => {
       el.addEventListener('mousemove', (e) => {
-        // Ignora tilt no mobile para não bugar touch
         if(window.innerWidth < 768) return; 
-        
         const rect = el.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
-        const rotateX = ((y - centerY) / centerY) * -5; // Máximo 5 graus
+        const rotateX = ((y - centerY) / centerY) * -5;
         const rotateY = ((x - centerX) / centerX) * 5;
-        
         el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         el.style.transition = 'none';
       });
-      
       el.addEventListener('mouseleave', () => {
         el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
         el.style.transition = 'transform 0.5s ease-out';
       });
     });
 
-    // 3. Parallax Suave no Background Glow do Hero
     const heroGlow = document.querySelector('.hero-glow');
     window.addEventListener('scroll', () => {
       if(!heroGlow) return;
       const scrolled = window.scrollY;
-      // Move o glow ligeiramente para baixo ao scrollar
       heroGlow.style.transform = `translateX(-50%) translateY(${scrolled * 0.35}px)`;
     }, { passive: true });
-
   </script>
 
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
@@ -1421,7 +1367,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       
-      // 1. ENGINE: Lenis (Smooth Scroll)
+      // ENGINE BASE
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -1433,14 +1379,10 @@
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
-
-      // Sincronizando o ScrollTrigger com o Lenis
       gsap.registerPlugin(ScrollTrigger);
       lenis.on('scroll', ScrollTrigger.update);
 
-      // 2. SISTEMA DE SCROLL-TRIGGERED CLASS (FadeScroll)
-      const triggerThreshold = window.innerHeight * 0.8; // Gatilho sutilmente ajustado para melhor percepção
-      
+      const triggerThreshold = window.innerHeight * 0.8;
       const fadeScrollElements = document.querySelectorAll('.fade-scroll-element');
       function checkFadeScroll() {
         fadeScrollElements.forEach(el => {
@@ -1451,22 +1393,17 @@
         });
       }
       window.addEventListener('scroll', checkFadeScroll, { passive: true });
-      checkFadeScroll(); // Checa na carga inicial
+      checkFadeScroll();
 
-      // 3. ENGINE: Swiper.js (Movimento Linear Perpétuo)
       new Swiper('.ai-tools-slider', {
         loop: true,
         slidesPerView: 'auto',
         spaceBetween: 24,
         speed: 5000,
-        autoplay: {
-          delay: 0,
-          disableOnInteraction: false,
-        },
+        autoplay: { delay: 0, disableOnInteraction: false },
         allowTouchMove: true,
       });
 
-      // 4. MOUSE-TRACKING GLOW DINÂMICO
       const glowTriggers = document.querySelectorAll('.glow-trigger');
       glowTriggers.forEach(btn => {
         btn.addEventListener('mousemove', e => {
@@ -1478,13 +1415,11 @@
         });
       });
 
-      // 5. AUDIO CONTROLLER TOGGLE
       const audioBtn = document.getElementById('globalAudioToggle');
       const bgAudio = document.getElementById('bg-audio');
-      
       audioBtn.addEventListener('click', () => {
         if (bgAudio.paused) {
-          bgAudio.volume = 0.2; // Volume reduzido para não ofuscar o foco
+          bgAudio.volume = 0.2;
           bgAudio.play().then(() => {
             audioBtn.classList.add('playing');
           }).catch(e => console.error("Interação de áudio bloqueada", e));
@@ -1494,47 +1429,23 @@
         }
       });
       
-
-      /* ==========================================================
-         INÍCIO DAS ADIÇÕES DE ANIMAÇÃO GSAP 
-         Integração robusta com os elementos DOM recém adicionados 
-         e com os pré-existentes.
-      ========================================================== */
-      
-      // A. BARRA DE PROGRESSO GLOBAL (ScrollTrigger)
       gsap.to("#gsap-progress-bar", {
-        width: "100%",
-        ease: "none",
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.3
-        }
+        width: "100%", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 }
       });
 
-      // B. CURSOR MAGNÉTICO DE ALTA PERFORMANCE (QuickTo)
       const cursor = document.getElementById('gsap-cursor');
       const follower = document.getElementById('gsap-cursor-follower');
-      
       if (cursor && follower && window.innerWidth >= 768) {
         gsap.set([cursor, follower], { xPercent: -50, yPercent: -50 });
-        
         const xToCursor = gsap.quickTo(cursor, "x", {duration: 0.15, ease: "power3"});
         const yToCursor = gsap.quickTo(cursor, "y", {duration: 0.15, ease: "power3"});
         const xToFollower = gsap.quickTo(follower, "x", {duration: 0.5, ease: "power3"});
         const yToFollower = gsap.quickTo(follower, "y", {duration: 0.5, ease: "power3"});
-
         window.addEventListener('mousemove', (e) => {
-          cursor.style.opacity = 1;
-          follower.style.opacity = 1;
-          xToCursor(e.clientX);
-          yToCursor(e.clientY);
-          xToFollower(e.clientX);
-          yToFollower(e.clientY);
+          cursor.style.opacity = 1; follower.style.opacity = 1;
+          xToCursor(e.clientX); yToCursor(e.clientY);
+          xToFollower(e.clientX); yToFollower(e.clientY);
         });
-
-        // Mutação do cursor ao interagir com botoes e cards
         const interactables = document.querySelectorAll('a, button, .framer-magnetic, .framer-tilt, .faq-question');
         interactables.forEach(el => {
           el.addEventListener('mouseenter', () => {
@@ -1548,69 +1459,142 @@
         });
       }
 
-      // C. PARTÍCULAS FLUTUANTES CONTÍNUAS NO HERO
       const particles = gsap.utils.toArray('.gsap-particle');
       particles.forEach(particle => {
         gsap.to(particle, {
-          y: "random(-80, 80)",
-          x: "random(-80, 80)",
-          rotation: "random(-45, 45)",
-          scale: "random(0.8, 1.2)",
-          duration: "random(6, 12)",
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut"
+          y: "random(-80, 80)", x: "random(-80, 80)", rotation: "random(-45, 45)", scale: "random(0.8, 1.2)", duration: "random(6, 12)", repeat: -1, yoyo: true, ease: "sine.inOut"
         });
       });
 
-      // D. ANIMAÇÃO DE DESENHO (SCRUB) NO Z-LAYOUT SVG
-      const svgElements = document.querySelectorAll('.z-visual svg rect, .z-visual svg path, .z-visual svg circle');
-      if (svgElements.length > 0) {
-        gsap.fromTo(svgElements, 
-          { opacity: 0, y: 10, scale: 0.95 },
-          { 
-            opacity: 1, 
-            y: 0,
-            scale: 1, 
-            stagger: 0.05, 
-            ease: "back.out(1.2)",
-            scrollTrigger: {
-              trigger: ".z-visual",
-              start: "top 85%",
-              end: "bottom 60%",
-              scrub: 1.5
-            }
-          }
-        );
-      }
-
-      // E. STAGGER CARDS EM PROVA SOCIAL
       const socialContainer = document.querySelector('.gsap-social-stagger-container');
       const socialCards = document.querySelectorAll('.gsap-social-card');
-      
       if (socialContainer && socialCards.length > 0) {
         gsap.fromTo(socialCards,
           { opacity: 0, y: 60, scale: 0.95 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            stagger: 0.2,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: socialContainer,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
+          { opacity: 1, y: 0, scale: 1, stagger: 0.2, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: socialContainer, start: "top 80%", toggleActions: "play none none reverse" } }
         );
       }
 
       /* ==========================================================
-         FIM DAS ADIÇÕES DE ANIMAÇÃO GSAP
+         MÓDULO 1 & 2: HERO & MUTAÇÃO
       ========================================================== */
-      
+      const heroHeadline = document.getElementById('hero-headline');
+      function simulateSplitText(element) {
+        const processNodes = (node) => {
+          if (node.nodeType === 3) { 
+            const words = node.nodeValue.split(/(\s+)/); 
+            const fragment = document.createDocumentFragment();
+            words.forEach(word => {
+              if (word.trim().length > 0) {
+                const mask = document.createElement('span'); mask.className = 'word-mask';
+                const inner = document.createElement('span'); inner.className = 'word-inner'; inner.textContent = word;
+                mask.appendChild(inner); fragment.appendChild(mask);
+              } else {
+                fragment.appendChild(document.createTextNode(word));
+              }
+            });
+            node.parentNode.replaceChild(fragment, node);
+          } else if (node.nodeType === 1 && node.tagName !== 'svg' && node.tagName !== 'BR' && node.tagName !== 'SVG') {
+            Array.from(node.childNodes).forEach(processNodes);
+          }
+        };
+        Array.from(element.childNodes).forEach(processNodes);
+      }
+
+      if (heroHeadline) {
+        heroHeadline.classList.remove('fade-up', 'visible');
+        simulateSplitText(heroHeadline);
+        const tlHero = gsap.timeline();
+        tlHero.fromTo('.word-inner', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.08, ease: "power4.out" });
+        tlHero.fromTo('#hero p, #hero .badge, #hero .btn-primary, #hero .btn-outline, #hero .text-sm', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1.5, stagger: 0.1, ease: "expo.out" }, "-=0.8");
+        tlHero.fromTo('#hero .framer-tilt', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.5, ease: "expo.out" }, "-=1");
+      }
+
+      gsap.to('.hero-glow, #hero .framer-tilt', { y: "-=15", rotation: 5, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+
+      const problemaSection = document.getElementById('problema');
+      if (problemaSection) {
+        gsap.to(problemaSection, { backgroundColor: '#e8e8ed', ease: "none", scrollTrigger: { trigger: problemaSection, start: "top 70%", end: "center center", scrub: true } });
+        const tensionIcons = document.querySelectorAll('#problema .tension-svg');
+        tensionIcons.forEach(icon => { gsap.to(icon, { x: 1.5, y: -0.5, duration: 0.08, repeat: -1, yoyo: true, ease: "none" }); });
+      }
+
+      /* ==========================================================
+         MÓDULO 3, 4 E 6: REVEAL, PARALLAX CARDS E DRAWSVG
+      ========================================================== */
+      const zVisual = document.querySelector('.z-visual');
+      const zSvgInner = document.querySelector('.z-svg-inner');
+      if (zVisual && zSvgInner) {
+        gsap.set(zVisual, { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" });
+        gsap.set(zSvgInner, { scale: 1.3 });
+        const tlReveal = gsap.timeline({ scrollTrigger: { trigger: zVisual, start: "top 85%", toggleActions: "play none none reverse" } });
+        tlReveal.to(zVisual, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1.5, ease: "power4.inOut" }, 0)
+                .to(zSvgInner, { scale: 1, duration: 2, ease: "power3.out" }, 0);
+      }
+
+      const featureCards = gsap.utils.toArray('.feature-card');
+      featureCards.forEach(card => {
+        const icon = card.querySelector('.icon-parallax');
+        if (icon) {
+          gsap.fromTo(icon, { yPercent: 40 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1 } });
+        }
+      });
+
+      const connectors = document.querySelectorAll('.step-connector');
+      connectors.forEach(conn => {
+        conn.style.background = 'transparent';
+        conn.innerHTML = `<svg width="100%" height="2" preserveAspectRatio="none">
+                            <line x1="0" y1="1" x2="100%" y2="1" stroke="#0a0a0a" stroke-width="2" pathLength="1" class="draw-line" style="stroke-dasharray: 1; stroke-dashoffset: 1;"></line>
+                          </svg>`;
+      });
+
+      const processTimeline = document.getElementById('process-timeline');
+      const stepNodes = processTimeline ? processTimeline.querySelectorAll('.step-node') : [];
+      if (processTimeline && stepNodes.length > 0) {
+        gsap.to('.draw-line', {
+          strokeDashoffset: 0, ease: "none", scrollTrigger: {
+            trigger: processTimeline, start: "top 75%", end: "bottom 60%", scrub: true,
+            onUpdate: (self) => {
+              const progress = self.progress;
+              const thresholds = [0.1, 0.45, 0.9]; 
+              stepNodes.forEach((node, index) => {
+                const iconBox = node.querySelector('.step-node-icon');
+                if (progress >= thresholds[index]) iconBox.classList.add('is-active');
+                else iconBox.classList.remove('is-active');
+              });
+            }
+          }
+        });
+      }
+
+      /* ==========================================================
+         MÓDULO 7: RECÁLCULO DO LENIS/GSAP NO FAQ
+      ========================================================== */
+      const faqButtons = document.querySelectorAll('.faq-question');
+      faqButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Aguarda a transição de altura do CSS (.faq-answer { transition: max-height 0.4s ease })
+          setTimeout(() => {
+            if (typeof ScrollTrigger !== 'undefined') {
+              ScrollTrigger.refresh(); // Sincroniza a árvore do DOM
+            }
+          }, 450); 
+        });
+      });
+
+      /* ==========================================================
+         MÓDULO 8: INJEÇÃO DO HACK DE PULSAÇÃO NO CTA
+      ========================================================== */
+      const ctaGlowWrappers = document.querySelectorAll('.glow-btn-wrapper');
+      ctaGlowWrappers.forEach(wrapper => {
+        const pulseLayer = document.createElement('div');
+        pulseLayer.className = 'cta-pulse-bg';
+        // Injeta a div estruturalmente antes do link nativo para respeitar o z-index da hierarquia
+        const innerLink = wrapper.querySelector('.glow-btn-inner');
+        if (innerLink) { innerLink.style.zIndex = '2'; innerLink.style.position = 'relative'; }
+        wrapper.insertBefore(pulseLayer, wrapper.firstChild);
+      });
+
     });
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Epiverso | Automação e Captura de XMLs (NFC-e e NF-e) para SC e RS. Integração total via Playwright e JB Cepil." />
+  <meta name="description" content="Epiverso | Automação e Captura de XMLs (NFC-e e NF-e) direto da SEFAZ SC e RS." />
   <title>Epiverso | Sistema de Captura de XMLs SC e RS</title>
 
   <link rel="icon" type="image/png" href="favicon.png" />
@@ -181,16 +181,6 @@
       box-shadow: 0 12px 40px rgba(0,0,0,0.06);
       border-color: rgba(0, 71, 255, 0.3);
       transform: translateY(-5px); 
-    }
-
-    /* =============================================
-       DEPOIMENTOS / STATS
-    ============================================= */
-    .testimonial-card {
-      background: #ffffff;
-      border-radius: 8px;
-      padding: 36px;
-      border: 1px solid #e8e8ed;
     }
 
     /* =============================================
@@ -415,7 +405,7 @@
       </a>
       <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6e6e73]" role="list">
         <li><a href="#solucao" class="hover:text-[#0a0a0a] transition-colors">A Arquitetura</a></li>
-        <li><a href="#beneficios" class="hover:text-[#0a0a0a] transition-colors">Funcionalidades</a></li>
+        <li><a href="#beneficios" class="hover:text-[#0a0a0a] transition-colors">Facilidades</a></li>
         <li><a href="#como-funciona" class="hover:text-[#0a0a0a] transition-colors">O Fluxo</a></li>
         <li><a href="#faq" class="hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
       </ul>
@@ -434,7 +424,7 @@
     <div id="mobile-menu" class="md:hidden border-t border-[#e8e8ed] bg-white px-6 py-4 shadow-xl">
       <ul class="flex flex-col gap-4 text-sm font-medium text-[#6e6e73]" role="list">
         <li><a href="#solucao" class="block hover:text-[#0a0a0a] transition-colors">A Arquitetura</a></li>
-        <li><a href="#beneficios" class="block hover:text-[#0a0a0a] transition-colors">Funcionalidades</a></li>
+        <li><a href="#beneficios" class="block hover:text-[#0a0a0a] transition-colors">Facilidades</a></li>
         <li><a href="#como-funciona" class="block hover:text-[#0a0a0a] transition-colors">O Fluxo</a></li>
         <li><a href="#faq" class="block hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
         <li><a href="#cta-final" class="btn-primary w-full text-center mt-2">Acessar Sistema</a></li>
@@ -459,7 +449,7 @@
         </span>
       </h1>
       <p class="fade-up text-[clamp(17px,2.2vw,21px)] text-[#6e6e73] max-w-2xl mx-auto mb-10 leading-relaxed font-light">
-        Baixamos <strong class="text-[#0a0a0a] font-medium">NFC-e e NF-e de Santa Catarina e Rio Grande do Sul</strong>. O Epiverso busca, organiza e disponibiliza todas as suas notas de forma automática, segura e inteligente.
+        Baixamos <strong class="text-[#0a0a0a] font-medium">NFC-e e NF-e diretamente da SEFAZ de Santa Catarina e Rio Grande do Sul</strong>. O Epiverso busca, organiza e disponibiliza todas as suas notas de forma automática, segura e inteligente.
       </p>
       <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
         <a href="#cta-final" class="btn-primary text-base px-8 py-4 framer-magnetic">
@@ -469,7 +459,7 @@
         <a href="#solucao" class="btn-outline text-base px-8 py-4 framer-magnetic">Ver Arquitetura</a>
       </div>
       <p class="fade-up text-sm text-[#aeaeb2] font-mono mt-4">
-        Playwright &nbsp;·&nbsp; API Maria &nbsp;·&nbsp; JB Cepil
+        Automação Fiscal &nbsp;·&nbsp; Conexão Direta &nbsp;·&nbsp; Integração SEFAZ
       </p>
       
       <!-- Terminal UI Mockup (Light Theme) -->
@@ -486,14 +476,14 @@
           <div class="p-6 text-left space-y-4 font-mono text-sm bg-white">
             <div class="bg-[#fafafc] rounded p-4 border border-[#e8e8ed] relative hover:border-[#0047FF]/40 transition-colors duration-300">
               <span class="absolute -top-3 right-4 badge text-[9px] border-none bg-[#0047FF] text-white">SUCCESS</span>
-              <p class="text-[#0047FF] font-semibold mb-1">> [BOT] Conectando SEFAZ/SC e SEFAZ/RS...</p>
-              <p class="text-[#0a0a0a] font-medium">Automação Playwright inicializada com sucesso.</p>
-              <p class="text-[#6e6e73] mt-1 text-xs">Aguardando chave de acesso e verificação de travas de 4 horas para evitar duplicidade.</p>
+              <p class="text-[#0047FF] font-semibold mb-1">> [SISTEMA] Conectando SEFAZ/SC e SEFAZ/RS...</p>
+              <p class="text-[#0a0a0a] font-medium">Conexão direta estabelecida com sucesso.</p>
+              <p class="text-[#6e6e73] mt-1 text-xs">Intervalo de 4 horas respeitado. Inicializando consolidação dos XMLs e extração das notas fiscais.</p>
             </div>
             <div class="bg-white rounded p-4 border border-[#e8e8ed] opacity-80">
-              <p class="text-[#6e6e73] font-semibold mb-1">> [JB CEPIL] Roteamento Ativo</p>
-              <p class="text-[#0a0a0a] font-medium">Separando XMLs: Emitidas (Filial 01) | Destinadas (Filial 01)</p>
-              <p class="text-[#6e6e73] mt-1 text-xs">Download direto validado via API Maria e Sistema Boss.</p>
+              <p class="text-[#6e6e73] font-semibold mb-1">> [FILE SYSTEM] Salvando documentos em disco</p>
+              <p class="text-[#0a0a0a] font-medium">Estruturando: /emitidas e /destinadas</p>
+              <p class="text-[#6e6e73] mt-1 text-xs">Pastas de empresas organizadas localmente. Downloads concluídos sem duplicidades.</p>
             </div>
           </div>
         </div>
@@ -523,7 +513,7 @@
           </div>
           <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Bloqueios na SEFAZ</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Consultas repetidas ou feitas por sistemas amadores geram bloqueios de IP nos servidores de SC e RS, interrompendo totalmente a rotina fiscal.
+            Consultas repetidas ou feitas de forma não otimizada geram bloqueios nos servidores de SC e RS, interrompendo totalmente a rotina fiscal.
           </p>
         </div>
         <div class="fade-up bg-white rounded-lg p-8 border border-[#e8e8ed] framer-tilt">
@@ -534,7 +524,7 @@
           </div>
           <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Notas Duplicadas</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Sistemas que não possuem gerenciamento de estado acabam baixando e processando o mesmo XML múltiplas vezes, estourando a memória e sujando os dados.
+            Scripts sem gerenciamento de estado acabam baixando e processando o mesmo XML múltiplas vezes, estourando a memória e sujando os dados.
           </p>
         </div>
         <div class="fade-up bg-white rounded-lg p-8 border border-[#e8e8ed] framer-tilt">
@@ -545,7 +535,7 @@
           </div>
           <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Desorganização de Pastas</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Arquivos salvos todos juntos em um único diretório. Não há separação lógica entre CNPJs matriz, filiais, notas emitidas e notas destinadas.
+            Arquivos sendo salvos todos juntos em um único diretório. Não há separação lógica eficiente entre notas emitidas e notas destinadas.
           </p>
         </div>
       </div>
@@ -573,20 +563,20 @@
               
               <!-- Card SC -->
               <rect x="60" y="90" width="170" height="72" rx="4" fill="#ffffff" stroke="#e8e8ed" stroke-width="1.5"/>
-              <text x="145" y="132" font-family="JetBrains Mono, monospace" font-size="16" fill="#0a0a0a" font-weight="700">SC</text>
+              <text x="145" y="132" font-family="JetBrains Mono, monospace" font-size="16" fill="#0a0a0a" font-weight="700">SEFAZ SC</text>
               <rect x="75" y="125" width="24" height="24" rx="12" fill="none" stroke="#0047FF" stroke-width="2"/>
               
               <!-- Card RS -->
               <rect x="250" y="90" width="170" height="72" rx="4" fill="#ffffff" stroke="#e8e8ed" stroke-width="1.5"/>
-              <text x="335" y="132" font-family="JetBrains Mono, monospace" font-size="16" fill="#0a0a0a" font-weight="700">RS</text>
+              <text x="335" y="132" font-family="JetBrains Mono, monospace" font-size="16" fill="#0a0a0a" font-weight="700">SEFAZ RS</text>
               <rect x="265" y="125" width="24" height="24" rx="12" fill="none" stroke="#0047FF" stroke-width="2"/>
               
               <!-- Arrow Down -->
               <path d="M240 180 L240 210" stroke="#0047FF" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
               
-              <!-- System DB -->
+              <!-- Local Processing -->
               <rect x="60" y="230" width="360" height="60" rx="4" fill="#0047FF" fill-opacity="0.08" stroke="#0047FF" stroke-width="1.5"/>
-              <text x="240" y="265" font-family="Inter, sans-serif" font-size="14" fill="#0047FF" text-anchor="middle" font-weight="700">JB CEPIL ROUTING</text>
+              <text x="240" y="265" font-family="Inter, sans-serif" font-size="14" fill="#0047FF" text-anchor="middle" font-weight="700">ORGANIZAÇÃO LOCAL ESTRUTURADA</text>
               
               <defs>
                 <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
@@ -602,30 +592,30 @@
             Arquitetura de Engenharia
           </span>
           <h2 id="solucao-headline" class="text-[clamp(28px,4vw,40px)] font-bold text-[#0a0a0a] leading-tight mb-6">
-            Construído para suportar volumes massivos sem gargalos de memória.
+            Construído para extrair direto da fonte, sem rodeios.
           </h2>
           <p class="text-[#6e6e73] text-base leading-relaxed mb-6 font-light">
-            O sistema utiliza robôs em Playwright para extrair as chaves da NFC-e e faz a ponte nativa com a API da Maria e o sistema Boss. O resultado? Download direto, estruturado e com validade jurídica dos arquivos SEFAZ.
+            O sistema executa uma automação que realiza toda a busca e extração direta nas bases do SEFAZ de Santa Catarina e Rio Grande do Sul. O resultado? Download local, limpo e extremamente ágil dos seus XMLs originais.
           </p>
           <p class="text-[#6e6e73] text-base leading-relaxed mb-8 font-light">
-            Desenvolvemos travas de sincronização de 4 horas para aniquilar o processamento de notas duplicadas e integramos o roteamento JB Cepil para manter a integridade total dos arquivos por empresa.
+            Desenvolvemos travas lógicas de sincronização de 4 horas para aniquilar o processamento de notas duplicadas e programamos uma rotina rigorosa de separação local das pastas (Emitidas vs Destinadas).
           </p>
           <ul class="space-y-4 mb-8 font-mono text-sm" role="list">
             <li class="flex items-center gap-3 text-[#0a0a0a] hover:text-[#0047FF] transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-[#0047FF] flex-shrink-0" aria-hidden="true"></span>
-              Robôs em Playwright para scraping preciso
+              Automação contínua e silenciosa em background
             </li>
             <li class="flex items-center gap-3 text-[#0a0a0a] hover:text-[#0047FF] transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-[#0047FF] flex-shrink-0" aria-hidden="true"></span>
-              Integração com API da Maria e sistema Boss
+              Acesso direto nas fontes oficiais (SC e RS)
             </li>
             <li class="flex items-center gap-3 text-[#0a0a0a] hover:text-[#0047FF] transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-[#0047FF] flex-shrink-0" aria-hidden="true"></span>
-              Separação de Pastas via JB Cepil (Emitidas/Destinadas)
+              Roteamento automático das pastas locais
             </li>
             <li class="flex items-center gap-3 text-[#0a0a0a] hover:text-[#0047FF] transition-colors duration-300">
               <span class="w-1.5 h-1.5 rounded-full bg-[#0047FF] flex-shrink-0" aria-hidden="true"></span>
-              Travas estritas de 4h (Anti-Duplicidade e Memória)
+              Travas estritas de 4h (Proteção Anti-Duplicidade)
             </li>
           </ul>
           <a href="#cta-final" class="btn-primary framer-magnetic">Inspecionar Documentação</a>
@@ -638,85 +628,123 @@
   <section id="beneficios" class="py-24 bg-[#fafafc] border-y border-[#e8e8ed]" aria-labelledby="beneficios-headline">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center mb-16 fade-up">
-        <span class="badge mb-4">Funcionalidades Principais</span>
+        <span class="badge mb-4">Vantagens Exclusivas</span>
         <h2 id="beneficios-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-          Automático, Seguro e Organizado
+          Facilidades que o nosso sistema traz para você
         </h2>
         <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto font-light">
-          Uma suíte completa de engenharia focada na resiliência e integridade dos documentos fiscais da sua empresa.
+          Muito além de baixar arquivos. Entregamos um painel completo para simplificar de ponta a ponta a sua rotina fiscal.
         </p>
       </div>
+      
+      <!-- Grid de 9 Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <path d="M2 10h16M10 2a14 14 0 010 16M10 2a14 14 0 000 16"/>
+              <path d="M18 20V10M12 20V4M6 20v-4"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Automação Global</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Relatórios Detalhados</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            O sistema busca as notas por você, todos os dias. Scripts extraem dados diretamente das fontes sem cliques manuais.
+            Tenha visão total do seu negócio com relatórios precisos sobre notas emitidas, produtos comercializados e faturamento.
           </p>
         </div>
 
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <rect x="2" y="3" width="16" height="14" rx="3"/><path d="M7 8h6M7 12h4"/>
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Extração Playwright</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">XMLs em um só lugar</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Robôs headless de alta precisão desenhados para extrair chaves de NFC-e de forma imperceptível, evitando capchas.
+            Centralize todos os seus documentos fiscais (entradas e saídas) em um único painel de fácil acesso e busca.
           </p>
         </div>
 
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <path d="M4 17V7l6-4 6 4v10"/><rect x="7" y="11" width="6" height="6"/>
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Integração API Boss</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">PDFs à Disposição</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Comunicação robusta com a API Maria e sistema Boss para solicitar o download original dos XMLs na SEFAZ.
+            As DANFEs das suas notas ficam sempre disponíveis para visualização rápida ou download em lote, quando você precisar.
           </p>
         </div>
 
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <rect x="3" y="6" width="8" height="12" rx="2"/><rect x="11" y="2" width="6" height="16" rx="2"/>
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Trava Anti-Duplicidade</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Armazenamento 5 Anos</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Ciclo de 4 horas mandatório para sincronização. Protege a memória do servidor e blinda sua base de dados contra arquivos duplicados.
+            Cumpra a legislação fiscal sem preocupações. Guardamos seus arquivos na nuvem com segurança total por 5 anos.
           </p>
         </div>
 
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <path d="M10 2l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 17l-6.2 4.3 2.4-7.4L0 9.4h7.6z"/>
+              <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Organização JB Cepil</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Planos Acessíveis</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Tudo pronto para escrituração. Consultas isoladas por CNPJ que separam perfeitamente arquivos em pastas Emitidas e Destinadas (Matriz e Filiais).
+            Tecnologia e automação de ponta por um preço justo, estruturado para caber no orçamento da sua contabilidade.
           </p>
         </div>
 
         <div class="feature-card fade-up framer-tilt">
           <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
-              <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M10 6v4l3 3"/>
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
           </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Segurança Total</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Apenas com Certificado</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Seus dados fiscais e os dos seus clientes protegidos com criptografia de ponta e arquitetura cloud escalável.
+            Sem burocracia, senhas extras ou integrações complexas. Tudo funciona 100% de forma segura através do seu Certificado Digital.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up framer-tilt">
+          <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Cadastro Simplificado</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Adicione clientes e novas empresas ao sistema em poucos cliques. Um onboarding pensado para contabilidades de todos os tamanhos.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up framer-tilt">
+          <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Rapidez na Captura</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Motor ultra otimizado construído para buscar e processar lotes inteiros de notas fiscais em velocidade recorde.
+          </p>
+        </div>
+
+        <div class="feature-card fade-up framer-tilt">
+          <div class="w-11 h-11 rounded bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0047FF" stroke-width="1.8" stroke-linecap="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.29-10.8l-3.38 3.53"/>
+            </svg>
+          </div>
+          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Sincronia com SEFAZ</h3>
+          <p class="text-[#6e6e73] text-sm leading-relaxed">
+            Sistema sempre atualizado junto ao SEFAZ de SC e RS, garantindo conformidade total e acesso instantâneo aos documentos emitidos.
           </p>
         </div>
 
@@ -734,7 +762,7 @@
         </div>
         <div class="hover:-translate-y-2 transition-transform duration-300">
           <p class="stat-number">24/7</p>
-          <p class="text-[#6e6e73] text-sm mt-2 font-mono uppercase tracking-widest">Uptime SC e RS</p>
+          <p class="text-[#6e6e73] text-sm mt-2 font-mono uppercase tracking-widest">Uptime Script</p>
         </div>
         <div class="hover:-translate-y-2 transition-transform duration-300">
           <p class="stat-number">4<span class="text-2xl">hr</span></p>
@@ -748,11 +776,11 @@
       
       <!-- Tech Marquee -->
       <div class="mb-20 fade-up opacity-40">
-        <p class="text-center text-[#aeaeb2] text-xs font-bold uppercase tracking-widest mb-8">POWERED BY</p>
+        <p class="text-center text-[#aeaeb2] text-xs font-bold uppercase tracking-widest mb-8">STACK TECNOLÓGICO</p>
         <div class="marquee-wrapper">
           <div class="marquee-track font-mono text-[#e8e8ed] text-xl font-bold">
-            <span class="text-[#e8e8ed]">PYTHON</span> <span>·</span> <span>PLAYWRIGHT</span> <span>·</span> <span>API MARIA</span> <span>·</span> <span>BOSS SYSTEM</span> <span>·</span> <span>JB CEPIL</span> <span>·</span> <span>SEFAZ SC</span> <span>·</span> <span>SEFAZ RS</span> <span>·</span>
-            <span class="text-[#e8e8ed]">PYTHON</span> <span>·</span> <span>PLAYWRIGHT</span> <span>·</span> <span>API MARIA</span> <span>·</span> <span>BOSS SYSTEM</span> <span>·</span> <span>JB CEPIL</span> <span>·</span> <span>SEFAZ SC</span> <span>·</span> <span>SEFAZ RS</span> <span>·</span>
+            <span class="text-[#e8e8ed]">PYTHON</span> <span>·</span> <span>SEFAZ SC</span> <span>·</span> <span>SEFAZ RS</span> <span>·</span> <span>XML</span> <span>·</span> <span>AUTOMAÇÃO FISCAL</span> <span>·</span> <span>NFC-E / NF-E</span> <span>·</span>
+            <span class="text-[#e8e8ed]">PYTHON</span> <span>·</span> <span>SEFAZ SC</span> <span>·</span> <span>SEFAZ RS</span> <span>·</span> <span>XML</span> <span>·</span> <span>AUTOMAÇÃO FISCAL</span> <span>·</span> <span>NFC-E / NF-E</span> <span>·</span>
           </div>
         </div>
       </div>
@@ -765,7 +793,7 @@
       <div class="text-center mb-16 fade-up">
         <span class="badge mb-4">Pipeline de Dados</span>
         <h2 id="processo-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-          O percurso da nota até o sistema
+          O percurso da nota até sua máquina
         </h2>
       </div>
       <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 fade-up" id="process-timeline">
@@ -777,9 +805,9 @@
             </svg>
           </div>
           <div class="text-xs font-mono font-bold text-[#0047FF] mb-2">INIT:01</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Robô Playwright</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Motor de Extração</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Inicializa rotina em background nos portais de SC e RS para consolidação de chaves de acesso NFC-e/NF-e.
+            Inicializa a rotina de automação nos portais governamentais, localizando os documentos pendentes de SC e RS.
           </p>
         </div>
 
@@ -792,9 +820,9 @@
             </svg>
           </div>
           <div class="text-xs font-mono font-bold text-[#0047FF] mb-2">SYNC:02</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">API Boss & Trava</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Sincronização e Trava</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Requisições via API da Maria efetuam o download na SEFAZ apenas se o intervalo de 4h da trava foi respeitado.
+            O download dos XMLs ocorre apenas após a validação do intervalo de segurança de 4h, impedindo redundâncias no sistema.
           </p>
         </div>
 
@@ -807,9 +835,9 @@
             </svg>
           </div>
           <div class="text-xs font-mono font-bold text-[#0047FF] mb-2">ROUTING:03</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">JB Cepil Roteamento</h3>
+          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Roteamento de Diretórios</h3>
           <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Os XMLs salvos são despachados para pastas exclusivas (Emitidas / Destinadas) baseados em Matriz e Filial.
+            Cada nota é separada no disco em suas devidas pastas: Emitidas para saídas e Destinadas para entradas.
           </p>
         </div>
 
@@ -837,35 +865,35 @@
           </button>
           <div id="faq-answer-1" class="faq-answer" role="region">
             <p class="text-[#6e6e73] text-base leading-relaxed">
-              O script armazena o timestamp da última execução bem-sucedida. Se uma nova requisição for feita antes de 4 horas, o sistema ignora o processamento. Isso reduz uso de RAM e impede o registro duplicado de XMLs na base.
+              O script armazena o horário da última execução bem-sucedida. Se tentar acionar a automação novamente antes de 4 horas passarem, o processo é abortado. Isso impede que você baixe os mesmos arquivos e consuma ciclos desnecessários.
             </p>
           </div>
         </div>
 
         <div class="faq-item" role="listitem">
           <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">O sistema gerencia empresas com múltiplas filiais?</span>
+            <span class="group-hover:translate-x-1 transition-transform">Como o sistema organiza as pastas localmente?</span>
             <span class="faq-icon" aria-hidden="true">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
             </span>
           </button>
           <div id="faq-answer-2" class="faq-answer" role="region">
             <p class="text-[#6e6e73] text-base leading-relaxed">
-              Sim. Graças à integração construída sobre a lógica do JB Cepil, as consultas respeitam a raiz do CNPJ, roteando automaticamente os arquivos para os subdiretórios de filiais específicas, sempre separando "Emitidas" de "Destinadas".
+              Durante o download, a automação analisa se a nota é de saída ou de entrada. Com base nisso, o arquivo final é direcionado para a pasta correspondente daquela empresa (ex: /Emitidas e /Destinadas), mantendo tudo estruturado.
             </p>
           </div>
         </div>
 
         <div class="faq-item" role="listitem">
           <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">Qual o papel da API Maria e do Boss?</span>
+            <span class="group-hover:translate-x-1 transition-transform">A ferramenta precisa de APIs pagas?</span>
             <span class="faq-icon" aria-hidden="true">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
             </span>
           </button>
           <div id="faq-answer-3" class="faq-answer" role="region">
             <p class="text-[#6e6e73] text-base leading-relaxed">
-              Enquanto o Playwright lida com a raspagem complexa de portais, a API Maria e o sistema Boss fazem o handshake oficial para os downloads em lote direto do webservice da SEFAZ, garantindo a integridade fiscal do arquivo XML original.
+              Não. A automação conecta-se diretamente aos serviços da SEFAZ de Santa Catarina e Rio Grande do Sul. É um processo direto da fonte para a sua máquina, cortando custos com sistemas intermediários.
             </p>
           </div>
         </div>
@@ -879,33 +907,33 @@
     <div class="text-center mb-16 scroll-top fade-scroll-element">
       <span class="badge mb-4 mx-auto table">Stack Core</span>
       <h2 class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-        Ferramentas & Integrações
+        Ferramentas Utilizadas
       </h2>
     </div>
     <div class="swiper-container ai-tools-slider scroll-bottom fade-scroll-element cursor-grab active:cursor-grabbing pb-12">
       <div class="swiper-wrapper linear-motion">
         <div class="swiper-slide !w-[300px]">
           <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">Playwright</h3>
-            <p class="text-sm text-[#6e6e73]">Robôs Headless de navegação estruturada para raspagem em SC/RS.</p>
+            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">Motor de Extração</h3>
+            <p class="text-sm text-[#6e6e73]">Automação robusta para extrair e consolidar dados dos portais governamentais sem falhas.</p>
           </div>
         </div>
         <div class="swiper-slide !w-[300px]">
           <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">API Maria</h3>
-            <p class="text-sm text-[#6e6e73]">Ponte de comunicação para validação e requisições massivas.</p>
+            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">Lógica Python</h3>
+            <p class="text-sm text-[#6e6e73]">A base que gerencia as requisições, a leitura dos arquivos fiscais e as regras de pasta.</p>
           </div>
         </div>
         <div class="swiper-slide !w-[300px]">
           <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">Boss System</h3>
-            <p class="text-sm text-[#6e6e73]">Engine de requisição final para download dos pacotes XML da SEFAZ.</p>
+            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">SEFAZ SC</h3>
+            <p class="text-sm text-[#6e6e73]">Comunicação e extração direta do sistema público de Santa Catarina.</p>
           </div>
         </div>
         <div class="swiper-slide !w-[300px]">
           <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">JB Cepil</h3>
-            <p class="text-sm text-[#6e6e73]">Regras de negócio locais e arquitetura lógica de divisão de pastas de clientes.</p>
+            <h3 class="text-xl font-bold mb-3 text-[#0a0a0a]">SEFAZ RS</h3>
+            <p class="text-sm text-[#6e6e73]">Processamento conectado à infraestrutura do Rio Grande do Sul.</p>
           </div>
         </div>
       </div>
@@ -926,7 +954,7 @@
           captura de XMLs?
         </h2>
         <p class="text-[#6e6e73] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          Deixe a engenharia do Epiverso fazer o trabalho pesado. Foco total em análise contábil, zero stress com SEFAZ fora do ar.
+          O Epiverso faz a ponte invisível entre o portal da SEFAZ e os diretórios locais do seu computador.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
           <div class="glow-btn-wrapper glow-trigger framer-magnetic" style="box-shadow: 0 4px 15px rgba(0,71,255,0.2);">
@@ -1159,7 +1187,7 @@
         width: "100%", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 }
       });
 
-      // CURSOR CUSTOMIZADO (Normal rendering na versão light)
+      // CURSOR CUSTOMIZADO
       const cursor = document.getElementById('gsap-cursor');
       const follower = document.getElementById('gsap-cursor-follower');
       if (cursor && follower && window.innerWidth >= 768) {

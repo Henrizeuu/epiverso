@@ -1,1586 +1,504 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Comunidade Epiverso — O direcionamento definitivo para prestadores de serviços crescerem no Google, Redes Sociais e se tornarem a melhor escolha do mercado." />
-  <title>Comunidade Epiverso | Domine o Google e as Redes Sociais</title>
-
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
-          },
-          colors: {
-            brand: {
-              black: '#0a0a0a',
-              white: '#ffffff',
-              gray: {
-                50:  '#fafafc',
-                100: '#f5f5f7',
-                200: '#e8e8ed',
-                400: '#aeaeb2',
-                600: '#6e6e73',
-                800: '#3a3a3c',
-              },
-            },
-          },
-          letterSpacing: {
-            tight: '-0.022em',
-          },
-        },
-      },
-    }
-  </script>
-
-  <style>
-    /* =============================================
-       BASE & RESET (ORIGINAL MANTIDO)
-    ============================================= */
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      font-size: 17px;
-      line-height: 1.47;
-      letter-spacing: -0.022em;
-      color: #6e6e73;
-      background-color: #ffffff;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: #0a0a0a;
-      letter-spacing: -0.022em;
-      line-height: 1.15;
-    }
-
-    /* =============================================
-       FOCUS RING ACESSIBILIDADE
-    ============================================= */
-    :focus-visible {
-      outline: 2px solid #0a0a0a;
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-
-    /* =============================================
-       BOTÃO PRIMÁRIO
-    ============================================= */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #0a0a0a;
-      color: #ffffff;
-      border-radius: 9999px;
-      padding: 14px 32px;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-    .btn-primary:hover {
-      background-color: #1d1d1f;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-      transform: translateY(-1px);
-    }
-    .btn-primary:active {
-      transform: translateY(0);
-    }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: transparent;
-      color: #0a0a0a;
-      border-radius: 9999px;
-      padding: 13px 32px;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      text-decoration: none;
-      border: 1.5px solid #0a0a0a;
-      transition: background-color 0.2s ease, color 0.2s ease;
-      cursor: pointer;
-    }
-    .btn-outline:hover {
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-
-    /* =============================================
-       BADGE
-    ============================================= */
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background-color: rgba(10,10,10,0.07);
-      color: #3a3a3c;
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      text-transform: uppercase;
-    }
-
-    /* =============================================
-       NAVBAR
-    ============================================= */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: saturate(180%) blur(20px);
-      -webkit-backdrop-filter: saturate(180%) blur(20px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-      transition: box-shadow 0.3s ease;
-    }
-
-    /* =============================================
-       HERO GRADIENT DECORATIVO
-    ============================================= */
-    .hero-glow {
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 600px;
-      background: radial-gradient(ellipse at center, rgba(0,0,0,0.04) 0%, transparent 70%);
-      pointer-events: none;
-      will-change: transform;
-    }
-
-    /* =============================================
-       CARDS (ATUALIZADO PARA MÓDULO 4)
-    ============================================= */
-    .feature-card {
-      background: #ffffff;
-      border: 1px solid #e8e8ed;
-      border-radius: 16px;
-      padding: 28px;
-      transition: box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .feature-card:hover {
-      box-shadow: 0 8px 40px rgba(0,0,0,0.09);
-      border-color: #aeaeb2;
-      transform: scale(1.03); 
-    }
-
-    /* =============================================
-       DEPOIMENTOS
-    ============================================= */
-    .testimonial-card {
-      background: #1d1d1f;
-      border-radius: 20px;
-      padding: 36px;
-      border: 1px solid rgba(255,255,255,0.07);
-    }
-
-    /* =============================================
-       ACORDEÃO FAQ
-    ============================================= */
-    .faq-item {
-      border-bottom: 1px solid #e8e8ed;
-    }
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-    .faq-question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 22px 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      color: #0a0a0a;
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: -0.022em;
-      transition: color 0.2s;
-    }
-    .faq-question:hover { color: #3a3a3c; }
-    .faq-icon {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #f5f5f7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease, background 0.2s;
-    }
-    .faq-answer {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      padding-bottom: 0;
-    }
-    .faq-answer.open {
-      max-height: 300px;
-      padding-bottom: 22px;
-    }
-    .faq-icon.open {
-      transform: rotate(45deg);
-      background: #0a0a0a;
-    }
-    .faq-icon.open svg { stroke: #ffffff; }
-
-    /* =============================================
-       STEP TIMELINE (PREPARAÇÃO MÓDULO 6)
-    ============================================= */
-    .step-connector {
-      flex: 1;
-      height: 2px;
-      display: flex;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epiverso | Automação Fiscal SC e RS</title>
     
-    .step-node-icon.is-active {
-      box-shadow: 0 0 0 6px rgba(10, 10, 10, 0.15);
-      border: 2px solid #0a0a0a;
-      transform: scale(1.15) rotate(6deg);
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .step-node-icon {
-      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-
-    /* =============================================
-       LOGO MARQUEE
-    ============================================= */
-    .marquee-wrapper {
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-    }
-    .marquee-track {
-      display: flex;
-      gap: 48px;
-      animation: marquee 28s linear infinite;
-      width: max-content;
-    }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* =============================================
-       NÚMERO COUNTER ANIMADO
-    ============================================= */
-    .stat-number {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-
-    /* =============================================
-       SEÇÃO Z-LAYOUT (SOLUÇÃO)
-    ============================================= */
-    .z-visual {
-      background: #f5f5f7;
-      border-radius: 24px;
-      overflow: hidden;
-      aspect-ratio: 4/3;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* =============================================
-       FOOTER E CTA (MÓDULO 8 RESPIRÁVEL)
-    ============================================= */
-    .footer-cta-section {
-      background: #0a0a0a;
-    }
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    @keyframes pulseGlow {
-      0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
-      100% { opacity: 1.0; transform: translate(-50%, -50%) scale(1.1); }
-    }
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
-    .cta-pulse-bg {
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 150%; height: 150%;
-      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      animation: pulseGlow 3s alternate ease-in-out infinite;
-      z-index: 0;
-      pointer-events: none;
-    }
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    /* =============================================
-       ANIMAÇÕES DE ENTRADA
-    ============================================= */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =============================================
-       MOBILE NAV
-    ============================================= */
-    #mobile-menu {
-      display: none;
-    }
-    #mobile-menu.open {
-      display: block;
-    }
-
-    /* =============================================
-       RESPONSIVIDADE EXTRA
-    ============================================= */
-    @media (max-width: 734px) {
-      .hero-glow { width: 400px; height: 300px; }
-      .step-connector { display: none; }
-    }
-
-    /* =============================================
-       NOVAS ANIMAÇÕES MODERNAS (ESTILO FRAMER)
-    ============================================= */
-    .float-anim {
-      animation: float 6s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0047FF',
+                            blueHover: '#0036CC',
+                            dark: '#050505',
+                            darker: '#000000',
+                            card: '#0A0A0C',
+                            border: '#1F1F22',
+                            textMuted: '#A1A1AA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm39 39V1H1v38h38z' fill='%231F1F22' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
     
-    .framer-tilt {
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    .framer-magnetic {
-      will-change: transform;
-    }
-
-    /* ==========================================================
-       CSS DO MÓDULO 1 & 2
-    ========================================================== */
-    .word-mask {
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: bottom;
-      line-height: inherit;
-    }
-    .word-inner {
-      display: inline-block;
-      will-change: transform, opacity;
-    }
-  </style>
-
-  <style>
-    /* Suavização nativa delegada ao Lenis JS no corpo */
-    html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
-    .lenis.lenis-smooth { scroll-behavior: auto !important; }
-
-    /* Background Video Layering */
-    .bg-video-layer {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      object-fit: cover;
-      z-index: -2;
-      opacity: 0.03; 
-      pointer-events: none;
-    }
-
-    /* Glassmorphism Cards */
-    .offline-glass-card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 32px;
-      transition: transform 0.3s ease, background 0.3s ease;
-      color: #fff;
-    }
-    .offline-glass-card:hover {
-      background: rgba(255, 255, 255, 0.12);
-    }
-
-    /* Scroll-Triggered Classes (Custom FadeScroll) */
-    .scroll-top { transform: translateY(-50px); opacity: 0; transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    .scroll-bottom { transform: translateY(50px); opacity: 0; transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    .scroll-left { transform: translateX(-50px); opacity: 0; transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    .scroll-right { transform: translateX(50px); opacity: 0; transition: all 1s cubic-bezier(0.4, 0, 0.2, 1); }
-    
-    .ativo { transform: translate(0, 0) !important; opacity: 1 !important; }
-
-    /* Swiper Linear Motion */
-    .swiper-wrapper.linear-motion {
-      transition-timing-function: linear !important;
-    }
-
-    /* Dynamic Glow Button (Mouse Tracking) */
-    .glow-btn-wrapper {
-      position: relative;
-      display: inline-block;
-      overflow: hidden;
-      border-radius: 9999px;
-      background: #0a0a0a;
-      padding: 2px;
-      --x: 50%;
-      --y: 50%;
-    }
-    .glow-btn-wrapper::before {
-      content: '';
-      position: absolute;
-      top: var(--y);
-      left: var(--x);
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-    .glow-btn-wrapper:hover::before { opacity: 1; }
-    .glow-btn-inner {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: #0a0a0a;
-      color: #ffffff;
-      border-radius: 9999px;
-      padding: 14px 32px;
-      font-size: 15px;
-      font-weight: 600;
-      z-index: 1;
-    }
-
-    /* Music Toggle Component */
-    .audio-toggle {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    .audio-toggle:hover { transform: scale(1.05); }
-    .audio-toggle svg { width: 20px; height: 20px; stroke: #0a0a0a; transition: all 0.3s ease; }
-    .pulse-ring {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      border-radius: 50%;
-      border: 2px solid #0a0a0a;
-      animation: ping-audio 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-      opacity: 0;
-    }
-    .audio-toggle.playing .pulse-ring { opacity: 1; }
-    .audio-toggle.playing .icon-play { display: none; }
-    .audio-toggle:not(.playing) .icon-mute { display: none; }
-    @keyframes ping-audio {
-      75%, 100% { transform: scale(1.8); opacity: 0; }
-    }
-  </style>
-
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1F1F22; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0047FF; }
+        
+        .glow-effect {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,71,255,0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 </head>
+<body class="bg-brand-dark text-gray-200 font-sans min-h-screen selection:bg-brand-blue selection:text-white overflow-x-hidden relative">
 
-<body class="font-sans antialiased">
+    <!-- Background Grid -->
+    <div class="fixed inset-0 bg-grid-pattern pointer-events-none z-0"></div>
 
-  <div id="gsap-progress-bar" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-[#0a0a0a] to-[#6e6e73] z-[10000] w-0 rounded-r-full pointer-events-none origin-left"></div>
-
-  <div id="gsap-cursor" class="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-[#0a0a0a] pointer-events-none z-[9999] opacity-0 mix-blend-difference hidden md:block"></div>
-  <div id="gsap-cursor-follower" class="fixed top-0 left-0 w-2 h-2 rounded-full bg-[#0a0a0a] pointer-events-none z-[9999] opacity-0 mix-blend-difference hidden md:block"></div>
-
-  <div id="gsap-particles-container" class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-    <div class="gsap-particle absolute w-16 h-16 rounded-full bg-[#0a0a0a]/[0.02] blur-xl top-[15%] left-[10%]"></div>
-    <div class="gsap-particle absolute w-32 h-32 rounded-full bg-[#0a0a0a]/[0.03] blur-2xl top-[60%] left-[80%]"></div>
-    <div class="gsap-particle absolute w-24 h-24 rounded-full bg-[#0a0a0a]/[0.02] blur-xl top-[40%] left-[65%]"></div>
-    <div class="gsap-particle absolute w-40 h-40 rounded-full bg-[#0a0a0a]/[0.02] blur-3xl top-[75%] left-[20%]"></div>
-    <div class="gsap-particle absolute w-20 h-20 rounded-full bg-[#0a0a0a]/[0.03] blur-lg top-[25%] left-[85%]"></div>
-  </div>
-  <video class="bg-video-layer" autoplay muted loop playsinline aria-hidden="true">
-    <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4">
-  </video>
-
-  <button class="audio-toggle" id="globalAudioToggle" aria-label="Alternar trilha sonora">
-    <span class="pulse-ring"></span>
-    <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-    <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
-  </button>
-  <audio id="bg-audio" loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
-
-
-  <nav class="navbar" role="navigation" aria-label="Navegação principal">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2" aria-label="Página inicial">
-  <img src="logo.svg" alt="Sua Logo" class="h-8 w-auto object-contain" />
-</a>
-      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-[#6e6e73]" role="list">
-        <li><a href="#solucao" class="hover:text-[#0a0a0a] transition-colors">A Comunidade</a></li>
-        <li><a href="#beneficios" class="hover:text-[#0a0a0a] transition-colors">O que você aprende</a></li>
-        <li><a href="#como-funciona" class="hover:text-[#0a0a0a] transition-colors">A Jornada</a></li>
-        <li><a href="#faq" class="hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
-      </ul>
-      <div class="hidden md:flex items-center gap-3">
-        <a href="#cta-final" class="btn-primary text-sm px-6 py-3 framer-magnetic">Comunidade Gratuita</a>
-      </div>
-      <button id="nav-toggle" class="md:hidden p-2 rounded-lg text-[#0a0a0a]" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-        <svg id="icon-open" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="3" y1="6" x2="19" y2="6"/><line x1="3" y1="11" x2="19" y2="11"/><line x1="3" y1="16" x2="19" y2="16"/>
-        </svg>
-        <svg id="icon-close" class="hidden" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/>
-        </svg>
-      </button>
-    </div>
-    <div id="mobile-menu" class="md:hidden border-t border-[#e8e8ed] bg-white px-6 py-4">
-      <ul class="flex flex-col gap-4 text-sm font-medium text-[#6e6e73]" role="list">
-        <li><a href="#solucao" class="block hover:text-[#0a0a0a] transition-colors">A Comunidade</a></li>
-        <li><a href="#beneficios" class="block hover:text-[#0a0a0a] transition-colors">O que você aprende</a></li>
-        <li><a href="#como-funciona" class="block hover:text-[#0a0a0a] transition-colors">A Jornada</a></li>
-        <li><a href="#faq" class="block hover:text-[#0a0a0a] transition-colors">FAQ</a></li>
-        <li><a href="#cta-final" class="btn-primary text-sm text-center mt-2">Entrar na Comunidade</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <section id="hero" class="relative pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden" aria-labelledby="hero-headline">
-    <div class="hero-glow" aria-hidden="true"></div>
-    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
-      <div class="fade-up flex justify-center mb-6">
-        <span class="badge hover:scale-105 transition-transform duration-300">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
-          O mapa prático para dominar o digital
-        </span>
-      </div>
-      <h1 id="hero-headline" class="fade-up text-[clamp(38px,7vw,80px)] font-black text-[#0a0a0a] leading-[1.05] tracking-tight mb-6 max-w-4xl mx-auto">
-        Seu serviço merece ser<br class="hidden sm:block" />
-        <span class="relative inline-block">
-          a melhor escolha.
-          <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 400 6" fill="none" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 5 Q100 0 200 5 Q300 10 400 5" stroke="#0a0a0a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          </svg>
-        </span>
-      </h1>
-      <p class="fade-up text-[clamp(17px,2.2vw,21px)] text-[#6e6e73] max-w-2xl mx-auto mb-10 leading-relaxed">
-        Uma comunidade exclusiva para prestadores de serviços dispostos a crescer no Google, se posicionar nas redes sociais, trocar ideias de alto nível e usar a Inteligência Artificial a seu favor.
-      </p>
-      <div class="fade-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
-        <a href="#cta-final" class="btn-primary text-base px-8 py-4 framer-magnetic">
-          Entrar na comunidade Gratuita
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <a href="#solucao" class="btn-outline text-base px-8 py-4 framer-magnetic">Ver como funciona</a>
-      </div>
-      <p class="fade-up text-sm text-[#aeaeb2] font-medium">
-        Rede exclusiva &nbsp;·&nbsp; Direcionamento prático &nbsp;·&nbsp; Insights diários
-      </p>
-      <div class="fade-up mt-16 relative max-w-3xl mx-auto float-anim framer-tilt">
-        <div class="bg-[#f5f5f7] rounded-2xl border border-[#e8e8ed] overflow-hidden shadow-2xl shadow-black/10">
-          <div class="bg-[#e8e8ed] px-4 py-3 flex items-center gap-2">
-            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
-            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
-            <div class="w-3 h-3 rounded-full bg-[#aeaeb2]"></div>
-            <div class="flex-1 mx-4 bg-white rounded-full px-4 py-1 text-xs text-[#6e6e73] text-left">
-              google.com/search?q=<strong class="text-[#0a0a0a]">o melhor profissional da minha cidade</strong>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 top-0 border-b border-brand-border bg-brand-dark/80 backdrop-blur-xl transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3 relative z-10">
+                <div class="w-8 h-8 flex flex-col justify-between py-1.5">
+                    <div class="w-full h-[2px] bg-white"></div>
+                    <div class="w-full h-[2px] bg-white"></div>
+                    <div class="w-full h-[2px] bg-white"></div>
+                </div>
+                <span class="text-2xl font-extrabold tracking-widest text-white uppercase">Epiverso</span>
             </div>
-          </div>
-          <div class="p-6 text-left space-y-4">
-            <div class="bg-white rounded-xl p-4 border-2 border-[#0a0a0a] relative hover:scale-[1.02] transition-transform duration-300">
-              <span class="absolute -top-3 right-4 badge text-[10px]">COMO VOCÊ VAI APARECER</span>
-              <p class="text-xs text-[#6e6e73] mb-1">Seu Negócio no Topo</p>
-              <p class="text-[#0a0a0a] font-semibold text-base leading-tight">Você — O Profissional Mais Qualificado e Recomendado</p>
-              <p class="text-sm text-[#6e6e73] mt-1">Perfil otimizado no Google Maps. Identidade visual moderna. Posicionamento de autoridade que atrai os melhores clientes todos os dias.</p>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-textMuted relative z-10">
+                <a href="#funcionalidades" class="hover:text-white transition-colors">Funcionalidades</a>
+                <a href="#arquitetura" class="hover:text-white transition-colors">Arquitetura</a>
+                <a href="#integracoes" class="hover:text-white transition-colors">Integrações</a>
             </div>
-            <div class="bg-white rounded-xl p-4 border border-[#e8e8ed] opacity-40">
-              <p class="text-xs text-[#6e6e73] mb-1">concorrente-desatualizado.com</p>
-              <p class="text-[#0a0a0a] font-semibold text-base leading-tight">Profissional Comum - Sem Posicionamento</p>
-              <p class="text-sm text-[#6e6e73] mt-1">Trabalha há anos no mercado, mas ninguém encontra nas buscas...</p>
+
+            <div class="flex items-center gap-4 relative z-10">
+                <a href="#" class="text-sm font-medium text-white hover:text-brand-blue transition-colors hidden md:block">Login</a>
+                <a href="#contato" class="px-5 py-2.5 bg-brand-blue hover:bg-brand-blueHover text-white text-sm font-semibold rounded transition-all shadow-[0_0_15px_rgba(0,71,255,0.3)]">
+                    Solicitar Acesso
+                </a>
             </div>
-          </div>
         </div>
-        <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-black/10 blur-2xl rounded-full" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-
-  <section id="problema" class="py-24 bg-[#fafafc]" aria-labelledby="problema-headline">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <span class="badge mb-4">O problema real</span>
-        <h2 id="problema-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-          Você é excelente no que faz. Mas o digital ainda é um obstáculo.
-        </h2>
-        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
-          Enquanto você entrega o melhor serviço, seus concorrentes estão roubando sua clientela simplesmente por parecerem mais modernos. Veja o que está te travando:
-        </p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
-          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="11" cy="11" r="9"/><path d="M11 7v5l3 3"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Perdido nas Redes e no Google</h3>
-          <p class="text-[#6e6e73] text-base leading-relaxed">
-            Todos os dias, pessoas procuram pelo seu serviço no Google Maps e nas redes sociais, mas você não sabe como arrumar seu perfil. Cada busca sem você é um cliente entregue ao concorrente.
-          </p>
-        </div>
-        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
-          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <path d="M3 3h16v16H3z"/><path d="M7 7h8M7 11h5"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Identidade Visual Amadora</h3>
-          <p class="text-[#6e6e73] text-base leading-relaxed">
-            Seu perfil no Instagram ou site não transmitem autoridade. Sem um visual tecnológico e um posicionamento claro, você não parece ser a melhor escolha e precisa brigar por preço.
-          </p>
-        </div>
-        <div class="fade-up bg-white rounded-2xl p-8 border border-[#e8e8ed] framer-tilt">
-          <div class="w-12 h-12 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 group" aria-hidden="true">
-            <svg class="group-hover:stroke-white transition-colors tension-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Isolamento e Falta de Visão</h3>
-          <p class="text-[#6e6e73] text-base leading-relaxed">
-            Tentar crescer sozinho é exaustivo. Falta troca de ideias com quem está no mesmo barco, e você não sabe como utilizar as novas ferramentas de Inteligência Artificial para escalar seu negócio.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="solucao" class="py-24 bg-white" aria-labelledby="solucao-headline">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="fade-up order-2 lg:order-1">
-          <div class="z-visual framer-tilt float-anim">
-            <svg viewBox="0 0 480 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full p-8 z-svg-inner" aria-hidden="true">
-              <rect x="40" y="30" width="400" height="300" rx="16" fill="white" stroke="#e8e8ed" stroke-width="1.5"/>
-              <rect x="40" y="30" width="400" height="40" rx="16" fill="#f5f5f7"/>
-              <rect x="40" y="54" width="400" height="16" fill="#f5f5f7"/>
-              <circle cx="68" cy="50" r="6" fill="#e8e8ed"/>
-              <circle cx="88" cy="50" r="6" fill="#e8e8ed"/>
-              <circle cx="108" cy="50" r="6" fill="#e8e8ed"/>
-              <rect x="130" y="42" width="240" height="16" rx="8" fill="white" stroke="#e8e8ed" stroke-width="1"/>
-              <rect x="60" y="90" width="360" height="72" rx="10" fill="white" stroke="#0a0a0a" stroke-width="1.5"/>
-              <rect x="72" y="100" width="80" height="8" rx="4" fill="#aeaeb2"/>
-              <rect x="72" y="114" width="220" height="10" rx="5" fill="#0a0a0a"/>
-              <rect x="72" y="130" width="280" height="8" rx="4" fill="#aeaeb2"/>
-              <rect x="72" y="142" width="200" height="8" rx="4" fill="#aeaeb2"/>
-              <rect x="360" y="94" width="48" height="18" rx="5" fill="#0a0a0a"/>
-              <text x="384" y="107" font-family="Inter,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">TOPO</text>
-              <rect x="60" y="176" width="360" height="60" rx="10" fill="white" stroke="#e8e8ed" stroke-width="1" opacity="0.5"/>
-              <rect x="72" y="186" width="60" height="7" rx="3" fill="#e8e8ed"/>
-              <rect x="72" y="199" width="180" height="9" rx="4" fill="#aeaeb2" opacity="0.6"/>
-              <rect x="72" y="214" width="240" height="7" rx="3" fill="#e8e8ed"/>
-              <rect x="60" y="250" width="360" height="60" rx="10" fill="white" stroke="#e8e8ed" stroke-width="1" opacity="0.25"/>
-              <rect x="72" y="260" width="60" height="7" rx="3" fill="#e8e8ed"/>
-              <rect x="72" y="273" width="160" height="9" rx="4" fill="#aeaeb2" opacity="0.3"/>
-              <rect x="72" y="288" width="200" height="7" rx="3" fill="#e8e8ed"/>
-              <path d="M30 126 L52 126" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow)"/>
-              <defs>
-                <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-                  <path d="M0 0 L6 3 L0 6 Z" fill="#0a0a0a"/>
-                </marker>
-              </defs>
-            </svg>
-          </div>
-        </div>
-        <div class="fade-up order-1 lg:order-2">
-          <span class="badge mb-5">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg>
-            Comunidade de Crescimento
-          </span>
-          <h2 id="solucao-headline" class="text-[clamp(28px,4vw,44px)] font-bold text-[#0a0a0a] leading-tight mb-6">
-            Uma comunidade criada para direcionar o seu negócio no ambiente digital.
-          </h2>
-          <p class="text-[#6e6e73] text-lg leading-relaxed mb-6">
-            Não estamos aqui apenas para te dar dicas rasas. A Comunidade Epiverso foi feita para colocar prestadores de serviços nos trilhos do sucesso. Vamos te mostrar o exato caminho para arrumar sua presença online, dominar o Google e passar a visão correta no Instagram.
-          </p>
-          <p class="text-[#6e6e73] text-lg leading-relaxed mb-8">
-            Com acesso a redes sociais exclusivas para membros e muita troca de ideia, você vai aprender a usar tecnologias modernas para otimizar sua rotina, atrair novos clientes e se posicionar como a maior autoridade do seu segmento.
-          </p>
-          <ul class="space-y-3 mb-8" role="list">
-            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium hover:translate-x-2 transition-transform duration-300">
-              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
-              </span>
-              Como arrumar seu Google Meu Negócio e Maps
-            </li>
-            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium hover:translate-x-2 transition-transform duration-300">
-              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
-              </span>
-              Como se posicionar nas redes sociais
-            </li>
-            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium hover:translate-x-2 transition-transform duration-300">
-              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
-              </span>
-              Como criar uma identidade visual marcante
-            </li>
-            <li class="flex items-center gap-3 text-[#0a0a0a] font-medium hover:translate-x-2 transition-transform duration-300">
-              <span class="w-5 h-5 rounded-full bg-[#0a0a0a] flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5l2.5 2.5L8 3"/></svg>
-              </span>
-              Como usar a Inteligência Artificial a seu favor
-            </li>
-          </ul>
-          <a href="#cta-final" class="btn-primary framer-magnetic">Entrar na comunidade</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="beneficios" class="py-24 bg-[#fafafc]" aria-labelledby="beneficios-headline">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <span class="badge mb-4">O que você vai aprender e viver</span>
-        <h2 id="beneficios-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-          Tudo o que você precisa para se destacar na internet
-        </h2>
-        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
-          Um ambiente desenhado para acelerar seu negócio local, com direcionamento claro, networking e estratégias modernas.
-        </p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="10" cy="10" r="8"/><path d="M2 10h16M10 2a14 14 0 010 16M10 2a14 14 0 000 16"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Dominando o Google Maps</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Aprenda como configurar e otimizar seu Google Meu Negócio. Descubra os segredos para aparecer nas primeiras posições quando procurarem pelo seu serviço.
-          </p>
-        </div>
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <rect x="2" y="3" width="16" height="14" rx="3"/><path d="M7 8h6M7 12h4"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Posicionamento em Redes Sociais</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Direcionamento completo para alinhar seu Instagram e outras redes. Saiba como se portar, o que postar e como construir uma audiência compradora.
-          </p>
-        </div>
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <path d="M4 17V7l6-4 6 4v10"/><rect x="7" y="11" width="6" height="6"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Identidade Visual Magnética</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Como criar e organizar a estética do seu negócio. Passe a imagem de um profissional moderno, tecnológico e preparado para atender os melhores clientes.
-          </p>
-        </div>
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <rect x="3" y="6" width="8" height="12" rx="2"/><rect x="11" y="2" width="6" height="16" rx="2"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Inteligência Artificial na Prática</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Aulas diretas sobre como ensinar e usar a IA a seu favor. Ferramentas que poupam horas de trabalho e elevam a qualidade do seu atendimento e conteúdo.
-          </p>
-        </div>
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <path d="M10 2l2.4 7.4H20l-6.2 4.5 2.4 7.4L10 17l-6.2 4.3 2.4-7.4L0 9.4h7.6z"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Visão de Negócios Locais</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Dicas e insights preciosos de quem já vive a rotina de negócios locais. Entenda como parecer — e ser — a melhor escolha de serviço da sua região.
-          </p>
-        </div>
-        <div class="feature-card fade-up framer-tilt">
-          <div class="w-11 h-11 rounded-xl bg-[#f5f5f7] flex items-center justify-center mb-5 icon-parallax" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0a0a0a" stroke-width="1.8" stroke-linecap="round">
-              <path d="M18 10a8 8 0 11-16 0 8 8 0 0116 0z"/><path d="M10 6v4l3 3"/>
-            </svg>
-          </div>
-          <h3 class="text-[#0a0a0a] font-bold text-base mb-2">Troca de Ideias e Networking</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Acesso a um Instagram e grupos exclusivos. Conecte-se com outros prestadores de serviços, faça parcerias e tire suas dúvidas de forma rápida e colaborativa.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="prova-social" class="py-24 bg-[#0a0a0a]" aria-labelledby="prova-headline">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 text-center fade-up">
-        <div class="hover:-translate-y-2 transition-transform duration-300">
-          <p class="stat-number">100+</p>
-          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Membros ativos</p>
-        </div>
-        <div class="hover:-translate-y-2 transition-transform duration-300">
-          <p class="stat-number">24/7</p>
-          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Troca de ideias</p>
-        </div>
-        <div class="hover:-translate-y-2 transition-transform duration-300">
-          <p class="stat-number">100%</p>
-          <p class="text-[#6e6e73] text-sm mt-2 font-medium">Direcionamento</p>
-        </div>
-      </div>
-      <div class="mb-20 fade-up">
-        <p class="text-center text-[#3a3a3c] text-sm font-medium uppercase tracking-widest mb-8">Quem já está crescendo com a gente</p>
-        <div class="marquee-wrapper">
-          <div class="marquee-track">
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Advocacia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Psicologia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Odontologia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Arquitetura</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Contabilidade</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Engenharia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Estética</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Nutrição</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Fisioterapia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Construção Civil</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Advocacia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Psicologia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Odontologia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Arquitetura</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Contabilidade</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Engenharia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Estética</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Nutrição</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Fisioterapia</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">Construção Civil</span>
-            <span class="text-[#3a3a3c] font-semibold text-base whitespace-nowrap">·</span>
-          </div>
-        </div>
-      </div>
-      <div class="text-center mb-12 fade-up">
-        <h2 id="prova-headline" class="text-[clamp(24px,3.5vw,40px)] font-bold text-white leading-tight">
-          A visão de quem já faz parte da comunidade
-        </h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 fade-up gsap-social-stagger-container">
-        <div class="testimonial-card framer-tilt gsap-social-card">
-          <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-          </div>
-          <blockquote>
-            <p class="text-white text-lg leading-relaxed mb-6 font-medium">
-              "A comunidade mudou minha visão sobre o negócio. Eu não sabia usar o Google Maps ou organizar meu Instagram. Os insights que peguei me ajudaram a passar uma imagem muito mais moderna para os clientes."
-            </p>
-          </blockquote>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-[#3a3a3c] flex items-center justify-center text-white font-bold text-sm hover:scale-110 transition-transform" aria-hidden="true">RM</div>
-            <div>
-              <p class="text-white font-semibold text-sm">Rafael Mendonça</p>
-              <p class="text-[#6e6e73] text-xs">Arquiteto — São Paulo, SP</p>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card framer-tilt gsap-social-card">
-          <div class="flex items-center gap-1 mb-5" aria-label="5 estrelas">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="#ffffff" aria-hidden="true"><path d="M8 1l1.8 5.4H16l-4.9 3.6 1.8 5.4L8 12.4l-4.9 3 1.8-5.4L0 6.4h6.2z"/></svg>
-          </div>
-          <blockquote>
-            <p class="text-white text-lg leading-relaxed mb-6 font-medium">
-              "A troca de ideias com outros prestadores e os ensinamentos sobre como usar IA pouparam meu tempo. Hoje eu sei como me posicionar e ser vista como a melhor escolha na minha cidade."
-            </p>
-          </blockquote>
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-[#3a3a3c] flex items-center justify-center text-white font-bold text-sm hover:scale-110 transition-transform" aria-hidden="true">CA</div>
-            <div>
-              <p class="text-white font-semibold text-sm">Camila Andrade</p>
-              <p class="text-[#6e6e73] text-xs">Advogada Trabalhista — Curitiba, PR</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="como-funciona" class="py-24 bg-white" aria-labelledby="processo-headline">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <span class="badge mb-4">O Caminho</span>
-        <h2 id="processo-headline" class="text-[clamp(28px,4.5vw,48px)] font-bold text-[#0a0a0a] max-w-2xl mx-auto leading-tight">
-          Do zero à autoridade digital em 3 passos
-        </h2>
-        <p class="text-[#6e6e73] mt-4 max-w-xl mx-auto">
-          Um método simples para que você não perca tempo e vá direto ao ponto no seu crescimento e posicionamento.
-        </p>
-      </div>
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0 fade-up" id="process-timeline">
+    <!-- Hero Section -->
+    <main class="relative pt-40 pb-32 px-6 max-w-7xl mx-auto z-10">
+        <div class="glow-effect top-20 left-10"></div>
         
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 step-node">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
-              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-            </svg>
-          </div>
-          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 01</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Entre para a Comunidade</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Tenha acesso imediato ao nosso Grupo de Whatsapp e às redes exclusivas para membros. Comece interagindo e consumindo os insights de nivelamento.
-          </p>
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Coluna de Texto -->
+            <div class="space-y-8 hero-text">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded border border-brand-border bg-brand-card text-brand-textMuted text-xs font-mono">
+                    <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
+                    SISTEMA ATIVO - SC & RS
+                </div>
+
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight">
+                    Sua rotina fiscal <br/>
+                    <span class="text-brand-blue">nunca foi tão fácil.</span>
+                </h1>
+
+                <p class="text-lg text-brand-textMuted font-light leading-relaxed max-w-xl">
+                    O Epiverso busca, organiza e disponibiliza todas as suas notas fiscais e cupons eletrônicos de forma 
+                    <span class="text-white font-medium">automática, segura e inteligente.</span> 
+                    Baixamos NFC-e e NF-e diretamente da SEFAZ.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <button class="bg-brand-blue hover:bg-brand-blueHover text-white font-semibold py-4 px-8 rounded transition-all flex items-center gap-2">
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                        Iniciar Captura
+                    </button>
+                    <button class="border border-brand-border hover:border-brand-textMuted bg-brand-card text-white font-semibold py-4 px-8 rounded transition-all flex items-center gap-2">
+                        <i data-lucide="github" class="w-5 h-5"></i>
+                        Ver Documentação
+                    </button>
+                </div>
+            </div>
+
+            <!-- Coluna Visual / Mockup -->
+            <div class="relative w-full hero-visual">
+                <div class="glow-effect bottom-0 right-0"></div>
+                
+                <div class="relative z-10 bg-brand-card border border-brand-border rounded-lg shadow-2xl overflow-hidden">
+                    <div class="flex items-center gap-2 px-4 py-3 border-b border-brand-border bg-brand-darker">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-[#333]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#333]"></div>
+                            <div class="w-3 h-3 rounded-full bg-[#333]"></div>
+                        </div>
+                        <div class="ml-4 text-xs font-mono text-brand-textMuted opacity-50">/var/log/epiverso/capture.log</div>
+                    </div>
+                    
+                    <div class="p-6 font-mono text-sm">
+                        <div class="flex items-center justify-between mb-8 border-b border-brand-border pb-6">
+                            <div class="flex flex-col items-center gap-3">
+                                <div class="w-14 h-14 rounded border border-brand-border bg-brand-dark flex items-center justify-center font-bold text-white shadow-inner">SC</div>
+                                <span class="text-xs text-brand-textMuted">SEFAZ/SC</span>
+                            </div>
+                            
+                            <div class="flex flex-col items-center flex-1 px-4 relative">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-blue to-transparent opacity-50"></div>
+                                </div>
+                                <div class="bg-brand-card px-4 py-1 border border-brand-blue/30 rounded-full text-brand-blue text-xs z-10 flex items-center gap-2">
+                                    <i data-lucide="cpu" class="w-3 h-3"></i>
+                                    Processando
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-center gap-3">
+                                <div class="w-14 h-14 rounded border border-brand-border bg-brand-dark flex items-center justify-center font-bold text-white shadow-inner">RS</div>
+                                <span class="text-xs text-brand-textMuted">SEFAZ/RS</span>
+                            </div>
+                        </div>
+
+                        <!-- Tipos de Arquivos -->
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-4 bg-brand-dark border border-brand-border rounded hover:border-brand-blue/40 transition-colors">
+                                <div class="flex items-center gap-4">
+                                    <i data-lucide="file-code-2" class="text-brand-blue w-5 h-5"></i>
+                                    <div>
+                                        <h3 class="text-white font-medium">NFC-e</h3>
+                                        <p class="text-xs text-brand-textMuted mt-0.5">Nota Fiscal de Consumidor Eletrônica</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i>
+                            </div>
+                            <div class="flex items-center justify-between p-4 bg-brand-dark border border-brand-border rounded hover:border-brand-blue/40 transition-colors">
+                                <div class="flex items-center gap-4">
+                                    <i data-lucide="file-text" class="text-brand-blue w-5 h-5"></i>
+                                    <div>
+                                        <h3 class="text-white font-medium">NF-e</h3>
+                                        <p class="text-xs text-brand-textMuted mt-0.5">Nota Fiscal Eletrônica</p>
+                                    </div>
+                                </div>
+                                <i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </main>
 
-        <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
+    <!-- Features Section -->
+    <section id="funcionalidades" class="relative z-10 border-t border-brand-border bg-brand-darker py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 section-header">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Pilares do Sistema</h2>
+                <p class="text-brand-textMuted max-w-2xl mx-auto">Desenvolvido para operar em background, garantindo que sua contabilidade nunca pare por falta de documentos.</p>
+            </div>
 
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-75 step-node">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
-              <rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/>
-            </svg>
-          </div>
-          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 02</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Absorva e Aplique</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Coloque em prática as orientações para arrumar seu Google Meu Negócio, refinar sua identidade visual e aplicar Inteligência Artificial na sua rotina.
-          </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Automático -->
+                <div class="feature-card bg-brand-card border border-brand-border p-8 rounded hover:border-brand-blue/30 transition-colors group">
+                    <div class="w-12 h-12 rounded bg-brand-dark border border-brand-border flex items-center justify-center mb-6 group-hover:border-brand-blue/50 transition-colors">
+                        <i data-lucide="clock-4" class="text-brand-blue w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Automático</h3>
+                    <p class="text-brand-textMuted text-sm leading-relaxed">
+                        O sistema busca as notas por você, todos os dias. Scripts automatizados extraem dados diretamente das fontes oficiais sem necessidade de cliques manuais.
+                    </p>
+                </div>
+
+                <!-- Seguro -->
+                <div class="feature-card bg-brand-card border border-brand-border p-8 rounded hover:border-brand-blue/30 transition-colors group">
+                    <div class="w-12 h-12 rounded bg-brand-dark border border-brand-border flex items-center justify-center mb-6 group-hover:border-brand-blue/50 transition-colors">
+                        <i data-lucide="shield-check" class="text-brand-blue w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Seguro</h3>
+                    <p class="text-brand-textMuted text-sm leading-relaxed">
+                        Seus dados protegidos com total confiabilidade. Implementamos travas de segurança rigorosas para garantir a integridade dos XMLs processados.
+                    </p>
+                </div>
+
+                <!-- Organizado -->
+                <div class="feature-card bg-brand-card border border-brand-border p-8 rounded hover:border-brand-blue/30 transition-colors group">
+                    <div class="w-12 h-12 rounded bg-brand-dark border border-brand-border flex items-center justify-center mb-6 group-hover:border-brand-blue/50 transition-colors">
+                        <i data-lucide="folders" class="text-brand-blue w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Organizado</h3>
+                    <p class="text-brand-textMuted text-sm leading-relaxed">
+                        Tudo pronto para conferência e escrituração. Separação estruturada por pastas de emitidas e destinadas, garantindo independência por empresa e filial.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="hidden md:flex step-connector mx-2" aria-hidden="true"></div>
+    <!-- Arquitetura e Engenharia -->
+    <section id="arquitetura" class="relative z-10 py-32 bg-brand-dark border-t border-brand-border overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Terminal UI -->
+                <div class="relative tech-visual order-2 lg:order-1">
+                    <div class="absolute inset-0 bg-brand-blue/5 blur-[80px] rounded-full"></div>
+                    <div class="relative bg-[#0d0d0f] border border-brand-border rounded-lg p-1 font-mono text-xs shadow-2xl">
+                        <div class="flex items-center gap-2 px-3 py-2 border-b border-brand-border mb-2">
+                            <i data-lucide="terminal-square" class="w-4 h-4 text-brand-textMuted"></i>
+                            <span class="text-brand-textMuted">engine.py — Epiverso</span>
+                        </div>
+                        <div class="p-4 space-y-2 text-gray-400 overflow-hidden h-[320px]">
+                            <p><span class="text-brand-blue">import</span> asyncio</p>
+                            <p><span class="text-brand-blue">from</span> playwright.async_api <span class="text-brand-blue">import</span> async_playwright</p>
+                            <p><span class="text-brand-blue">from</span> epiverso.integrations <span class="text-brand-blue">import</span> MariaAPI, BossSystem, JBCepil</p>
+                            <br>
+                            <p class="text-green-500/70"># Inicializando robôs de extração NFC-e</p>
+                            <p><span class="text-purple-400">await</span> engine.start_playwright_bots(target=<span class="text-yellow-300">"SEFAZ"</span>)</p>
+                            <br>
+                            <p class="text-green-500/70"># Aplicando trava de sincronização de 4 horas</p>
+                            <p><span class="text-blue-400">if</span> sync_manager.time_since_last_run() < 4:</p>
+                            <p class="pl-4">logger.info(<span class="text-yellow-300">"Sincronização recente detectada. Aguardando..."</span>)</p>
+                            <br>
+                            <p class="text-green-500/70"># Roteamento JB Cepil</p>
+                            <p><span class="text-purple-400">await</span> JBCepil.route_documents(</p>
+                            <p class="pl-4">source_dir=<span class="text-yellow-300">"/raw_xmls"</span>,</p>
+                            <p class="pl-4">dest_emitted=<span class="text-yellow-300">"/emitidas/filial_01"</span>,</p>
+                            <p class="pl-4">dest_received=<span class="text-yellow-300">"/destinadas/filial_01"</span></p>
+                            <p>)</p>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="flex-1 text-center px-4 hover:-translate-y-2 transition-transform duration-300 delay-150 step-node">
-          <div class="w-16 h-16 rounded-2xl bg-[#0a0a0a] flex items-center justify-center mx-auto mb-5 step-node-icon hover:rotate-6 transition-transform" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
-              <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/>
-            </svg>
-          </div>
-          <div class="text-xs font-bold text-[#aeaeb2] uppercase tracking-widest mb-2">Passo 03</div>
-          <h3 class="text-[#0a0a0a] font-bold text-lg mb-3">Troque Ideias e Cresça</h3>
-          <p class="text-[#6e6e73] text-sm leading-relaxed">
-            Com as bases firmadas, use o networking diário da comunidade para obter novos insights, fechar parcerias e consolidar-se como a melhor escolha da região.
-          </p>
+                <!-- Textos Técnicos -->
+                <div class="space-y-8 tech-text order-1 lg:order-2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Engenharia por trás da captura.</h2>
+                    <p class="text-brand-textMuted leading-relaxed">
+                        Construído para suportar volumes massivos sem gargalos de memória. Nossa arquitetura une robôs especializados com APIs robustas para garantir zero duplicidade de notas.
+                    </p>
+
+                    <div class="space-y-6 mt-8">
+                        <div class="flex gap-4">
+                            <div class="mt-1">
+                                <i data-lucide="bot" class="text-brand-blue w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Extração via Playwright</h4>
+                                <p class="text-sm text-brand-textMuted">Automação headless de alta precisão para raspar e consolidar chaves de acesso e dados de NFC-e diretamente dos portais, contornando bloqueios comuns.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="mt-1">
+                                <i data-lucide="network" class="text-brand-blue w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Integração Maria & Boss</h4>
+                                <p class="text-sm text-brand-textMuted">Comunicação fluida com a API da Maria e o sistema Boss para realizar o download direto e validado na SEFAZ, garantindo a validade jurídica dos arquivos.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="mt-1">
+                                <i data-lucide="lock" class="text-brand-blue w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Travas Anti-Duplicidade</h4>
+                                <p class="text-sm text-brand-textMuted">Lógica estrita de trava de 4 horas para sincronização. Otimização profunda de memória que impede processamento redundante e salva ciclos de servidor.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="mt-1">
+                                <i data-lucide="folder-tree" class="text-brand-blue w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold mb-1">Roteamento JB Cepil</h4>
+                                <p class="text-sm text-brand-textMuted">As consultas de empresas e filiais são tratadas individualmente. Os XMLs caem em diretórios independentes para Emitidas e Destinadas, sem confusão de CNPJs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-      </div>
-      <div class="text-center mt-14 fade-up">
-        <a href="#cta-final" class="btn-primary framer-magnetic px-10 py-4 text-base">Fazer parte da comunidade Gratuita</a>
-      </div>
-    </div>
-  </section>
+    <!-- Integrações / Logos -->
+    <section id="integracoes" class="relative z-10 border-t border-brand-border bg-brand-darker py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-sm font-bold text-brand-textMuted uppercase tracking-widest mb-8">Ecossistema Conectado</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Logos textuais simulando as marcas -->
+                <div class="text-xl font-bold font-mono tracking-tighter">SEFAZ RS/SC</div>
+                <div class="text-xl font-bold tracking-tight">API MARIA</div>
+                <div class="text-xl font-extrabold italic">BOSS SYS</div>
+                <div class="text-xl font-bold border-2 border-current px-2 py-1">JB CEPIL</div>
+                <div class="text-xl font-bold tracking-wider">PLAYWRIGHT</div>
+            </div>
+        </div>
+    </section>
 
-
-  <section id="faq" class="py-24 bg-[#fafafc]" aria-labelledby="faq-headline">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="text-center mb-14 fade-up">
-        <span class="badge mb-4">Dúvidas frequentes</span>
-        <h2 id="faq-headline" class="text-[clamp(28px,4.5vw,44px)] font-bold text-[#0a0a0a] leading-tight">
-          Respostas diretas sobre a Comunidade Epiverso
-        </h2>
-      </div>
-      <div class="bg-white rounded-2xl border border-[#e8e8ed] px-8 py-2 fade-up shadow-sm hover:shadow-md transition-shadow duration-300" role="list">
-        
-        <div class="faq-item" role="listitem">
-          <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-1" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">A comunidade é indicada para qualquer profissão?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div id="faq-answer-1" class="faq-answer" role="region">
-            <p class="text-[#6e6e73] text-base leading-relaxed">
-              Sim, ela é focada especialmente em prestadores de serviços (advogados, psicólogos, arquitetos, empreiteiros, clínicas, etc.) que desejam crescer na internet, dominar o Google e se posicionar melhor nas redes sociais.
+    <!-- CTA Section -->
+    <section class="relative z-10 py-24 bg-brand-dark">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+            <h2 class="text-4xl font-bold text-white">Pronto para automatizar sua rotina?</h2>
+            <p class="text-brand-textMuted max-w-2xl mx-auto">
+                Deixe o Epiverso cuidar da captura massiva de XMLs enquanto você foca na análise contábil estratégica.
             </p>
-          </div>
+            <div class="pt-4">
+                <a href="https://github.com/Henrizeuu/epiverso" class="inline-flex items-center gap-3 bg-white hover:bg-gray-200 text-brand-darker font-bold py-4 px-10 rounded transition-colors">
+                    Acessar o Repositório
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="faq-item" role="listitem">
-          <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-2" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">Como funciona a troca de ideias e o networking?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div id="faq-answer-2" class="faq-answer" role="region">
-            <p class="text-[#6e6e73] text-base leading-relaxed">
-              Temos um grupo do Whatsapp fechado e grupos exclusivos apenas para membros. É um ambiente sem distrações onde passamos visão sobre negócios locais, respondemos dúvidas e promovemos a colaboração direta entre os participantes.
-            </p>
-          </div>
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-brand-border bg-brand-darker pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-6 h-6 flex flex-col justify-between py-1">
+                            <div class="w-full h-[1px] bg-white"></div>
+                            <div class="w-full h-[1px] bg-white"></div>
+                            <div class="w-full h-[1px] bg-white"></div>
+                        </div>
+                        <span class="text-lg font-bold tracking-widest text-white uppercase">Epiverso</span>
+                    </div>
+                    <p class="text-sm text-brand-textMuted">Tecnologia bruta para problemas reais. Automação e engenharia fiscal de ponta.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4">Produto</h4>
+                    <ul class="space-y-2 text-sm text-brand-textMuted">
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Captura NFC-e</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Captura NF-e</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Integração ERP</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Desenvolvimento</h4>
+                    <ul class="space-y-2 text-sm text-brand-textMuted">
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Documentação API</a></li>
+                        <li><a href="https://github.com/Henrizeuu" class="hover:text-brand-blue transition-colors">GitHub</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Status do Sistema</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-sm text-brand-textMuted">
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Suporte Técnico</a></li>
+                        <li><a href="#" class="hover:text-brand-blue transition-colors">Comercial</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-border pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-brand-textMuted">
+                <p>&copy; 2026 Epiverso (Bivark). Todos os direitos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Termos</a>
+                    <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+                </div>
+            </div>
         </div>
+    </footer>
 
-        <div class="faq-item" role="listitem">
-          <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-3" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">Vou aprender a usar Inteligência Artificial?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div id="faq-answer-3" class="faq-answer" role="region">
-            <p class="text-[#6e6e73] text-base leading-relaxed">
-              Com certeza! Temos módulos dedicados a ensinar você a usar IA a seu favor, otimizando a criação de conteúdo, automatizando tarefas de rotina e dando a você ferramentas para parecer muito mais tecnológico e moderno.
-            </p>
-          </div>
-        </div>
+    <!-- Inicialização Scripts -->
+    <script>
+        // Inicializar ícones
+        lucide.createIcons();
 
-        <div class="faq-item" role="listitem">
-          <button class="faq-question group" aria-expanded="false" aria-controls="faq-answer-4" onclick="toggleFaq(this)">
-            <span class="group-hover:translate-x-1 transition-transform">Preciso ter conhecimento prévio em marketing?</span>
-            <span class="faq-icon" aria-hidden="true">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg>
-            </span>
-          </button>
-          <div id="faq-answer-4" class="faq-answer" role="region">
-            <p class="text-[#6e6e73] text-base leading-relaxed">
-              Não. Todo o direcionamento é passado de forma mastigada e didática. Seja para configurar seu Google Meu Negócio, organizar o Instagram ou definir sua identidade visual, pegamos na sua mão no passo a passo.
-            </p>
-          </div>
-        </div>
+        // Animações GSAP
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
 
-
-
-      </div>
-    </div>
-  </section>
-
-
-  <section id="ai-tools" class="py-24 relative overflow-hidden bg-transparent">
-    <div class="text-center mb-16 scroll-top fade-scroll-element">
-      <span class="badge mb-4 text-white bg-black border border-black/50 table mx-auto">
-        Tópicos de Domínio
-      </span>
-      <h2 class="text-[clamp(28px,4.5vw,48px)] font-bold text-black max-w-2xl mx-auto leading-tight">
-        Conhecimento e Ferramentas
-      </h2>
-    </div>
-    <div class="swiper-container ai-tools-slider scroll-bottom fade-scroll-element cursor-grab active:cursor-grabbing pb-12">
-      <div class="swiper-wrapper linear-motion">
-        <div class="swiper-slide !w-[300px]">
-          <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-black">Google Meu Negócio</h3>
-            <p class="text-sm text-gray-300">Aprenda a otimizar sua ficha e garantir o topo no Google Maps local.</p>
-          </div>
-        </div>
-        <div class="swiper-slide !w-[300px]">
-          <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-black">Inteligência Artificial</h3>
-            <p class="text-sm text-gray-300">Aumente sua produtividade usando IA para conteúdos e rotinas.</p>
-          </div>
-        </div>
-        <div class="swiper-slide !w-[300px]">
-          <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-black">Identidade Visual</h3>
-            <p class="text-sm text-gray-300">Entenda como parecer moderno, tecnológico e altamente profissional.</p>
-          </div>
-        </div>
-        <div class="swiper-slide !w-[300px]">
-          <div class="offline-glass-card h-full">
-            <h3 class="text-xl font-bold mb-3 text-black">Estratégia de Redes</h3>
-            <p class="text-sm text-gray-300">Posicionamento assertivo no Instagram para atrair clientes prontos para fechar.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section id="cta-final" class="footer-cta-section py-28 relative overflow-hidden" aria-labelledby="cta-headline">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)] pointer-events-none float-anim"></div>
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10 scroll-bottom fade-scroll-element">
-      <div class="fade-up">
-        <span class="inline-flex items-center gap-2 bg-white/10 text-white rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-widest mb-8 hover:bg-white/20 transition-colors cursor-default">
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="6" r="5"/><path d="M6 3v3l2 1"/></svg>
-          Comunidade Exclusiva
-        </span>
-        <h2 id="cta-headline" class="text-[clamp(32px,5.5vw,64px)] font-black text-white leading-[1.05] tracking-tight mb-6">
-          Cada dia fora da comunidade é um<br class="hidden sm:block" />
-          cliente que foi para o concorrente.
-        </h2>
-        <p class="text-[#aeaeb2] text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-          Pare de tentar crescer sozinho e sem direcionamento. Faça parte do grupo seleto de prestadores de serviços que dominam as buscas locais e são vistos como autoridades no mercado.
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-          <div class="glow-btn-wrapper glow-trigger framer-magnetic" style="box-shadow: 0 0 15px rgba(0,0,0,0.1);">
-            <a href="https://wa.me/5548992086832?text=Ol%C3%A1%2C+quero+saber+mais+sobre+a+Comunidade+Epiverso." 
-               class="glow-btn-inner" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               style="background-color: #FFFFFF !important; color: #000000 !important; border: 1px solid #000000; display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; text-decoration: none; border-radius: 8px;">
-              Quero meu acesso a comunidade Gratuita
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #000000;">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <p class="text-[#6e6e73] text-sm">
-          Acesso Imediato &nbsp;·&nbsp; Cancele quando quiser
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="bg-[#0a0a0a] border-t border-white/5 py-10" role="contentinfo">
-    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-      <a href="#" class="flex items-center gap-2 hover:scale-105 transition-transform" aria-label="Voltar ao topo">
-  <img src="logobranca.svg" alt="Sua Logo" class="h-6 w-auto object-contain" />
-</a>
-     <nav aria-label="Redes Sociais">
-        <ul class="flex items-center justify-center gap-8" role="list">
-          <li>
-            <a href="https://instagram.com/epiverso" target="_blank" rel="noopener noreferrer" class="text-[#6e6e73] hover:text-white transition-colors duration-300 hover:scale-110 inline-block" aria-label="Instagram da epiverso">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </li>
-          
-          <li>
-            <a href="https://wa.me/5548992086832" target="_blank" rel="noopener noreferrer" class="text-[#6e6e73] hover:text-[#25D366] transition-colors duration-300 hover:scale-110 inline-block" aria-label="WhatsApp da epiverso">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <p class="text-xs text-[#6e6e73]">
-        &copy; <span id="footer-year"></span> Comunidade Epiverso. Todos os direitos reservados.
-      </p>
-    </div>
-  </footer>
-
-  <script>
-    // ---- SCRIPTS ORIGINAIS PRESERVADOS ----
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    const navToggle = document.getElementById('nav-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen   = document.getElementById('icon-open');
-    const iconClose  = document.getElementById('icon-close');
-
-    navToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      iconOpen.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
-      navToggle.setAttribute('aria-expanded', isOpen);
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-        navToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-
-    function toggleFaq(button) {
-      const icon   = button.querySelector('.faq-icon');
-      const answerId = button.getAttribute('aria-controls');
-      const answer = document.getElementById(answerId);
-      const isOpen = answer.classList.contains('open');
-
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-      document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
-      document.querySelectorAll('.faq-question').forEach(b => b.setAttribute('aria-expanded', 'false'));
-
-      if (!isOpen) {
-        answer.classList.add('open');
-        icon.classList.add('open');
-        button.setAttribute('aria-expanded', 'true');
-      }
-    }
-
-    const fadeEls = document.querySelectorAll('.fade-up');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.fade-up'));
-          const delay = siblings.indexOf(entry.target) * 80;
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, delay);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    fadeEls.forEach(el => observer.observe(el));
-
-    const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
-      } else {
-        navbar.style.boxShadow = 'none';
-      }
-    }, { passive: true });
-
-    const magneticBtns = document.querySelectorAll('.framer-magnetic');
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        btn.style.transition = 'none';
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = `translate(0px, 0px)`;
-        btn.style.transition = 'transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-      });
-    });
-
-    const tiltElements = document.querySelectorAll('.framer-tilt');
-    tiltElements.forEach(el => {
-      el.addEventListener('mousemove', (e) => {
-        if(window.innerWidth < 768) return; 
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -5;
-        const rotateY = ((x - centerX) / centerX) * 5;
-        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        el.style.transition = 'none';
-      });
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-        el.style.transition = 'transform 0.5s ease-out';
-      });
-    });
-
-    const heroGlow = document.querySelector('.hero-glow');
-    window.addEventListener('scroll', () => {
-      if(!heroGlow) return;
-      const scrolled = window.scrollY;
-      heroGlow.style.transform = `translateX(-50%) translateY(${scrolled * 0.35}px)`;
-    }, { passive: true });
-  </script>
-
-  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      
-      // ENGINE BASE
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        smooth: true,
-        direction: 'vertical',
-      });
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-      requestAnimationFrame(raf);
-      gsap.registerPlugin(ScrollTrigger);
-      lenis.on('scroll', ScrollTrigger.update);
-
-      const triggerThreshold = window.innerHeight * 0.8;
-      const fadeScrollElements = document.querySelectorAll('.fade-scroll-element');
-      function checkFadeScroll() {
-        fadeScrollElements.forEach(el => {
-          const rect = el.getBoundingClientRect();
-          if (rect.top < triggerThreshold) {
-            el.classList.add('ativo');
-          }
-        });
-      }
-      window.addEventListener('scroll', checkFadeScroll, { passive: true });
-      checkFadeScroll();
-
-      new Swiper('.ai-tools-slider', {
-        loop: true,
-        slidesPerView: 'auto',
-        spaceBetween: 24,
-        speed: 5000,
-        autoplay: { delay: 0, disableOnInteraction: false },
-        allowTouchMove: true,
-      });
-
-      const glowTriggers = document.querySelectorAll('.glow-trigger');
-      glowTriggers.forEach(btn => {
-        btn.addEventListener('mousemove', e => {
-          const rect = btn.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          btn.style.setProperty('--x', `${x}px`);
-          btn.style.setProperty('--y', `${y}px`);
-        });
-      });
-
-      const audioBtn = document.getElementById('globalAudioToggle');
-      const bgAudio = document.getElementById('bg-audio');
-      audioBtn.addEventListener('click', () => {
-        if (bgAudio.paused) {
-          bgAudio.volume = 0.2;
-          bgAudio.play().then(() => {
-            audioBtn.classList.add('playing');
-          }).catch(e => console.error("Interação de áudio bloqueada", e));
-        } else {
-          bgAudio.pause();
-          audioBtn.classList.remove('playing');
-        }
-      });
-      
-      gsap.to("#gsap-progress-bar", {
-        width: "100%", ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 0.3 }
-      });
-
-      const cursor = document.getElementById('gsap-cursor');
-      const follower = document.getElementById('gsap-cursor-follower');
-      if (cursor && follower && window.innerWidth >= 768) {
-        gsap.set([cursor, follower], { xPercent: -50, yPercent: -50 });
-        const xToCursor = gsap.quickTo(cursor, "x", {duration: 0.15, ease: "power3"});
-        const yToCursor = gsap.quickTo(cursor, "y", {duration: 0.15, ease: "power3"});
-        const xToFollower = gsap.quickTo(follower, "x", {duration: 0.5, ease: "power3"});
-        const yToFollower = gsap.quickTo(follower, "y", {duration: 0.5, ease: "power3"});
-        window.addEventListener('mousemove', (e) => {
-          cursor.style.opacity = 1; follower.style.opacity = 1;
-          xToCursor(e.clientX); yToCursor(e.clientY);
-          xToFollower(e.clientX); yToFollower(e.clientY);
-        });
-        const interactables = document.querySelectorAll('a, button, .framer-magnetic, .framer-tilt, .faq-question');
-        interactables.forEach(el => {
-          el.addEventListener('mouseenter', () => {
-            gsap.to(cursor, {scale: 1.8, backgroundColor: "rgba(10, 10, 10, 0.1)", duration: 0.3});
-            gsap.to(follower, {scale: 0, duration: 0.3});
-          });
-          el.addEventListener('mouseleave', () => {
-            gsap.to(cursor, {scale: 1, backgroundColor: "transparent", duration: 0.3});
-            gsap.to(follower, {scale: 1, duration: 0.3});
-          });
-        });
-      }
-
-      const particles = gsap.utils.toArray('.gsap-particle');
-      particles.forEach(particle => {
-        gsap.to(particle, {
-          y: "random(-80, 80)", x: "random(-80, 80)", rotation: "random(-45, 45)", scale: "random(0.8, 1.2)", duration: "random(6, 12)", repeat: -1, yoyo: true, ease: "sine.inOut"
-        });
-      });
-
-      const socialContainer = document.querySelector('.gsap-social-stagger-container');
-      const socialCards = document.querySelectorAll('.gsap-social-card');
-      if (socialContainer && socialCards.length > 0) {
-        gsap.fromTo(socialCards,
-          { opacity: 0, y: 60, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, stagger: 0.2, duration: 0.8, ease: "power3.out", scrollTrigger: { trigger: socialContainer, start: "top 80%", toggleActions: "play none none reverse" } }
-        );
-      }
-
-      /* ==========================================================
-         MÓDULO 1 & 2: HERO & MUTAÇÃO
-      ========================================================== */
-      const heroHeadline = document.getElementById('hero-headline');
-      function simulateSplitText(element) {
-        const processNodes = (node) => {
-          if (node.nodeType === 3) { 
-            const words = node.nodeValue.split(/(\s+)/); 
-            const fragment = document.createDocumentFragment();
-            words.forEach(word => {
-              if (word.trim().length > 0) {
-                const mask = document.createElement('span'); mask.className = 'word-mask';
-                const inner = document.createElement('span'); inner.className = 'word-inner'; inner.textContent = word;
-                mask.appendChild(inner); fragment.appendChild(mask);
-              } else {
-                fragment.appendChild(document.createTextNode(word));
-              }
+            // Animação Navbar ao rolar
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2', 'shadow-lg', 'bg-brand-dark/95');
+                    navbar.classList.remove('bg-brand-dark/80');
+                } else {
+                    navbar.classList.remove('py-2', 'shadow-lg', 'bg-brand-dark/95');
+                    navbar.classList.add('bg-brand-dark/80');
+                }
             });
-            node.parentNode.replaceChild(fragment, node);
-          } else if (node.nodeType === 1 && node.tagName !== 'svg' && node.tagName !== 'BR' && node.tagName !== 'SVG') {
-            Array.from(node.childNodes).forEach(processNodes);
-          }
-        };
-        Array.from(element.childNodes).forEach(processNodes);
-      }
 
-      if (heroHeadline) {
-        heroHeadline.classList.remove('fade-up', 'visible');
-        simulateSplitText(heroHeadline);
-        const tlHero = gsap.timeline();
-        tlHero.fromTo('.word-inner', { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, stagger: 0.08, ease: "power4.out" });
-        tlHero.fromTo('#hero p, #hero .badge, #hero .btn-primary, #hero .btn-outline, #hero .text-sm', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1.5, stagger: 0.1, ease: "expo.out" }, "-=0.8");
-        tlHero.fromTo('#hero .framer-tilt', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1.5, ease: "expo.out" }, "-=1");
-      }
+            // Hero Animations
+            gsap.from(".hero-text > *", {
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: "power3.out",
+                delay: 0.2
+            });
 
-      gsap.to('.hero-glow, #hero .framer-tilt', { y: "-=15", rotation: 5, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+            gsap.from(".hero-visual", {
+                x: 40,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
 
-      const problemaSection = document.getElementById('problema');
-      if (problemaSection) {
-        gsap.to(problemaSection, { backgroundColor: '#e8e8ed', ease: "none", scrollTrigger: { trigger: problemaSection, start: "top 70%", end: "center center", scrub: true } });
-        const tensionIcons = document.querySelectorAll('#problema .tension-svg');
-        tensionIcons.forEach(icon => { gsap.to(icon, { x: 1.5, y: -0.5, duration: 0.08, repeat: -1, yoyo: true, ease: "none" }); });
-      }
+            // Features Animations
+            gsap.from(".section-header", {
+                scrollTrigger: {
+                    trigger: "#funcionalidades",
+                    start: "top 80%"
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
 
-      /* ==========================================================
-         MÓDULO 3, 4 E 6: REVEAL, PARALLAX CARDS E DRAWSVG
-      ========================================================== */
-      const zVisual = document.querySelector('.z-visual');
-      const zSvgInner = document.querySelector('.z-svg-inner');
-      if (zVisual && zSvgInner) {
-        gsap.set(zVisual, { clipPath: "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" });
-        gsap.set(zSvgInner, { scale: 1.3 });
-        const tlReveal = gsap.timeline({ scrollTrigger: { trigger: zVisual, start: "top 85%", toggleActions: "play none none reverse" } });
-        tlReveal.to(zVisual, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1.5, ease: "power4.inOut" }, 0)
-                .to(zSvgInner, { scale: 1, duration: 2, ease: "power3.out" }, 0);
-      }
+            gsap.from(".feature-card", {
+                scrollTrigger: {
+                    trigger: ".feature-card",
+                    start: "top 85%"
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
 
-      const featureCards = gsap.utils.toArray('.feature-card');
-      featureCards.forEach(card => {
-        const icon = card.querySelector('.icon-parallax');
-        if (icon) {
-          gsap.fromTo(icon, { yPercent: 40 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1 } });
-        }
-      });
+            // Tech Architecture Animations
+            gsap.from(".tech-visual", {
+                scrollTrigger: {
+                    trigger: "#arquitetura",
+                    start: "top 75%"
+                },
+                x: -40,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out"
+            });
 
-      const connectors = document.querySelectorAll('.step-connector');
-      connectors.forEach(conn => {
-        conn.style.background = 'transparent';
-        conn.innerHTML = `<svg width="100%" height="2" preserveAspectRatio="none">
-                            <line x1="0" y1="1" x2="100%" y2="1" stroke="#0a0a0a" stroke-width="2" pathLength="1" class="draw-line" style="stroke-dasharray: 1; stroke-dashoffset: 1;"></line>
-                          </svg>`;
-      });
-
-      const processTimeline = document.getElementById('process-timeline');
-      const stepNodes = processTimeline ? processTimeline.querySelectorAll('.step-node') : [];
-      if (processTimeline && stepNodes.length > 0) {
-        gsap.to('.draw-line', {
-          strokeDashoffset: 0, ease: "none", scrollTrigger: {
-            trigger: processTimeline, start: "top 75%", end: "bottom 60%", scrub: true,
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const thresholds = [0.1, 0.45, 0.9]; 
-              stepNodes.forEach((node, index) => {
-                const iconBox = node.querySelector('.step-node-icon');
-                if (progress >= thresholds[index]) iconBox.classList.add('is-active');
-                else iconBox.classList.remove('is-active');
-              });
-            }
-          }
+            gsap.from(".tech-text > *", {
+                scrollTrigger: {
+                    trigger: "#arquitetura",
+                    start: "top 75%"
+                },
+                x: 40,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: "power3.out"
+            });
         });
-      }
-
-      /* ==========================================================
-         MÓDULO 7: RECÁLCULO DO LENIS/GSAP NO FAQ
-      ========================================================== */
-      const faqButtons = document.querySelectorAll('.faq-question');
-      faqButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-          // Aguarda a transição de altura do CSS (.faq-answer { transition: max-height 0.4s ease })
-          setTimeout(() => {
-            if (typeof ScrollTrigger !== 'undefined') {
-              ScrollTrigger.refresh(); // Sincroniza a árvore do DOM
-            }
-          }, 450); 
-        });
-      });
-
-      /* ==========================================================
-         MÓDULO 8: INJEÇÃO DO HACK DE PULSAÇÃO NO CTA
-      ========================================================== */
-      const ctaGlowWrappers = document.querySelectorAll('.glow-btn-wrapper');
-      ctaGlowWrappers.forEach(wrapper => {
-        const pulseLayer = document.createElement('div');
-        pulseLayer.className = 'cta-pulse-bg';
-        // Injeta a div estruturalmente antes do link nativo para respeitar o z-index da hierarquia
-        const innerLink = wrapper.querySelector('.glow-btn-inner');
-        if (innerLink) { innerLink.style.zIndex = '2'; innerLink.style.position = 'relative'; }
-        wrapper.insertBefore(pulseLayer, wrapper.firstChild);
-      });
-
-    });
-  </script>
+    </script>
 </body>
 </html>
